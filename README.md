@@ -8,6 +8,12 @@ DeepCTR
 DeepCTR - batch train
 TF - batch train
 
+deepctr开发FM
+TF开发FM
+改造后测试一样的结果: 先不适配, 模仿丕勋model_debug写一把
+
+打通deepctr in package and 自己改
+
 2. 一些进阶测试:
 同样的样本，reweight vs 梯度更新速度 * 2
 - 观察两次梯度产生什么差异
