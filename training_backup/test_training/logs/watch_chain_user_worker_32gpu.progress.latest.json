@@ -1,0 +1,216 @@
+{
+  "checked_at": "2026-07-12T10:17:55.635515+00:00",
+  "outputs": {
+    "debug_32gpu_prereq": {
+      "base": "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80",
+      "exists": true,
+      "runs": [
+        {
+          "checkpoints": [
+            "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v0-20260619-174043/checkpoint-710"
+          ],
+          "last_metric": {
+            "best_metric": null,
+            "best_model_checkpoint": null,
+            "last_model_checkpoint": "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v0-20260619-174043/checkpoint-710"
+          },
+          "last_metric_raw": "{\"last_model_checkpoint\": \"/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v0-20260619-174043/checkpoint-710\", \"best_model_checkpoint\": null, \"best_metric\": null}",
+          "logging_exists": true,
+          "logging_mtime": 1781951949.9838493,
+          "logging_size": 34714,
+          "run": "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v0-20260619-174043"
+        },
+        {
+          "checkpoints": [
+            "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v1-20260620-123228/checkpoint-710"
+          ],
+          "last_metric": {
+            "best_metric": null,
+            "best_model_checkpoint": null,
+            "last_model_checkpoint": "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v1-20260620-123228/checkpoint-710"
+          },
+          "last_metric_raw": "{\"last_model_checkpoint\": \"/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v1-20260620-123228/checkpoint-710\", \"best_model_checkpoint\": null, \"best_metric\": null}",
+          "logging_exists": true,
+          "logging_mtime": 1782019859.2274263,
+          "logging_size": 34649,
+          "run": "/pfs-verdent/zhangyu/train_verdent_online/output/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80/v1-20260620-123228"
+        }
+      ]
+    },
+    "first_user_worker_32gpu": {
+      "base": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k",
+      "exists": true,
+      "runs": [
+        {
+          "checkpoints": [
+            "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-053724/checkpoint-93"
+          ],
+          "last_metric": {
+            "best_metric": null,
+            "best_model_checkpoint": null,
+            "last_model_checkpoint": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-053724/checkpoint-93"
+          },
+          "last_metric_raw": "{\"last_model_checkpoint\": \"/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-053724/checkpoint-93\", \"best_model_checkpoint\": null, \"best_metric\": null}",
+          "logging_exists": true,
+          "logging_mtime": 1782036347.2164097,
+          "logging_size": 4750,
+          "run": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-053724"
+        }
+      ]
+    },
+    "sampled_16gpu_prereq": {
+      "base": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned",
+      "exists": true,
+      "runs": [
+        {
+          "checkpoints": [
+            "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned/v0-20260620-104405/checkpoint-41"
+          ],
+          "last_metric": {
+            "best_metric": null,
+            "best_model_checkpoint": null,
+            "last_model_checkpoint": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned/v0-20260620-104405/checkpoint-41"
+          },
+          "last_metric_raw": "{\"last_model_checkpoint\": \"/pfs-verdent/zhangyu/train_verdent_online/output/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned/v0-20260620-104405/checkpoint-41\", \"best_model_checkpoint\": null, \"best_metric\": null}",
+          "logging_exists": true,
+          "logging_mtime": 1781958446.3266056,
+          "logging_size": 9894,
+          "run": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned/v0-20260620-104405"
+        }
+      ]
+    },
+    "second_no_persist_32gpu": {
+      "base": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_no_persist_35a3b_te_fused_ce_gbs72_max180k",
+      "exists": true,
+      "runs": [
+        {
+          "checkpoints": [
+            "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_no_persist_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-141959/checkpoint-55"
+          ],
+          "last_metric": {
+            "best_metric": null,
+            "best_model_checkpoint": null,
+            "last_model_checkpoint": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_no_persist_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-141959/checkpoint-55"
+          },
+          "last_metric_raw": "{\"last_model_checkpoint\": \"/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_no_persist_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-141959/checkpoint-55\", \"best_model_checkpoint\": null, \"best_metric\": null}",
+          "logging_exists": true,
+          "logging_mtime": 1782063366.942789,
+          "logging_size": 3085,
+          "run": "/pfs-verdent/zhangyu/train_verdent_online/output/train_full_32gpu_no_think_user_worker_no_persist_35a3b_te_fused_ce_gbs72_max180k/v0-20260621-141959"
+        }
+      ]
+    }
+  },
+  "state": {
+    "completed_at": "2026-06-21T17:39:48.394051+00:00",
+    "first_conf": "docs/generated/byteplus_no_think_user_worker_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+    "first_status": "Success",
+    "first_submitted_at": "2026-06-21T05:33:20.184663+00:00",
+    "first_task_id": "t-20260621133317-7krkg",
+    "last_checked_at": "2026-06-21T17:39:48.393643+00:00",
+    "second_conf": "docs/generated/byteplus_no_think_user_worker_no_persist_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+    "second_status": "Success",
+    "second_submitted_at": "2026-06-21T10:07:45.402575+00:00",
+    "second_task_id": "t-20260621180743-fpqcc",
+    "terminal_status": "Success",
+    "wait_statuses": {
+      "t-20260620040947-kxlcd": "Success",
+      "t-20260620184158-j2k6t": "Success"
+    },
+    "wait_tasks": [
+      "t-20260620040947-kxlcd",
+      "t-20260620184158-j2k6t"
+    ]
+  },
+  "state_path": "logs/watch_chain_user_worker_32gpu.state.json",
+  "tasks": {
+    "t-20260620040947-kxlcd": {
+      "Creator": "zhangyu",
+      "Elapsed": 58712,
+      "End": "2026-06-20T12:28:20Z",
+      "JobId": "t-20260620040947-kxlcd",
+      "JobName": "train_full_sft_35a3b_full_sampled_1000_16gpu_te_ce_pinned_zhangyu",
+      "Start": "2026-06-19T20:09:48Z",
+      "Status": "Success",
+      "TaskRoleSpecs": [
+        {
+          "ResourceSpec": {
+            "FlavorID": "ml.hpcpni3h.42xlarge",
+            "FlavorType": "mlp_flavor"
+          },
+          "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+          "RoleName": "worker",
+          "RoleReplicas": 2,
+          "RoleRestartMaxRetryCount": 0,
+          "RoleRestartPolicy": "Never"
+        }
+      ]
+    },
+    "t-20260620184158-j2k6t": {
+      "Creator": "zhangyu",
+      "Elapsed": 67786,
+      "End": "2026-06-21T05:31:45Z",
+      "JobId": "t-20260620184158-j2k6t",
+      "JobName": "train_debug_32gpu_no_think_full_35a3b_te_ce_gbs72_max180k_iters80",
+      "Start": "2026-06-20T10:41:59Z",
+      "Status": "Success",
+      "TaskRoleSpecs": [
+        {
+          "ResourceSpec": {
+            "FlavorID": "ml.hpcpni3h.42xlarge",
+            "FlavorType": "mlp_flavor"
+          },
+          "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+          "RoleName": "worker",
+          "RoleReplicas": 4,
+          "RoleRestartMaxRetryCount": 0,
+          "RoleRestartPolicy": "Never"
+        }
+      ]
+    },
+    "t-20260621133317-7krkg": {
+      "Creator": "zhangyu",
+      "Elapsed": 16396,
+      "End": "2026-06-21T10:06:34Z",
+      "JobId": "t-20260621133317-7krkg",
+      "JobName": "train_full_sft_35a3b_no_think_user_worker_32gpu_te_ce_gbs72_max180k",
+      "Start": "2026-06-21T05:33:18Z",
+      "Status": "Success",
+      "TaskRoleSpecs": [
+        {
+          "ResourceSpec": {
+            "FlavorID": "ml.hpcpni3h.42xlarge",
+            "FlavorType": "mlp_flavor"
+          },
+          "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+          "RoleName": "worker",
+          "RoleReplicas": 4,
+          "RoleRestartMaxRetryCount": 0,
+          "RoleRestartPolicy": "Never"
+        }
+      ]
+    },
+    "t-20260621180743-fpqcc": {
+      "Creator": "zhangyu",
+      "Elapsed": 26950,
+      "End": "2026-06-21T17:36:53Z",
+      "JobId": "t-20260621180743-fpqcc",
+      "JobName": "train_full_sft_35a3b_no_think_user_worker_no_persist_32gpu_te_ce_gbs72_max180k",
+      "Start": "2026-06-21T10:07:43Z",
+      "Status": "Success",
+      "TaskRoleSpecs": [
+        {
+          "ResourceSpec": {
+            "FlavorID": "ml.hpcpni3h.42xlarge",
+            "FlavorType": "mlp_flavor"
+          },
+          "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+          "RoleName": "worker",
+          "RoleReplicas": 4,
+          "RoleRestartMaxRetryCount": 0,
+          "RoleRestartPolicy": "Never"
+        }
+      ]
+    }
+  }
+}

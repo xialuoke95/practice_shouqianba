@@ -1,0 +1,39 @@
+TaskName: "train_sampled_16gpu_no_think_all_2000_35a3b_te_ce_pinned"
+Description: "16 H100 pinned 35A3B SFT on seed-42 2000-row direct sample from all no-think data; checkpoints/logs under zhangyu/train_verdent_online"
+Entrypoint: "bash /pfs-verdent/zhangyu/train_verdent_online/scripts/train_sampled_16gpu_no_think_all_2000_35a3b_te_fused_ce_pinned.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+  - RoleName: "worker"
+    RoleReplicas: 2
+    Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 864000
+EnableTensorBoard: true
+TensorBoardStorage:
+  Type: "Vepfs"
+  SubPath: "zhangyu/train_verdent_online/output/runs"
+Storages:
+  - Type: "Vepfs"
+    MountPath: "/pfs-verdent"
+    VepfsId: "vepfs-apse1754289b494ca"
+    SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+  EnableRetry: false
+  MaxRetryTimes: 5
+  IntervalSeconds: 120
+  PolicySets: []
+DiagOptions:
+  - Name: "EnvironmentalDiagnosis"
+    Enable: false
+  - Name: "PythonDetection"
+    Enable: false
+  - Name: "LogDetection"
+    Enable: false
+  - Name: "VecclHangDetection"
+    Enable: false

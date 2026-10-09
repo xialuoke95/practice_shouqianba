@@ -1,0 +1,1 @@
+{"changed_metadata_rows": 34, "columns": ["messages", "session_id", "trace_id", "model", "day", "has_persist", "compact_type", "thinking_type", "thinking_budget", "msg_count", "masked_count", "trainable_asst_count", "start_time", "tools", "images", "dedup_stats"], "hf_load_ok": true, "rows": 492}

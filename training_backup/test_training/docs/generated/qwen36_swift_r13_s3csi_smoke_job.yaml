@@ -1,0 +1,112 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-s3-verdent-glm51-qwen36-r13
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-smoke
+    test-training.verdent.ai/purpose: s3-csi-checkpoint-access
+spec:
+  accessModes:
+  - ReadOnlyMany
+  capacity:
+    storage: 1200Gi
+  csi:
+    driver: s3.csi.aws.com
+    volumeAttributes:
+      bucketName: verdent.tech
+      mount-timeout-seconds: "300"
+    volumeHandle: s3-csi-driver-volume-verdent-glm51-qwen36-r13
+  mountOptions:
+  - region us-east-1
+  - prefix test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: s3-claim-verdent-qwen36-r13
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-smoke
+    test-training.verdent.ai/purpose: s3-csi-checkpoint-access
+spec:
+  accessModes:
+  - ReadOnlyMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1200Gi
+  volumeName: pv-s3-verdent-glm51-qwen36-r13
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-swift-r13-s3csi-smoke-20260608
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-smoke
+    test-training.verdent.ai/purpose: s3-csi-checkpoint-access
+spec:
+  activeDeadlineSeconds: 300
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-s3csi-smoke
+    spec:
+      restartPolicy: Never
+      nodeName: hyperpod-i-060621000d6270d47
+      containers:
+      - name: smoke
+        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2-v1.39-soci
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          ROOT=/s3target
+          CHECKPOINT="${ROOT}/training/qwen36_swift_all_full_r13/checkpoint_copy"
+          BRIDGE_SOURCE="${ROOT}/env/Megatron-Bridge-v0.4.1-source.tar.gz"
+          BRIDGE_SETUP="${ROOT}/artifacts/source/scripts/setup_aws_dlc_bridge_runtime.sh"
+
+          test -f "${CHECKPOINT}/latest_checkpointed_iteration.txt"
+          test -f "${CHECKPOINT}/iter_0001035/metadata.json"
+          test -f "${CHECKPOINT}/iter_0001035/__0_0.distcp"
+          test -f "${BRIDGE_SOURCE}"
+          test -f "${BRIDGE_SETUP}"
+
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          checkpoint = Path("/s3target/training/qwen36_swift_all_full_r13/checkpoint_copy")
+          files = sorted(p.relative_to(checkpoint).as_posix() for p in checkpoint.rglob("*") if p.is_file())
+          total_bytes = sum((checkpoint / rel).stat().st_size for rel in files)
+          metadata = json.loads((checkpoint / "iter_0001035/metadata.json").read_text())
+          print(json.dumps({
+              "latest": (checkpoint / "latest_checkpointed_iteration.txt").read_text().strip(),
+              "file_count": len(files),
+              "total_bytes": total_bytes,
+              "metadata": metadata,
+              "sample": files[:20],
+              "cwd": os.getcwd(),
+          }, sort_keys=True))
+          PY
+        resources:
+          requests:
+            cpu: "2"
+            memory: "8Gi"
+          limits:
+            cpu: "8"
+            memory: "32Gi"
+        volumeMounts:
+        - name: verdent-s3
+          mountPath: /s3target
+          readOnly: true
+      volumes:
+      - name: verdent-s3
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13

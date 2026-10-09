@@ -1,0 +1,9 @@
+{
+  "watched_task_id": "t-20260620003629-tnm7q",
+  "conf": "docs/generated/byteplus_no_think_full_32gpu_te_fused_ce_gbs72_max180k_debug_task.yaml",
+  "last_status": "Success",
+  "last_checked_at": "2026-06-20T10:41:54.289400+00:00",
+  "terminal_status": "Success",
+  "submitted_task_id": "t-20260620184158-j2k6t",
+  "submitted_at": "2026-06-20T10:42:01.126760+00:00"
+}

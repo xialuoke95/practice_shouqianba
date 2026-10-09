@@ -1,0 +1,431 @@
+{
+  "rows_with_split_cost_risk": 207,
+  "top_cost_examples": [
+    {
+      "sample_id": 897,
+      "row_index": 32564,
+      "status": "ok",
+      "default_fireworks_split_count": 60,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 1959428,
+      "ms_swift_token_count": 64003,
+      "default_split_cost_ratio_vs_ms": 30.6146,
+      "active_target_token_count": 15663,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 78,
+      "row_index": 2642,
+      "status": "ok",
+      "default_fireworks_split_count": 49,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 4990783,
+      "ms_swift_token_count": 206503,
+      "default_split_cost_ratio_vs_ms": 24.1681,
+      "active_target_token_count": 15705,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 192,
+      "row_index": 6710,
+      "status": "ok",
+      "default_fireworks_split_count": 34,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 2575872,
+      "ms_swift_token_count": 139444,
+      "default_split_cost_ratio_vs_ms": 18.4724,
+      "active_target_token_count": 4252,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 4,
+      "row_index": 159,
+      "status": "ok",
+      "default_fireworks_split_count": 25,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 1046807,
+      "ms_swift_token_count": 68214,
+      "default_split_cost_ratio_vs_ms": 15.3459,
+      "active_target_token_count": 5475,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 684,
+      "row_index": 24840,
+      "status": "ok",
+      "default_fireworks_split_count": 32,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 2060910,
+      "ms_swift_token_count": 148871,
+      "default_split_cost_ratio_vs_ms": 13.8436,
+      "active_target_token_count": 9823,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 426,
+      "row_index": 15096,
+      "status": "ok",
+      "default_fireworks_split_count": 33,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 620775,
+      "ms_swift_token_count": 47051,
+      "default_split_cost_ratio_vs_ms": 13.1937,
+      "active_target_token_count": 6619,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 396,
+      "row_index": 13920,
+      "status": "ok",
+      "default_fireworks_split_count": 23,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 989912,
+      "ms_swift_token_count": 76165,
+      "default_split_cost_ratio_vs_ms": 12.9969,
+      "active_target_token_count": 6623,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 710,
+      "row_index": 25876,
+      "status": "ok",
+      "default_fireworks_split_count": 36,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 1274816,
+      "ms_swift_token_count": 113393,
+      "default_split_cost_ratio_vs_ms": 11.2425,
+      "active_target_token_count": 6493,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 3,
+      "row_index": 155,
+      "status": "ok",
+      "default_fireworks_split_count": 16,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 727028,
+      "ms_swift_token_count": 66691,
+      "default_split_cost_ratio_vs_ms": 10.9014,
+      "active_target_token_count": 6851,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 282,
+      "row_index": 10046,
+      "status": "ok",
+      "default_fireworks_split_count": 17,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 702238,
+      "ms_swift_token_count": 64574,
+      "default_split_cost_ratio_vs_ms": 10.8749,
+      "active_target_token_count": 7699,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 27,
+      "row_index": 1130,
+      "status": "ok",
+      "default_fireworks_split_count": 17,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 816334,
+      "ms_swift_token_count": 78194,
+      "default_split_cost_ratio_vs_ms": 10.4399,
+      "active_target_token_count": 5045,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 9,
+      "row_index": 411,
+      "status": "ok",
+      "default_fireworks_split_count": 19,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 633003,
+      "ms_swift_token_count": 60952,
+      "default_split_cost_ratio_vs_ms": 10.3853,
+      "active_target_token_count": 7440,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 474,
+      "row_index": 16942,
+      "status": "ok",
+      "default_fireworks_split_count": 25,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 767034,
+      "ms_swift_token_count": 74039,
+      "default_split_cost_ratio_vs_ms": 10.3599,
+      "active_target_token_count": 12526,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 952,
+      "row_index": 34617,
+      "status": "ok",
+      "default_fireworks_split_count": 11,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 719960,
+      "ms_swift_token_count": 73725,
+      "default_split_cost_ratio_vs_ms": 9.7655,
+      "active_target_token_count": 5799,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 23,
+      "row_index": 980,
+      "status": "ok",
+      "default_fireworks_split_count": 20,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 602357,
+      "ms_swift_token_count": 63254,
+      "default_split_cost_ratio_vs_ms": 9.5228,
+      "active_target_token_count": 9950,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 634,
+      "row_index": 23081,
+      "status": "ok",
+      "default_fireworks_split_count": 13,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 592455,
+      "ms_swift_token_count": 63135,
+      "default_split_cost_ratio_vs_ms": 9.3839,
+      "active_target_token_count": 10614,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 401,
+      "row_index": 14067,
+      "status": "ok",
+      "default_fireworks_split_count": 13,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 994422,
+      "ms_swift_token_count": 106223,
+      "default_split_cost_ratio_vs_ms": 9.3616,
+      "active_target_token_count": 8172,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 622,
+      "row_index": 22641,
+      "status": "ok",
+      "default_fireworks_split_count": 11,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 765067,
+      "ms_swift_token_count": 84152,
+      "default_split_cost_ratio_vs_ms": 9.0915,
+      "active_target_token_count": 12050,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 978,
+      "row_index": 35660,
+      "status": "ok",
+      "default_fireworks_split_count": 23,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 349104,
+      "ms_swift_token_count": 38603,
+      "default_split_cost_ratio_vs_ms": 9.0434,
+      "active_target_token_count": 27323,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 168,
+      "row_index": 5727,
+      "status": "ok",
+      "default_fireworks_split_count": 16,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 711686,
+      "ms_swift_token_count": 78718,
+      "default_split_cost_ratio_vs_ms": 9.041,
+      "active_target_token_count": 6445,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 47,
+      "row_index": 1664,
+      "status": "ok",
+      "default_fireworks_split_count": 20,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 1061062,
+      "ms_swift_token_count": 117800,
+      "default_split_cost_ratio_vs_ms": 9.0073,
+      "active_target_token_count": 4585,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 222,
+      "row_index": 7759,
+      "status": "ok",
+      "default_fireworks_split_count": 19,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 916584,
+      "ms_swift_token_count": 102678,
+      "default_split_cost_ratio_vs_ms": 8.9268,
+      "active_target_token_count": 8070,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 173,
+      "row_index": 5912,
+      "status": "ok",
+      "default_fireworks_split_count": 14,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 562912,
+      "ms_swift_token_count": 67940,
+      "default_split_cost_ratio_vs_ms": 8.2854,
+      "active_target_token_count": 14180,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 385,
+      "row_index": 13295,
+      "status": "ok",
+      "default_fireworks_split_count": 17,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 1277881,
+      "ms_swift_token_count": 162889,
+      "default_split_cost_ratio_vs_ms": 7.8451,
+      "active_target_token_count": 13528,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    },
+    {
+      "sample_id": 197,
+      "row_index": 6888,
+      "status": "ok",
+      "default_fireworks_split_count": 13,
+      "core_target_split_count": 1,
+      "default_fireworks_token_count": 308665,
+      "ms_swift_token_count": 39927,
+      "default_split_cost_ratio_vs_ms": 7.7307,
+      "active_target_token_count": 3676,
+      "adapters_required": [
+        "loss_to_trainable",
+        "tool_call_to_assistant_tool_calls",
+        "tool_response_linking",
+        "no_user_turn_split"
+      ]
+    }
+  ],
+  "note": "Version A requires no_user_turn_split or explicit acceptance of these amplification ratios."
+}

@@ -1,0 +1,64 @@
+{
+  "completed_at": "2026-08-07T04:19:23.874451+00:00",
+  "configuration": {
+    "base_model": "Qwen3.6-27B",
+    "training_type": "full_parameter_sft",
+    "gpus": "16xH100",
+    "nodes": 2,
+    "global_batch_size": 2,
+    "epochs": 2,
+    "max_length": 262144,
+    "deployment_performed": false,
+    "manual_heldout_evaluation_performed": false
+  },
+  "arms": {
+    "a_frappe_glm_99": {
+      "task_id": "t-20260807044717-dc78r",
+      "status": "Success",
+      "dataset_rows": 99,
+      "dataset_sha256": "4c315dcebf9e2b00bcab14075478852bddcc1077fabadfb555f52f1170101b44",
+      "steps": 99,
+      "first_loss": 0.18474187,
+      "mean_loss": 0.17184717191919194,
+      "final_loss": 0.11864355,
+      "peak_memory_gib": 51.26,
+      "elapsed_seconds": 4998,
+      "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99"
+    },
+    "b_saas47_plus_frappe99": {
+      "task_id": "t-20260807061117-sd8lx",
+      "status": "Success",
+      "dataset_rows": 146,
+      "dataset_sha256": "8cb425c7cb234d43292f6b439d38576fe50295bdfa3757794300b196816e2d93",
+      "steps": 146,
+      "first_loss": 0.53286195,
+      "mean_loss": 0.17538116904109588,
+      "final_loss": 0.1304601,
+      "peak_memory_gib": 50.27,
+      "elapsed_seconds": 6476,
+      "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146"
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200": {
+      "task_id": "t-20260807080932-vdlmc",
+      "status": "Success",
+      "dataset_rows": 492,
+      "dataset_unique_trace_ids": 346,
+      "dataset_sha256": "851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425",
+      "steps": 492,
+      "first_loss": 0.23737706,
+      "mean_loss": 0.13818453699186992,
+      "final_loss": 0.02629309,
+      "peak_memory_gib": 55.11,
+      "elapsed_seconds": 14944,
+      "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v4/v0-20260807-001156/checkpoint-492"
+    }
+  },
+  "checkpoint_contract": {
+    "safetensors_shards_per_checkpoint": 12,
+    "indexed_tensors_per_checkpoint": 1184,
+    "indexed_weight_bytes_per_checkpoint": 54713457120,
+    "missing_shards": 0,
+    "fatal_log_matches": 0,
+    "postflight_logs_per_task": 2
+  }
+}

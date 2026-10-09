@@ -1,0 +1,21 @@
+{
+  "first_conf": "docs/generated/byteplus_no_think_user_worker_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+  "second_conf": "docs/generated/byteplus_no_think_user_worker_no_persist_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+  "wait_tasks": [
+    "t-20260620040947-kxlcd",
+    "t-20260620184158-j2k6t"
+  ],
+  "wait_statuses": {
+    "t-20260620040947-kxlcd": "Success",
+    "t-20260620184158-j2k6t": "Success"
+  },
+  "last_checked_at": "2026-06-21T17:39:48.393643+00:00",
+  "first_task_id": "t-20260621133317-7krkg",
+  "first_submitted_at": "2026-06-21T05:33:20.184663+00:00",
+  "first_status": "Success",
+  "second_task_id": "t-20260621180743-fpqcc",
+  "second_submitted_at": "2026-06-21T10:07:45.402575+00:00",
+  "second_status": "Success",
+  "terminal_status": "Success",
+  "completed_at": "2026-06-21T17:39:48.394051+00:00"
+}

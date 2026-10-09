@@ -1,5 +1,7 @@
 # practice_shouqianba
 
+训练与数据对齐实验的统一备份见 [training_backup](training_backup/README.md)，包含 `test_training/`、`fireworks/data_alignment/` 和来源校验清单。
+
 ## Recommend
 AUC测验标准：roc_auc_score.
 

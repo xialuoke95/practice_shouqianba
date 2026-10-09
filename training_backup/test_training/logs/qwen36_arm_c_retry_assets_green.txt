@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "generic_script": "/home/ubuntu/workspace/test_training/scripts/train_qwen36_27b_16gpu_gbs2_epoch2_dataset_arm.sh",
+  "chain_script": "/home/ubuntu/workspace/test_training/scripts/run_qwen36_frappe_glm_three_task_chain.py",
+  "task_yamls": [
+    "docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_task.yaml",
+    "docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_task.yaml",
+    "docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_task.yaml"
+  ],
+  "arms": {
+    "a": {
+      "task_name": "train_qwen36_frappe_glm_a99_16gpu_v3",
+      "yaml": "byteplus_qwen36_frappe_glm_a99_16gpu_task.yaml",
+      "rows": 99,
+      "unique": 99,
+      "trainable": 8999,
+      "sha256": "4c315dcebf9e2b00bcab14075478852bddcc1077fabadfb555f52f1170101b44",
+      "steps": 99,
+      "save_steps": 50,
+      "thinking_enabled": 99,
+      "thinking_none": 0,
+      "singletons": 99,
+      "duplicates": 0,
+      "max_multiplicity": 1,
+      "dataset_dir": "qwen36_frappe_glm_three_runs_20260806_v3"
+    },
+    "b": {
+      "task_name": "train_qwen36_saas47_frappe99_b146_16gpu_v3",
+      "yaml": "byteplus_qwen36_saas47_frappe99_b146_16gpu_task.yaml",
+      "rows": 146,
+      "unique": 146,
+      "trainable": 11620,
+      "sha256": "8cb425c7cb234d43292f6b439d38576fe50295bdfa3757794300b196816e2d93",
+      "steps": 146,
+      "save_steps": 73,
+      "thinking_enabled": 99,
+      "thinking_none": 47,
+      "singletons": 146,
+      "duplicates": 0,
+      "max_multiplicity": 1,
+      "dataset_dir": "qwen36_frappe_glm_three_runs_20260806_v3"
+    },
+    "c": {
+      "task_name": "train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_v4",
+      "yaml": "byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_task.yaml",
+      "rows": 492,
+      "unique": 346,
+      "trainable": 36656,
+      "sha256": "851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425",
+      "steps": 492,
+      "save_steps": 246,
+      "thinking_enabled": 398,
+      "thinking_none": 94,
+      "singletons": 200,
+      "duplicates": 146,
+      "max_multiplicity": 2,
+      "dataset_dir": "qwen36_frappe_glm_three_runs_20260806_v4"
+    }
+  }
+}

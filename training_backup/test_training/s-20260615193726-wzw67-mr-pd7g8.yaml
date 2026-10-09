@@ -1,0 +1,77 @@
+# service id e.g. s-20241107200608-rskct
+ServiceId: s-20260615193726-wzw67
+# deployment id e.g. s-20241107200608-rskct-bxjzq
+DeploymentId: s-20260615193726-wzw67-mr-pd7g8
+# deployment name
+DeploymentName: deploy_kx63d
+# Priority conf
+Priority: 4
+# Preemptible conf
+Preemptible: false
+# service MultiRoles
+MultiRoles:
+    - Id: role1
+      # Role's Name
+      Name: role1
+      # deployment replicas
+      Replicas: 1
+      # deployment ShardNum
+      ShardNum: 1
+      # image url
+      ImageUrl: cr-verdent-ap-southeast-1.cr.bytepluses.com/verdent_ml/sglang_dev:20260616
+      # model id
+      ModelID:
+      # model version
+      ModelVersion:
+      # entry point command
+      Command: bash /pfs-verdent/libaoguo/LLM-Deploy-codeck/Qwen3.6-35B-A3B/run.sh
+      # Role's Envs
+      Envs:
+        - Name: MODEL_PATH
+          Value: /pfs-verdent/guoyinuo/coding_agent_models/output/train_diag_16gpu_no_think_user_worker_no_persist_35a3b_te_fused_ce_iters1_max180k/v0-20260619-015337/checkpoint-82
+      # Storages conf
+      Storages:
+        - Type: "Vepfs"
+          MountPath: "/pfs-verdent"
+          VepfsId: "vepfs-apse1754289b494ca"
+          SubPath: ""
+      # ReadinessProbe
+      ReadinessProbe:
+        Enabled: false
+      # StartupProbe conf
+      StartupProbe:
+        Enabled: false
+      # LivenessProbe conf
+      LivenessProbe:
+        Enabled: false
+      # service autoscaler
+      Autoscaler:
+        Enabled: false
+      # rolling update conf
+      RollingUpdate:
+        MaxSurge: 25
+        MaxUnavailable: 25
+      # user define ports conf
+      Ports:
+        - ListenPort: 8000
+          ExposePort: 8000
+          Type: HTTP/1.1
+          Path: /
+          Source: Service
+        - ListenPort: 8000
+          ExposePort: 8000
+          Type: Metrics
+          Path: /metrics
+          Source: Service
+      # instance network conf
+      InstanceNetwork:
+        SecurityGroupIds: []
+      # graceful shutdown period
+      GracefulShutdownPeriod: 30
+      # resource spec
+      ResourceSpec:
+        FlavorID: ml.pni3h.11xlarge
+      # expose conf
+      Expose: true
+# resource queue user choose
+ResourceQueueID: q-20260128181205-z9l2h

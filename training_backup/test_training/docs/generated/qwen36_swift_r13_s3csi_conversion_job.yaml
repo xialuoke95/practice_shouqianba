@@ -1,0 +1,189 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-s3-verdent-qwen36-r13-hfexport
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-hf-export
+    test-training.verdent.ai/purpose: hf-export-output
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 200Gi
+  csi:
+    driver: s3.csi.aws.com
+    volumeAttributes:
+      bucketName: verdent.tech
+      mount-timeout-seconds: "300"
+    volumeHandle: s3-csi-driver-volume-verdent-qwen36-r13-hfexport
+  mountOptions:
+  - region us-east-1
+  - prefix test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/deployment_exports/qwen36_swift_all_full_r13_hf/
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: s3-claim-verdent-qwen36-r13-hfexport
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-hf-export
+    test-training.verdent.ai/purpose: hf-export-output
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 200Gi
+  volumeName: pv-s3-verdent-qwen36-r13-hfexport
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-swift-r13-s3csi-hf-export-20260608
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-hf-export
+    test-training.verdent.ai/purpose: megatron-to-hf-export
+spec:
+  activeDeadlineSeconds: 21600
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-s3csi-hf-export
+    spec:
+      restartPolicy: Never
+      nodeName: hyperpod-i-060621000d6270d47
+      containers:
+      - name: export
+        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2-v1.39-soci
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          S3_RUN_ROOT=/s3target
+          S3_HFMETA=/hfmeta
+          S3_EXPORT=/s3export
+          LOCAL_ROOT=/host-nvme/test_training/qwen36_swift_r13_s3csi_hf_export_20260608
+          RUNTIME_RUN_DIR="${LOCAL_ROOT}/runtime_run"
+          RUNTIME_NODE_ROOT="${LOCAL_ROOT}/runtime_node0"
+          HF_META_LOCAL="${LOCAL_ROOT}/hf_metadata"
+          LOCAL_CHECKPOINT="${LOCAL_ROOT}/checkpoint_copy"
+          LOCAL_HF_EXPORT="${LOCAL_ROOT}/hf_export"
+
+          test ! -e "${LOCAL_ROOT}"
+          mkdir -p "${RUNTIME_RUN_DIR}/env" "${RUNTIME_NODE_ROOT}" "${HF_META_LOCAL}" "${LOCAL_CHECKPOINT}" "${LOCAL_HF_EXPORT}"
+          if find "${S3_EXPORT}" -mindepth 1 -maxdepth 1 -print -quit | grep -q .; then
+            echo "Export prefix is not empty: ${S3_EXPORT}" >&2
+            exit 1
+          fi
+
+          df -h /host-nvme /s3target /hfmeta /s3export
+          cp "${S3_RUN_ROOT}/env/Megatron-Bridge-v0.4.1-source.tar.gz" "${RUNTIME_RUN_DIR}/env/Megatron-Bridge-v0.4.1-source.tar.gz"
+          cp "${S3_RUN_ROOT}/artifacts/source/scripts/setup_aws_dlc_bridge_runtime.sh" "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh"
+          cp -a "${S3_HFMETA}/." "${HF_META_LOCAL}/"
+          cp -a "${S3_RUN_ROOT}/training/qwen36_swift_all_full_r13/checkpoint_copy/." "${LOCAL_CHECKPOINT}/"
+          bash "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh" "${RUNTIME_RUN_DIR}" "${RUNTIME_NODE_ROOT}"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from megatron.bridge import AutoBridge
+
+          root = Path("/host-nvme/test_training/qwen36_swift_r13_s3csi_hf_export_20260608")
+          hf_meta = root / "hf_metadata"
+          checkpoint = root / "checkpoint_copy"
+          export = root / "hf_export"
+
+          bridge = AutoBridge.from_hf_pretrained(str(hf_meta), trust_remote_code=True)
+          print(json.dumps({
+              "phase": "bridge_ready",
+              "config_class": bridge.hf_pretrained.config.__class__.__name__,
+              "hf_key_count": len(bridge.hf_pretrained.state.source.get_all_keys()),
+              "loaded_hf_model": bridge.hf_pretrained.has_model,
+              "checkpoint_latest": (checkpoint / "latest_checkpointed_iteration.txt").read_text().strip(),
+          }, sort_keys=True))
+
+          bridge.export_ckpt(
+              str(checkpoint),
+              str(export),
+              show_progress=True,
+              strict=False,
+              source_path=str(hf_meta),
+          )
+
+          files = sorted(p.relative_to(export).as_posix() for p in export.rglob("*") if p.is_file())
+          print(json.dumps({
+              "phase": "export_complete",
+              "file_count": len(files),
+              "total_bytes": sum((export / f).stat().st_size for f in files),
+              "sample": files[:40],
+              "has_config": (export / "config.json").exists(),
+              "has_index": (export / "model.safetensors.index.json").exists(),
+          }, sort_keys=True))
+          if not (export / "config.json").exists():
+              raise SystemExit("Missing config.json in HF export")
+          if not ((export / "model.safetensors.index.json").exists() or list(export.glob("*.safetensors"))):
+              raise SystemExit("Missing HF safetensors output")
+          PY
+
+          cp -a "${LOCAL_HF_EXPORT}/." "${S3_EXPORT}/"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          export = Path("/s3export")
+          files = sorted(p.relative_to(export).as_posix() for p in export.rglob("*") if p.is_file())
+          print(json.dumps({
+              "phase": "s3_export_copy_complete",
+              "file_count": len(files),
+              "total_bytes": sum((export / f).stat().st_size for f in files),
+              "sample": files[:40],
+          }, sort_keys=True))
+          if "config.json" not in files:
+              raise SystemExit("S3 export copy missing config.json")
+          PY
+        env:
+        - name: HF_HOME
+          value: /host-nvme/test_training/qwen36_swift_r13_s3csi_hf_export_20260608/hf_cache
+        - name: TRANSFORMERS_CACHE
+          value: /host-nvme/test_training/qwen36_swift_r13_s3csi_hf_export_20260608/hf_cache
+        resources:
+          requests:
+            cpu: "16"
+            memory: "256Gi"
+            ephemeral-storage: "50Gi"
+          limits:
+            cpu: "48"
+            memory: "512Gi"
+        volumeMounts:
+        - name: host-nvme
+          mountPath: /host-nvme
+        - name: verdent-run
+          mountPath: /s3target
+          readOnly: true
+        - name: hfmeta
+          mountPath: /hfmeta
+          readOnly: true
+        - name: hfexport
+          mountPath: /s3export
+      volumes:
+      - name: host-nvme
+        hostPath:
+          path: /opt/dlami/nvme
+          type: DirectoryOrCreate
+      - name: verdent-run
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13
+      - name: hfmeta
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-hfmeta
+      - name: hfexport
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13-hfexport

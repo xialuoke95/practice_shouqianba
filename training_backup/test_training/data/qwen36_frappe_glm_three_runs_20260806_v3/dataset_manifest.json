@@ -1,0 +1,144 @@
+{
+  "schema_version": 2,
+  "seed": 20260806,
+  "general_sample_size": 200,
+  "normalization": {
+    "name": "close_tool_result_before_new_user_v1",
+    "rule": "insert an empty loss-masked assistant boundary between a tool result and a following user message",
+    "adds_trainable_supervision": false,
+    "source_boundaries_inserted": {
+      "frappe99": 5,
+      "saas47": 0,
+      "general_sample": 0
+    }
+  },
+  "render_filter": {
+    "template": "qwen3_5",
+    "max_length": 262144,
+    "rule": "replace fixed-seed reservoir rows that fail exact full-template rendering with deterministic validated rows",
+    "replacements": {
+      "ca54c081-43d0-4188-b951-0adb83dac25d": "8496e59f-d238-48ed-bb87-43696562e147",
+      "4f79432d-bcf1-4436-acff-0d1c7d6ec60c": "ad0621df-ecc4-4983-be57-d05bdeb4d559",
+      "a9280850-d893-4ed6-95b4-14c2e055003a": "6ff943f4-d6ae-47fa-8281-68bcdffc110f",
+      "5fedf90a-10d7-41cb-9567-20a7806cfb26": "5a0ff09f-87f9-4574-994c-006fc88328b3"
+    }
+  },
+  "sources": {
+    "frappe99": {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/frappe_skill_train.jsonl",
+      "rows": 99,
+      "sha256": "1696b0b6208bfc902eb839a367607d7cd694ee21536c904a7d0ee15c2b7b1143"
+    },
+    "saas47": {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/saas_sft_v0_exact47_20260806/saas_sft_v0_fireworks_exact47.train.jsonl",
+      "rows": 47,
+      "sha256": "b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139"
+    },
+    "general7708": {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/april_may_data_versions/april_day01_30_plus_may_day01_30_final_keep_think_quality_ge5_ge30_ge10_ge80_20260719/april_day01_30_plus_may_day01_30.quality_ge5_ge30_ge10_ge80.train.jsonl",
+      "rows": 7708,
+      "sha256": "1614c7a09ef24c34303199909179d5ebc57843b89958f357b4ddc3249402f62c"
+    }
+  },
+  "general_pool": {
+    "rows": 7708,
+    "eligible_rows": 7708,
+    "excluded_overlap_rows": 0,
+    "exclusion_rule": "exclude Frappe99 and SaaS47 trace IDs before fixed-seed reservoir sampling"
+  },
+  "general_sample": {
+    "rows": 200,
+    "unique_trace_ids": 200,
+    "sha256": "1ff94300bc64c81193641f4897a07adb3bc9ccee4f870405dbced1638b391869",
+    "messages": 42762,
+    "trainable_messages": 13416,
+    "tool_to_user_transitions": 0,
+    "normalized_boundaries": 28,
+    "thinking_type_distribution": {
+      "enabled": 200
+    },
+    "model_distribution": {
+      "claude-opus-4-6": 52,
+      "claude-opus-4-7": 17,
+      "claude-sonnet-4-6": 131
+    }
+  },
+  "arms": {
+    "a_frappe_glm_99": {
+      "rows": 99,
+      "unique_trace_ids": 99,
+      "sha256": "4c315dcebf9e2b00bcab14075478852bddcc1077fabadfb555f52f1170101b44",
+      "messages": 15229,
+      "trainable_messages": 8999,
+      "tool_to_user_transitions": 0,
+      "normalized_boundaries": 5,
+      "thinking_type_distribution": {
+        "enabled": 99
+      },
+      "model_distribution": {
+        "glm-5.2": 99
+      }
+    },
+    "b_saas47_plus_frappe99": {
+      "rows": 146,
+      "unique_trace_ids": 146,
+      "sha256": "8cb425c7cb234d43292f6b439d38576fe50295bdfa3757794300b196816e2d93",
+      "messages": 25266,
+      "trainable_messages": 11620,
+      "tool_to_user_transitions": 0,
+      "normalized_boundaries": 5,
+      "thinking_type_distribution": {
+        "enabled": 99,
+        "none": 47
+      },
+      "model_distribution": {
+        "claude-opus-4-6": 26,
+        "claude-opus-5": 21,
+        "glm-5.2": 99
+      }
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200": {
+      "rows": 492,
+      "unique_trace_ids": 346,
+      "sha256": "572d0a601ec28459ddfb257d3b9d229df55c935842a4e0eb7fbda2a02a5f2288",
+      "messages": 93294,
+      "trainable_messages": 36656,
+      "tool_to_user_transitions": 0,
+      "normalized_boundaries": 38,
+      "thinking_type_distribution": {
+        "enabled": 398,
+        "none": 94
+      },
+      "model_distribution": {
+        "claude-opus-4-6": 104,
+        "claude-opus-4-7": 17,
+        "claude-opus-5": 42,
+        "claude-sonnet-4-6": 131,
+        "glm-5.2": 198
+      }
+    }
+  },
+  "composition": {
+    "a_frappe_glm_99": {
+      "frappe99_multiplier": 1,
+      "saas47_multiplier": 0,
+      "general_sample_multiplier": 0
+    },
+    "b_saas47_plus_frappe99": {
+      "frappe99_multiplier": 1,
+      "saas47_multiplier": 1,
+      "general_sample_multiplier": 0
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200": {
+      "frappe99_multiplier": 2,
+      "saas47_multiplier": 2,
+      "general_sample_multiplier": 1
+    }
+  },
+  "files": {
+    "general_sample": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/general_sample_seed20260806_n200.train.jsonl",
+    "a_frappe_glm_99": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_a_frappe_glm_99.train.jsonl",
+    "b_saas47_plus_frappe99": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_b_saas47_plus_frappe99.train.jsonl",
+    "c_saas47_plus_frappe99_x2_plus_general200": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl"
+  }
+}

@@ -1,0 +1,15 @@
+*.jsonl
+*.log
+*.wandb
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.parquet
+*.arrow
+.env
+.env.*
+__pycache__/
+wandb/
+.venv/

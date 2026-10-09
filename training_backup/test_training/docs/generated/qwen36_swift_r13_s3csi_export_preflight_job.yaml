@@ -1,0 +1,140 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-s3-verdent-qwen36-hfmeta
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-export-preflight
+    test-training.verdent.ai/purpose: hf-metadata-export-template
+spec:
+  accessModes:
+  - ReadOnlyMany
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: s3.csi.aws.com
+    volumeAttributes:
+      bucketName: verdent.tech
+      mount-timeout-seconds: "300"
+    volumeHandle: s3-csi-driver-volume-verdent-qwen36-hfmeta
+  mountOptions:
+  - region us-east-1
+  - prefix test_training/qwen36_megatron_bridge_overlay_sft/qwen36-mb-overlay-aligned-fullsft-20260602-211523/artifacts/alignment_refs/source_artifacts_v4/pfs/train_output/checkpoint-854_metadata/
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: s3-claim-verdent-qwen36-hfmeta
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-export-preflight
+    test-training.verdent.ai/purpose: hf-metadata-export-template
+spec:
+  accessModes:
+  - ReadOnlyMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: pv-s3-verdent-qwen36-hfmeta
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-swift-r13-s3csi-export-preflight-20260608
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-export-preflight
+    test-training.verdent.ai/purpose: hf-metadata-export-template
+spec:
+  activeDeadlineSeconds: 1800
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-s3csi-export-preflight
+    spec:
+      restartPolicy: Never
+      nodeName: hyperpod-i-060621000d6270d47
+      containers:
+      - name: preflight
+        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2-v1.39-soci
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          S3_RUN_ROOT=/s3target
+          S3_HFMETA=/hfmeta
+          LOCAL_ROOT=/host-nvme/test_training/qwen36_swift_r13_s3csi_export_preflight
+          RUNTIME_RUN_DIR="${LOCAL_ROOT}/runtime_run"
+          RUNTIME_NODE_ROOT="${LOCAL_ROOT}/runtime_node0"
+          HF_META_LOCAL="${LOCAL_ROOT}/hf_metadata"
+
+          rm -rf "${LOCAL_ROOT}"
+          mkdir -p "${RUNTIME_RUN_DIR}/env" "${RUNTIME_NODE_ROOT}" "${HF_META_LOCAL}"
+          cp "${S3_RUN_ROOT}/env/Megatron-Bridge-v0.4.1-source.tar.gz" "${RUNTIME_RUN_DIR}/env/Megatron-Bridge-v0.4.1-source.tar.gz"
+          cp "${S3_RUN_ROOT}/artifacts/source/scripts/setup_aws_dlc_bridge_runtime.sh" "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh"
+          cp -a "${S3_HFMETA}/." "${HF_META_LOCAL}/"
+          bash "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh" "${RUNTIME_RUN_DIR}" "${RUNTIME_NODE_ROOT}"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from megatron.bridge import AutoBridge
+          from megatron.bridge.models.hf_pretrained.state import SafeTensorsStateSource
+
+          hf_meta = Path("/host-nvme/test_training/qwen36_swift_r13_s3csi_export_preflight/hf_metadata")
+          bridge = AutoBridge.from_hf_pretrained(str(hf_meta), trust_remote_code=True)
+          state_source = bridge.hf_pretrained.state.source
+          key_to_file = state_source.key_to_filename_map
+          keys = state_source.get_all_keys()
+          payload = {
+              "hf_meta_files": sorted(p.name for p in hf_meta.iterdir() if p.is_file()),
+              "config_class": bridge.hf_pretrained.config.__class__.__name__,
+              "state_source": state_source.__class__.__name__,
+              "is_safetensors_source": isinstance(state_source, SafeTensorsStateSource),
+              "key_count": len(keys),
+              "shard_count": len(set(key_to_file.values())),
+              "sample_keys": keys[:20],
+              "has_loaded_model": bridge.hf_pretrained.has_model,
+          }
+          print(json.dumps(payload, sort_keys=True))
+          if not payload["is_safetensors_source"]:
+              raise SystemExit("HF metadata did not create a SafeTensorsStateSource")
+          if payload["key_count"] < 100:
+              raise SystemExit("HF metadata index exposed too few keys")
+          if payload["has_loaded_model"]:
+              raise SystemExit("Bridge unexpectedly loaded full HF model weights")
+          PY
+        resources:
+          requests:
+            cpu: "8"
+            memory: "64Gi"
+            ephemeral-storage: "50Gi"
+          limits:
+            cpu: "32"
+            memory: "256Gi"
+        volumeMounts:
+        - name: host-nvme
+          mountPath: /host-nvme
+        - name: verdent-run
+          mountPath: /s3target
+          readOnly: true
+        - name: hfmeta
+          mountPath: /hfmeta
+          readOnly: true
+      volumes:
+      - name: host-nvme
+        hostPath:
+          path: /opt/dlami/nvme
+          type: DirectoryOrCreate
+      - name: verdent-run
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13
+      - name: hfmeta
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-hfmeta

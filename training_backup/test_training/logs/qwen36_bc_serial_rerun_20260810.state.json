@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-10T03:21:58.998492+00:00",
+  "arms": {
+    "b_saas47_plus_frappe99_rerun_20260810": {
+      "config": "docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun_20260810_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun1",
+      "expected_steps": 146,
+      "task_id": "t-20260810112202-rbmf8",
+      "submitted_at": "2026-08-10T03:22:05.063104+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 6510,
+        "End": "2026-08-10T05:10:33Z",
+        "JobId": "t-20260810112202-rbmf8",
+        "JobName": "train_qwen36_saas47_frappe99_b146_16gpu_rerun_20260810_r1",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-10T03:22:03Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-10T05:10:43.337066+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-032429/checkpoint-146",
+        "checkpoint_directory_bytes": 54733754642,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.13289,
+        "final_train_speed_seconds_per_iteration": 42.162632,
+        "first_loss": 0.53286195,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-032429/logging.jsonl",
+        "max_loss": 0.53286195,
+        "mean_loss": 0.17536338116438355,
+        "min_loss": 0.04241686,
+        "missing_shards": 0,
+        "peak_memory_gib": 50.13,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-032429",
+        "safetensors_shards": 12,
+        "steps": 146
+      },
+      "verified": true,
+      "verified_at": "2026-08-10T05:10:45.861029+00:00"
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200_rerun_20260810": {
+      "config": "docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_rerun_20260810_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260810_rerun1",
+      "expected_steps": 492,
+      "task_id": "t-20260810131048-5qsnz",
+      "submitted_at": "2026-08-10T05:10:50.969232+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 14919,
+        "End": "2026-08-10T09:19:27Z",
+        "JobId": "t-20260810131048-5qsnz",
+        "JobName": "train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_rerun_20260810_r1",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-10T05:10:48Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-10T09:21:14.081342+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-051315/checkpoint-492",
+        "checkpoint_directory_bytes": 54733754755,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.02803402,
+        "final_train_speed_seconds_per_iteration": 29.576049,
+        "first_loss": 0.23737706,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-051315/logging.jsonl",
+        "max_loss": 0.59034491,
+        "mean_loss": 0.13777182276422764,
+        "min_loss": 0.01189786,
+        "missing_shards": 0,
+        "peak_memory_gib": 54.0,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-051315",
+        "safetensors_shards": 12,
+        "steps": 492
+      },
+      "verified": true,
+      "verified_at": "2026-08-10T09:21:16.521039+00:00"
+    }
+  },
+  "terminal_status": "Success",
+  "completed_at": "2026-08-10T09:21:16.521643+00:00"
+}

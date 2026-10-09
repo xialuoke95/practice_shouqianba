@@ -1,0 +1,24 @@
+{
+  "input": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+  "mixed_numeric_paths": [
+    {
+      "counts": {
+        "float": 60,
+        "int": 34
+      },
+      "float_example": {
+        "line": 15,
+        "trace_id": "710ccdf2-a031-440c-88ae-4e3f2aba9a05",
+        "value": "0.039045553145336226"
+      },
+      "int_example": {
+        "line": 7,
+        "trace_id": "e3565f88-0fe5-4fca-a35b-cdbbf721c4ea",
+        "value": "1"
+      },
+      "path": "dedup_stats.trainable_turn_ratio"
+    }
+  ],
+  "rows": 492,
+  "valid": false
+}

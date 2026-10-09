@@ -1,0 +1,155 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qwen36-swift-r13-sglang
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-sglang
+    app.kubernetes.io/component: isolated-sglang
+    test-training.verdent.ai/model: qwen36-swift-r13
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: qwen36-swift-r13-sglang
+      app.kubernetes.io/component: isolated-sglang
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-sglang
+        app.kubernetes.io/component: isolated-sglang
+        test-training.verdent.ai/model: qwen36-swift-r13
+    spec:
+      nodeSelector:
+        node.kubernetes.io/instance-type: ml.p6-b200.48xlarge
+      tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: sglang
+        image: 288761729453.dkr.ecr.us-east-2.amazonaws.com/sglang-kimik2-detector-patch:20260602085214
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          MODEL_NAME=Qwen3.6-35B-A3B-Swift-R13
+          MODEL_LOCAL=/opt/dlami/nvme/models/${MODEL_NAME}
+          MODEL_TMP=/opt/dlami/nvme/models/${MODEL_NAME}.tmp
+          mkdir -p /opt/dlami/nvme/models /opt/dlami/nvme/test_training/qwen36-swift-r13-sglang
+          mkdir -p /opt/dlami/nvme/triton-cache /opt/dlami/nvme/deepgemm-cache /opt/dlami/nvme/tmp /opt/dlami/nvme/cuda-cache /opt/dlami/nvme/torch-extensions
+          export TRITON_CACHE_DIR=/opt/dlami/nvme/triton-cache
+          export SGLANG_DG_CACHE_DIR=/opt/dlami/nvme/deepgemm-cache
+          export TMPDIR=/opt/dlami/nvme/tmp
+          export CUDA_CACHE_PATH=/opt/dlami/nvme/cuda-cache
+          export TORCH_EXTENSIONS_DIR=/opt/dlami/nvme/torch-extensions
+          export NCCL_DEBUG=INFO
+          export FI_PROVIDER=efa
+          export FI_EFA_USE_DEVICE_RDMA=1
+          export NVSHMEM_DISABLE_IBGDA=1
+          export NVSHMEM_IB_ENABLE_IBGDA=0
+          
+          if [ ! -f "${MODEL_LOCAL}/.copy_complete" ]; then
+            rm -rf "${MODEL_TMP}"
+            mkdir -p "${MODEL_TMP}"
+            cp -r /s3export/. "${MODEL_TMP}/"
+            test -f "${MODEL_TMP}/config.json"
+            test -f "${MODEL_TMP}/model.safetensors.index.json"
+            rm -rf "${MODEL_LOCAL}"
+            mv "${MODEL_TMP}" "${MODEL_LOCAL}"
+            touch "${MODEL_LOCAL}/.copy_complete"
+            echo ">>> Model staged at ${MODEL_LOCAL}: $(du -sh "${MODEL_LOCAL}" | cut -f1)"
+          else
+            echo ">>> Reusing cached model at ${MODEL_LOCAL}: $(du -sh "${MODEL_LOCAL}" | cut -f1)"
+          fi
+          
+          exec sglang serve \
+            --model-path "${MODEL_LOCAL}" \
+            --served-model-name "${MODEL_NAME}" \
+            --host 0.0.0.0 \
+            --port 30000 \
+            --tp-size 8 \
+            --ep-size 8 \
+            --trust-remote-code \
+            --kv-cache-dtype fp8_e4m3 \
+            --enable-fused-qk-norm-rope \
+            --mem-fraction-static 0.82 \
+            --moe-runner-backend flashinfer_trtllm \
+            --moe-dense-tp-size 1 \
+            --disable-flashinfer-autotune \
+            --watchdog-timeout 1000000 \
+            --reasoning-parser qwen3-thinking \
+            --tool-call-parser qwen3_coder \
+            --enable-metrics
+        ports:
+        - name: http
+          containerPort: 30000
+        startupProbe:
+          httpGet:
+            path: /health
+            port: http
+          periodSeconds: 10
+          timeoutSeconds: 10
+          failureThreshold: 540
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          periodSeconds: 10
+          timeoutSeconds: 10
+          failureThreshold: 3
+        resources:
+          requests:
+            cpu: "120"
+            memory: "1200Gi"
+            ephemeral-storage: "50Gi"
+            nvidia.com/gpu: "8"
+            vpc.amazonaws.com/efa: "8"
+          limits:
+            cpu: "160"
+            memory: "1600Gi"
+            ephemeral-storage: "80Gi"
+            nvidia.com/gpu: "8"
+            vpc.amazonaws.com/efa: "8"
+        volumeMounts:
+        - name: shm
+          mountPath: /dev/shm
+        - name: host-nvme
+          mountPath: /opt/dlami/nvme
+        - name: hfexport
+          mountPath: /s3export
+          readOnly: true
+      volumes:
+      - name: shm
+        emptyDir:
+          medium: Memory
+          sizeLimit: 64Gi
+      - name: host-nvme
+        hostPath:
+          path: /opt/dlami/nvme
+          type: DirectoryOrCreate
+      - name: hfexport
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13-hfexport
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qwen36-swift-r13-sglang
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-sglang
+    app.kubernetes.io/component: isolated-sglang
+    test-training.verdent.ai/model: qwen36-swift-r13
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: qwen36-swift-r13-sglang
+    app.kubernetes.io/component: isolated-sglang
+  ports:
+  - name: http
+    port: 30000
+    targetPort: http

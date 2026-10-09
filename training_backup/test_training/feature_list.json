@@ -1,0 +1,25 @@
+[
+  {
+    "id": "saas_sft_v0_volc_exact47",
+    "description": "Train Qwen3.6-27B on BytePlus using the exact 47 samples used by the completed Fireworks SaaS SFT v0 run and report final metrics.",
+    "pass": true,
+    "verification": [
+      "47-row source selection matches Fireworks renderer-approved trace IDs",
+      "native no-think validation passes",
+      "BytePlus task reaches Success",
+      "final checkpoint and logging metrics are present"
+    ]
+  },
+  {
+    "id": "qwen36_frappe_glm_three_run_chain",
+    "description": "Sequentially train Qwen3.6-27B on A=99 Frappe/GLM, B=47 SaaS plus 99 Frappe/GLM, and C=(47 plus 99) repeated twice plus a fixed-seed 200-row sample from the remaining general corpus; deliver three verified checkpoints.",
+    "pass": true,
+    "verification": [
+      "99-row Frappe/GLM source and remaining general corpus have immutable lineage, row counts, unique trace IDs, and hashes",
+      "A, B, and C datasets exactly match the requested multiplicities and exclusions",
+      "all three BytePlus tasks run sequentially and reach Success",
+      "all three final checkpoints contain every indexed safetensors shard with no fatal log errors",
+      "final report records task IDs, metrics, dataset hashes, and checkpoint paths"
+    ]
+  }
+]

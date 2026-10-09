@@ -1,0 +1,31 @@
+{
+  "input_rows_seen": 1000,
+  "tool_call_messages": 40400,
+  "tool_call_groups": 33688,
+  "orphan_tool_results": 0,
+  "written_rows": 1000,
+  "image_rows_seen": 94,
+  "image_placeholders_converted": 329,
+  "bad_tools_field": 0,
+  "missing_tools": 0,
+  "mixed_tool_call_loss_groups": 0,
+  "skipped_rows": 0,
+  "unknown_roles": 0,
+  "missing_images_for_placeholders": 0,
+  "unused_images": 0,
+  "adapter_modules": {
+    "parse_tools": true,
+    "loss_to_trainable": true,
+    "tool_call_to_assistant_tool_calls": true,
+    "tool_response_linking": true,
+    "include_images": true,
+    "mixed_tool_call_loss_policy": "report",
+    "no_user_turn_split": true,
+    "preserve_tools_wrapper": true,
+    "merge_adjacent_assistant_tool_call": true,
+    "ms_swift_tool_call_whitespace": true,
+    "tool_call_only_empty_think": true,
+    "unicode_argument_serialization": true,
+    "think_block_newline_style": true
+  }
+}

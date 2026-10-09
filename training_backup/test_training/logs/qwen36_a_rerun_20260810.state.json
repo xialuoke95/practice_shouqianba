@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-10T09:26:24.022099+00:00",
+  "arms": {
+    "a_frappe_glm_99_rerun_20260810": {
+      "config": "docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun_20260810_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun1",
+      "expected_steps": 99,
+      "task_id": "t-20260810172626-n8p4c",
+      "submitted_at": "2026-08-10T09:26:28.987229+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 4987,
+        "End": "2026-08-10T10:49:33Z",
+        "JobId": "t-20260810172626-n8p4c",
+        "JobName": "train_qwen36_frappe_glm_a99_16gpu_rerun_20260810_r1",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-10T09:26:26Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-10T10:50:33.425214+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-092850/checkpoint-99",
+        "checkpoint_directory_bytes": 54733754622,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.13416839,
+        "final_train_speed_seconds_per_iteration": 46.82152,
+        "first_loss": 0.18474187,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-092850/logging.jsonl",
+        "max_loss": 0.36771342,
+        "mean_loss": 0.17143365909090907,
+        "min_loss": 0.05512246,
+        "missing_shards": 0,
+        "peak_memory_gib": 50.4,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-092850",
+        "safetensors_shards": 12,
+        "steps": 99
+      },
+      "verified": true,
+      "verified_at": "2026-08-10T10:50:35.868015+00:00"
+    }
+  },
+  "terminal_status": "Success",
+  "completed_at": "2026-08-10T10:50:35.868488+00:00"
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "configurable_renderer_adapters",
+    "description": "Load model renderer adapters from YAML and support deterministic validation sample IDs.",
+    "pass": true
+  },
+  {
+    "id": "kimi_k27_training_ready",
+    "description": "Kimi 2.7 preserve-history single-datum adapter and 10-row multimodal dry-run.",
+    "pass": true
+  },
+  {
+    "id": "glm52_training_ready",
+    "description": "GLM 5.2 preserve-history single-datum tools adapter and 10-row text-only dry-run.",
+    "pass": true
+  },
+  {
+    "id": "wandb_run_identity_persistence",
+    "description": "Pin and persist the W&B run ID and dashboard URL before Cookbook closes the run.",
+    "pass": true
+  },
+  {
+    "id": "kimi_glm_10row_b300_training",
+    "description": "Complete real 10-row full-parameter B300 runs for Kimi 2.7 and GLM 5.2 with checkpoints, W&B metrics, and resource cleanup.",
+    "pass": true
+  }
+]

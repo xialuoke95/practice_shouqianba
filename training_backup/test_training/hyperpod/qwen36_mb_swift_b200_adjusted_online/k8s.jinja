@@ -1,0 +1,90 @@
+apiVersion: sagemaker.amazonaws.com/v1
+kind: HyperPodPyTorchJob
+metadata:
+  name: {{ job_name }}
+  namespace: {{ namespace }}
+  labels:
+    app.kubernetes.io/name: qwen36-mb-overlay-sft
+    app.kubernetes.io/component: train
+    verdent.ai/dataset-key: sft-opus-sonnet-swift
+    verdent.ai/validation-kind: b200-adjusted-online
+spec:
+  nprocPerNode: "{{ tasks_per_node }}"
+  replicaSpecs:
+    - name: pod
+      replicas: {{ replica_count }}
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: qwen36-mb-overlay-sft
+            app.kubernetes.io/component: train
+            verdent.ai/dataset-key: sft-opus-sonnet-swift
+            verdent.ai/validation-kind: b200-adjusted-online
+        spec:
+          restartPolicy: Always
+          automountServiceAccountToken: false
+          nodeSelector:
+            node.kubernetes.io/instance-type: {{ instance_type }}
+{%- if label_selector %}
+{%-   for key, value in label_selector.items() %}
+            {{ key }}: {{ value }}
+{%-   endfor %}
+{%- endif %}
+          tolerations:
+            - key: nvidia.com/gpu
+              operator: Exists
+              effect: NoSchedule
+          containers:
+            - name: worker
+              image: {{ image }}
+              imagePullPolicy: {{ pull_policy }}
+              env:
+{%- for key, value in environment.items() %}
+                - name: {{ key }}
+                  value: "{{ value }}"
+{%- endfor %}
+              command: {{ command | tojson }}
+              securityContext:
+                capabilities:
+                  add:
+                    - IPC_LOCK
+              resources:
+                requests:
+                  cpu: "{{ vcpu }}"
+                  memory: {{ memory }}Gi
+                  nvidia.com/gpu: "{{ accelerators }}"
+                  vpc.amazonaws.com/efa: "{{ efa }}"
+                limits:
+                  memory: {{ memory_limit }}Gi
+                  nvidia.com/gpu: "{{ accelerators_limit }}"
+                  vpc.amazonaws.com/efa: "{{ efa_limit }}"
+              volumeMounts:
+                - name: scripts
+                  mountPath: /scripts
+                  readOnly: true
+                - name: s3
+                  mountPath: /s3-verdent
+                - name: scratch
+                  mountPath: /scratch
+                - name: dshm
+                  mountPath: /dev/shm
+          volumes:
+            - name: scripts
+              configMap:
+                name: qwen36-mb-overlay-scripts-r14
+                defaultMode: 0755
+            - name: s3
+              persistentVolumeClaim:
+                claimName: s3-verdent-tech-use1
+            - name: scratch
+              emptyDir:
+                sizeLimit: 24000Gi
+            - name: dshm
+              emptyDir:
+                medium: Memory
+                sizeLimit: 128Gi
+  runPolicy:
+    cleanPodPolicy: None
+    activeDeadlineSeconds: 2592000
+    ttlSecondsAfterFinished: 604800
+    jobMaxRetryCount: 0

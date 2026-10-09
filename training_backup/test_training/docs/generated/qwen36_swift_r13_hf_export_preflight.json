@@ -1,0 +1,178 @@
+{
+  "blockers": [],
+  "checkpoint": {
+    "blockers": [],
+    "bucket": "verdent.tech",
+    "checkpoint_type": "hf_or_sglang_model_dir",
+    "features": {
+      "has_complete_safetensors_index": true,
+      "has_config_json": true,
+      "has_dist_checkpoint_metadata": false,
+      "has_distcp_shards": false,
+      "has_hf_weight_files": true,
+      "has_safetensors_index": true,
+      "has_tokenizer_files": true,
+      "missing_safetensors_index_shard_count": 0,
+      "safetensors_index_shard_count": 26,
+      "sharded_backend": null
+    },
+    "latest_checkpointed_iteration": null,
+    "metadata": null,
+    "object_count": 34,
+    "prefix": "test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/deployment_exports/qwen36_swift_all_full_r13_hf/",
+    "sample_keys": [
+      "chat_template.jinja",
+      "config.json",
+      "generation_config.json",
+      "model-00001-of-00026.safetensors",
+      "model-00002-of-00026.safetensors",
+      "model-00003-of-00026.safetensors",
+      "model-00004-of-00026.safetensors",
+      "model-00005-of-00026.safetensors",
+      "model-00006-of-00026.safetensors",
+      "model-00007-of-00026.safetensors",
+      "model-00008-of-00026.safetensors",
+      "model-00009-of-00026.safetensors",
+      "model-00010-of-00026.safetensors",
+      "model-00011-of-00026.safetensors",
+      "model-00012-of-00026.safetensors",
+      "model-00013-of-00026.safetensors",
+      "model-00014-of-00026.safetensors",
+      "model-00015-of-00026.safetensors",
+      "model-00016-of-00026.safetensors",
+      "model-00017-of-00026.safetensors",
+      "model-00018-of-00026.safetensors",
+      "model-00019-of-00026.safetensors",
+      "model-00020-of-00026.safetensors",
+      "model-00021-of-00026.safetensors",
+      "model-00022-of-00026.safetensors"
+    ],
+    "sglang_loadable": true,
+    "total_bytes": 70234598273,
+    "uri": "s3://verdent.tech/test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/deployment_exports/qwen36_swift_all_full_r13_hf/"
+  },
+  "conversion_plan": null,
+  "generated_at": "2026-06-09T14:12:54.890246+00:00",
+  "k8s": {
+    "default_proxy_configmap": {
+      "data": {
+        "PREFERRED_AWS_GLM51_BACKEND": "b200"
+      },
+      "name": "sglang-router-b200-proxy-config"
+    },
+    "deployments": [
+      {
+        "available_replicas": 1,
+        "name": "qwen36-swift-r13-sglang",
+        "ready_replicas": 1,
+        "replicas": 1
+      },
+      {
+        "available_replicas": 0,
+        "name": "sglang-decode-anchor",
+        "ready_replicas": 0,
+        "replicas": 0
+      },
+      {
+        "available_replicas": 0,
+        "name": "sglang-decode-pool",
+        "ready_replicas": 0,
+        "replicas": 0
+      },
+      {
+        "available_replicas": 0,
+        "name": "sglang-monitor",
+        "ready_replicas": 0,
+        "replicas": 0
+      },
+      {
+        "available_replicas": 0,
+        "name": "sglang-prefill",
+        "ready_replicas": 0,
+        "replicas": 0
+      },
+      {
+        "available_replicas": 0,
+        "name": "sglang-router",
+        "ready_replicas": 0,
+        "replicas": 0
+      }
+    ],
+    "errors": [],
+    "namespace": "glm51-pd-b200-p1d1",
+    "nodes": [
+      {
+        "cpu": "191450m",
+        "efa": "8",
+        "gpu": "8",
+        "internal_ip": "10.90.19.34",
+        "memory": "2047144464Ki",
+        "name": "hyperpod-i-01e93a89cb27a5046"
+      },
+      {
+        "cpu": "191450m",
+        "efa": "8",
+        "gpu": "8",
+        "internal_ip": "10.90.18.143",
+        "memory": "2047144460Ki",
+        "name": "hyperpod-i-060621000d6270d47"
+      },
+      {
+        "cpu": "191450m",
+        "efa": "8",
+        "gpu": "8",
+        "internal_ip": "10.90.16.43",
+        "memory": "2047144464Ki",
+        "name": "hyperpod-i-0b7611eea4f8e7956"
+      },
+      {
+        "cpu": "191450m",
+        "efa": "8",
+        "gpu": "8",
+        "internal_ip": "10.90.18.207",
+        "memory": "2047144464Ki",
+        "name": "hyperpod-i-0da428942dd5a9cd9"
+      },
+      {
+        "cpu": "3920m",
+        "efa": "0",
+        "gpu": "0",
+        "internal_ip": "10.90.17.217",
+        "memory": "14981236Ki",
+        "name": "hyperpod-i-0e1a42052af8e595e"
+      }
+    ],
+    "pods": [
+      {
+        "name": "qwen36-swift-r13-s3csi-hf-export-20260608-ntt2f",
+        "node": "hyperpod-i-060621000d6270d47",
+        "phase": "Failed",
+        "ready": "0/1"
+      },
+      {
+        "name": "qwen36-swift-r13-s3csi-hfhub-export-20260608-cxnl8",
+        "node": "hyperpod-i-060621000d6270d47",
+        "phase": "Failed",
+        "ready": "0/1"
+      },
+      {
+        "name": "qwen36-swift-r13-sglang-76f4c76b45-4vm8d",
+        "node": "hyperpod-i-060621000d6270d47",
+        "phase": "Running",
+        "ready": "1/1"
+      }
+    ]
+  },
+  "next_actions": [
+    "Isolated SGLang Deployment/Service is already Ready; keep it isolated unless a route change is explicitly approved.",
+    "Verify /health and /v1/chat/completions immediately before any routing change.",
+    "Only wire the proxy route with a rollback path to the previous GLM backend."
+  ],
+  "region": "us-west-2",
+  "requested_model_name": "Qwen3.6-35B-A3B-Swift-R13",
+  "verdict": "ready_for_isolated_sglang_deploy",
+  "warnings": [
+    "Default GLM proxy currently prefers b200; mutating the existing GLM B200 deployment may affect the externally routed backend.",
+    "GPU nodes visible: 4; GLM namespace pods are scheduled on 1 GPU nodes."
+  ]
+}

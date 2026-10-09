@@ -1,0 +1,5 @@
+2026-07-20: Implementing config-driven Kimi 2.7 and GLM 5.2 renderer adapters with 10-row local dry-run validation. No Training API submission is in scope.
+2026-07-20: Added Kimi K2.7 preserve-history single-datum and GLM 5.2 preserve-history/tools single-datum adapters, deterministic 10-row presets, official SFT DataLoader checks, model/shape API prechecks, and token-parity validation.
+2026-07-20: Final readiness PASS for both models. Kimi validates 3 multimodal rows; GLM validates text-only multi-turn rows. Qwen 20-row generic-vs-wrapper regression remains PASS. No remote trainer job was created.
+2026-07-20: Revalidated W&B online credentials, per-model projects, Cookbook metric logging, and local RunnerIO artifacts. Added stable WANDB_RUN_ID/dashboard URL persistence; 11 tests pass and Kimi dry-run records the expected dashboard identity without submitting training.
+2026-07-20: Completed real 10-row full-parameter B300 runs for Kimi 2.7 and GLM 5.2. Both produced promoted step-2 checkpoints and READY output models; W&B runs finished and trainer resources were deleted. Corrected W&B initialization order so future run IDs are pinned before entity lookup.

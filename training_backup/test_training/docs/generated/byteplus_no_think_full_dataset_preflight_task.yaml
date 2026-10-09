@@ -1,0 +1,37 @@
+# Validate full non-sampled no-think dataset visibility from BytePlus MLP.
+TaskName: "preflight_no_think_full_dataset_20260618"
+Description: "Validate no-think full non-sampled JSONL path, row count, and summary before 48 H100 training"
+Entrypoint: "bash /pfs-verdent/guoyinuo/coding_agent_models/scripts/may/preflight_no_think_full_dataset.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "Custom"
+TaskRoleSpecs:
+    - RoleName: "worker"
+      RoleReplicas: 1
+      Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 3600
+EnableTensorBoard: false
+Storages:
+    - Type: "Vepfs"
+      MountPath: "/pfs-verdent"
+      VepfsId: "vepfs-apse1754289b494ca"
+      SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+    EnableRetry: false
+    MaxRetryTimes: 1
+    IntervalSeconds: 120
+    PolicySets: []
+DiagOptions:
+    - Name: "EnvironmentalDiagnosis"
+      Enable: false
+    - Name: "PythonDetection"
+      Enable: false
+    - Name: "LogDetection"
+      Enable: false
+    - Name: "VecclHangDetection"
+      Enable: false

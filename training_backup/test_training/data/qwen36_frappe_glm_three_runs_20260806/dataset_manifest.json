@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "seed": 20260806,
+  "general_sample_size": 200,
+  "sources": {
+    "frappe99": {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/frappe_skill_train.jsonl",
+      "rows": 99,
+      "sha256": "1696b0b6208bfc902eb839a367607d7cd694ee21536c904a7d0ee15c2b7b1143"
+    },
+    "saas47": {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/saas_sft_v0_exact47_20260806/saas_sft_v0_fireworks_exact47.train.jsonl",
+      "rows": 47,
+      "sha256": "b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139"
+    },
+    "general7708": {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/april_may_data_versions/april_day01_30_plus_may_day01_30_final_keep_think_quality_ge5_ge30_ge10_ge80_20260719/april_day01_30_plus_may_day01_30.quality_ge5_ge30_ge10_ge80.train.jsonl",
+      "rows": 7708,
+      "sha256": "1614c7a09ef24c34303199909179d5ebc57843b89958f357b4ddc3249402f62c"
+    }
+  },
+  "general_pool": {
+    "rows": 7708,
+    "eligible_rows": 7708,
+    "excluded_overlap_rows": 0,
+    "exclusion_rule": "exclude Frappe99 and SaaS47 trace IDs before fixed-seed reservoir sampling"
+  },
+  "general_sample": {
+    "rows": 200,
+    "unique_trace_ids": 200,
+    "sha256": "81976c7956264f16c4169bfb80c9cf89c278fa499d118737485b9600153d2c67",
+    "messages": 45245,
+    "trainable_messages": 14251,
+    "thinking_type_distribution": {
+      "enabled": 200
+    },
+    "model_distribution": {
+      "claude-opus-4-6": 54,
+      "claude-opus-4-7": 18,
+      "claude-sonnet-4-6": 128
+    }
+  },
+  "arms": {
+    "a_frappe_glm_99": {
+      "rows": 99,
+      "unique_trace_ids": 99,
+      "sha256": "1696b0b6208bfc902eb839a367607d7cd694ee21536c904a7d0ee15c2b7b1143",
+      "messages": 15224,
+      "trainable_messages": 8999,
+      "thinking_type_distribution": {
+        "enabled": 99
+      },
+      "model_distribution": {
+        "glm-5.2": 99
+      }
+    },
+    "b_saas47_plus_frappe99": {
+      "rows": 146,
+      "unique_trace_ids": 146,
+      "sha256": "0df0a59bd722a5782e9d10a5db5d8d5ea4aa5a45d7a2f423efe0e3149a25d3cc",
+      "messages": 25261,
+      "trainable_messages": 11620,
+      "thinking_type_distribution": {
+        "enabled": 99,
+        "none": 47
+      },
+      "model_distribution": {
+        "claude-opus-4-6": 26,
+        "claude-opus-5": 21,
+        "glm-5.2": 99
+      }
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200": {
+      "rows": 492,
+      "unique_trace_ids": 346,
+      "sha256": "8d68c94deb65a3cbb2adb4bd0130ffa31d2860c4d9264a48d2b184bc5f3bb8d6",
+      "messages": 95767,
+      "trainable_messages": 37491,
+      "thinking_type_distribution": {
+        "enabled": 398,
+        "none": 94
+      },
+      "model_distribution": {
+        "claude-opus-4-6": 106,
+        "claude-opus-4-7": 18,
+        "claude-opus-5": 42,
+        "claude-sonnet-4-6": 128,
+        "glm-5.2": 198
+      }
+    }
+  },
+  "composition": {
+    "a_frappe_glm_99": {
+      "frappe99_multiplier": 1,
+      "saas47_multiplier": 0,
+      "general_sample_multiplier": 0
+    },
+    "b_saas47_plus_frappe99": {
+      "frappe99_multiplier": 1,
+      "saas47_multiplier": 1,
+      "general_sample_multiplier": 0
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200": {
+      "frappe99_multiplier": 2,
+      "saas47_multiplier": 2,
+      "general_sample_multiplier": 1
+    }
+  },
+  "files": {
+    "general_sample": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806/general_sample_seed20260806_n200.train.jsonl",
+    "a_frappe_glm_99": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806/arm_a_frappe_glm_99.train.jsonl",
+    "b_saas47_plus_frappe99": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806/arm_b_saas47_plus_frappe99.train.jsonl",
+    "c_saas47_plus_frappe99_x2_plus_general200": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl"
+  }
+}

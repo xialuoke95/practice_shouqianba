@@ -1,0 +1,3323 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-09T21:03:23.144767+00:00",
+  "files": [
+    {
+      "path": "test_training/BUGFIX_VERIFICATION.md",
+      "source_path": "/home/index/workspace/test_training/BUGFIX_VERIFICATION.md",
+      "source_size": 1843,
+      "source_mtime_ns": 1786076703371526703,
+      "source_sha256": "6856d85c29291b01b9856493f8907cc0b3f0b6b6e7cbb44b0609bd317d3bf798",
+      "status": "copied",
+      "backup_sha256": "6856d85c29291b01b9856493f8907cc0b3f0b6b6e7cbb44b0609bd317d3bf798",
+      "backup_size": 1843
+    },
+    {
+      "path": "test_training/deploy_model.py",
+      "source_path": "/home/index/workspace/test_training/deploy_model.py",
+      "source_size": 49473,
+      "source_mtime_ns": 1781014351742388838,
+      "source_sha256": "10eeaddd9d1b13586e0d1f6d8f7742864d8e45ff8368ff56c4a81d6563c1b060",
+      "status": "copied",
+      "backup_sha256": "10eeaddd9d1b13586e0d1f6d8f7742864d8e45ff8368ff56c4a81d6563c1b060",
+      "backup_size": 49473
+    },
+    {
+      "path": "test_training/feature_list.json",
+      "source_path": "/home/index/workspace/test_training/feature_list.json",
+      "source_size": 1282,
+      "source_mtime_ns": 1786076703370526702,
+      "source_sha256": "bad0b8b6e319426a1fa094e05f2bdf1a2542b182bd704c20dcd179d5c562c6b1",
+      "status": "copied",
+      "backup_sha256": "bad0b8b6e319426a1fa094e05f2bdf1a2542b182bd704c20dcd179d5c562c6b1",
+      "backup_size": 1282
+    },
+    {
+      "path": "test_training/langsmith_pipeline_agent_readable.json",
+      "source_path": "/home/index/workspace/test_training/langsmith_pipeline_agent_readable.json",
+      "source_size": 33642,
+      "source_mtime_ns": 1782296859522831573,
+      "source_sha256": "f922a42294562c00cc91cf99f4d67b5c597a9e5d7e39619ca09372a6e161e792",
+      "status": "copied",
+      "backup_sha256": "f922a42294562c00cc91cf99f4d67b5c597a9e5d7e39619ca09372a6e161e792",
+      "backup_size": 33642
+    },
+    {
+      "path": "test_training/langsmith_pipeline_visualization.html",
+      "source_path": "/home/index/workspace/test_training/langsmith_pipeline_visualization.html",
+      "source_size": 1310903,
+      "source_mtime_ns": 1781716910441121270,
+      "source_sha256": "f7b77415b518923fb7c7968746d0acb7f675f761e68910c14366f85873cc073b",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "test_training/langsmith_pipeline_visualization_simple.html",
+      "source_path": "/home/index/workspace/test_training/langsmith_pipeline_visualization_simple.html",
+      "source_size": 25521,
+      "source_mtime_ns": 1781717587084893802,
+      "source_sha256": "2605f1eb688b82201bbf0d16432c9da186826aafa09c5829fb1fa06ce22e77c9",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "test_training/progress.txt",
+      "source_path": "/home/index/workspace/test_training/progress.txt",
+      "source_size": 4704,
+      "source_mtime_ns": 1786076703371526703,
+      "source_sha256": "dbec8710e1cfa28369d39de0c5f577b80391fb523035f69e5ce6cca8c7edbca2",
+      "status": "copied",
+      "backup_sha256": "dbec8710e1cfa28369d39de0c5f577b80391fb523035f69e5ce6cca8c7edbca2",
+      "backup_size": 4704
+    },
+    {
+      "path": "test_training/s-20260508120528-dbqhv-mr-g8rrx.yaml",
+      "source_path": "/home/index/workspace/test_training/s-20260508120528-dbqhv-mr-g8rrx.yaml",
+      "source_size": 2142,
+      "source_mtime_ns": 1782226237152788857,
+      "source_sha256": "6696d457f0cbed0fac7619643e4183ee4cc496501710fb54ef305ef2cfc7e8a1",
+      "status": "copied",
+      "backup_sha256": "6696d457f0cbed0fac7619643e4183ee4cc496501710fb54ef305ef2cfc7e8a1",
+      "backup_size": 2142
+    },
+    {
+      "path": "test_training/s-20260508120528-dbqhv.yaml",
+      "source_path": "/home/index/workspace/test_training/s-20260508120528-dbqhv.yaml",
+      "source_size": 433,
+      "source_mtime_ns": 1782226206879796293,
+      "source_sha256": "170c5d4b55df3148cdaa20b563a34d4670c445a9483d3e59e5973d946ec503ef",
+      "status": "copied",
+      "backup_sha256": "170c5d4b55df3148cdaa20b563a34d4670c445a9483d3e59e5973d946ec503ef",
+      "backup_size": 433
+    },
+    {
+      "path": "test_training/s-20260615193726-wzw67-mr-pd7g8.yaml",
+      "source_path": "/home/index/workspace/test_training/s-20260615193726-wzw67-mr-pd7g8.yaml",
+      "source_size": 2165,
+      "source_mtime_ns": 1782225653900898217,
+      "source_sha256": "38ceec788f95279bdc6cd29d7028891caadc37fe27e0a8af23e863d40959da21",
+      "status": "copied",
+      "backup_sha256": "38ceec788f95279bdc6cd29d7028891caadc37fe27e0a8af23e863d40959da21",
+      "backup_size": 2165
+    },
+    {
+      "path": "test_training/t-20260617212253-9j5tr.yaml",
+      "source_path": "/home/index/workspace/test_training/t-20260617212253-9j5tr.yaml",
+      "source_size": 1568,
+      "source_mtime_ns": 1781759432856067758,
+      "source_sha256": "178f013bce330017759265fd2d433146e529ca992c6af924cb69b1ec6905f65a",
+      "status": "copied",
+      "backup_sha256": "178f013bce330017759265fd2d433146e529ca992c6af924cb69b1ec6905f65a",
+      "backup_size": 1568
+    },
+    {
+      "path": "test_training/test_results.txt",
+      "source_path": "/home/index/workspace/test_training/test_results.txt",
+      "source_size": 3654,
+      "source_mtime_ns": 1786076731872566226,
+      "source_sha256": "3b38bff4e4a77c67f8b8c66153345cce2ce2799e0e785245b055ed101e6bf36e",
+      "status": "copied",
+      "backup_sha256": "3b38bff4e4a77c67f8b8c66153345cce2ce2799e0e785245b055ed101e6bf36e",
+      "backup_size": 3654
+    },
+    {
+      "path": "test_training/byteplus_jobs/no_think_full_48gpu/preflight_no_think_full_dataset.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/no_think_full_48gpu/preflight_no_think_full_dataset.sh",
+      "source_size": 2017,
+      "source_mtime_ns": 1781759657371264174,
+      "source_sha256": "8a377a645756c65a4843db299703d80a939d73c910951932207beb20355edb71",
+      "status": "copied",
+      "backup_sha256": "8a377a645756c65a4843db299703d80a939d73c910951932207beb20355edb71",
+      "backup_size": 2017
+    },
+    {
+      "path": "test_training/byteplus_jobs/no_think_full_48gpu/train_full_16gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/no_think_full_48gpu/train_full_16gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_size": 6222,
+      "source_mtime_ns": 1781795250467901735,
+      "source_sha256": "170926547818ef1c796af361af18c525be28d0032e09bb416bd180c2930d2c83",
+      "status": "copied",
+      "backup_sha256": "170926547818ef1c796af361af18c525be28d0032e09bb416bd180c2930d2c83",
+      "backup_size": 6222
+    },
+    {
+      "path": "test_training/byteplus_jobs/no_think_full_48gpu/train_full_24gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/no_think_full_48gpu/train_full_24gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_size": 6222,
+      "source_mtime_ns": 1781794216253113159,
+      "source_sha256": "93020d6f1ddc6fa78e16a8395df155c932f12f48e10eda4540a5d39bdce3acb4",
+      "status": "copied",
+      "backup_sha256": "93020d6f1ddc6fa78e16a8395df155c932f12f48e10eda4540a5d39bdce3acb4",
+      "backup_size": 6222
+    },
+    {
+      "path": "test_training/byteplus_jobs/no_think_full_48gpu/train_full_32gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/no_think_full_48gpu/train_full_32gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_size": 6222,
+      "source_mtime_ns": 1781794216083113233,
+      "source_sha256": "de51607c6c11b4314afb8aee659308420979e95663ca3d3f20f8daa58db59c44",
+      "status": "copied",
+      "backup_sha256": "de51607c6c11b4314afb8aee659308420979e95663ca3d3f20f8daa58db59c44",
+      "backup_size": 6222
+    },
+    {
+      "path": "test_training/byteplus_jobs/no_think_full_48gpu/train_full_48gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/no_think_full_48gpu/train_full_48gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh",
+      "source_size": 6222,
+      "source_mtime_ns": 1781759657541264262,
+      "source_sha256": "416bb846b0423683bcf238080bbff0a5a2f7038f331dfb5f8f748389e5cba401",
+      "status": "copied",
+      "backup_sha256": "416bb846b0423683bcf238080bbff0a5a2f7038f331dfb5f8f748389e5cba401",
+      "backup_size": 6222
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/run_32gpu_35a3b_no_think_sft_pinned.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/run_32gpu_35a3b_no_think_sft_pinned.sh",
+      "source_size": 6230,
+      "source_mtime_ns": 1781952949293305648,
+      "source_sha256": "e1f8375949722cdc6f980f3eac22a4e2638ed087b36f621eefd0dd5231e73f2a",
+      "status": "copied",
+      "backup_sha256": "e1f8375949722cdc6f980f3eac22a4e2638ed087b36f621eefd0dd5231e73f2a",
+      "backup_size": 6230
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_debug_32gpu_no_think_full_35a3b_te_fused_ce_gbs72_max180k_iters80.sh",
+      "source_size": 5091,
+      "source_mtime_ns": 1781886928356848607,
+      "source_sha256": "15fbdccdc11990a7a8d5356fd5318c068b155d91e22d87347e07f273a36affa3",
+      "status": "copied",
+      "backup_sha256": "15fbdccdc11990a7a8d5356fd5318c068b155d91e22d87347e07f273a36affa3",
+      "backup_size": 5091
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned_zhangyu_online.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_pinned_zhangyu_online.sh",
+      "source_size": 5555,
+      "source_mtime_ns": 1781899745088721444,
+      "source_sha256": "771c256fa8aa528276c7340999d488523baa8ac9c563202e3e678386bf79e81b",
+      "status": "copied",
+      "backup_sha256": "771c256fa8aa528276c7340999d488523baa8ac9c563202e3e678386bf79e81b",
+      "backup_size": 5555
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_zhangyu_online.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce_zhangyu_online.sh",
+      "source_size": 4664,
+      "source_mtime_ns": 1781886928013848236,
+      "source_sha256": "0bdfc4e3e0af71ee57d60b49e3c82bbeceb9f058db5f146cb74f0806e396c450",
+      "status": "copied",
+      "backup_sha256": "0bdfc4e3e0af71ee57d60b49e3c82bbeceb9f058db5f146cb74f0806e396c450",
+      "backup_size": 4664
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_full_16gpu_no_think_user_worker_35a3b_te_fused_ce_pinned.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_full_16gpu_no_think_user_worker_35a3b_te_fused_ce_pinned.sh",
+      "source_size": 829,
+      "source_mtime_ns": 1782122806024272972,
+      "source_sha256": "f9adc1a6fa0ef2b32ae35231571bc0ecfa2f31da5a15698c869808fc9fd5a980",
+      "status": "copied",
+      "backup_sha256": "f9adc1a6fa0ef2b32ae35231571bc0ecfa2f31da5a15698c869808fc9fd5a980",
+      "backup_size": 829
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k.sh",
+      "source_size": 739,
+      "source_mtime_ns": 1781978389020339912,
+      "source_sha256": "487c416410bc5f5e3bf4ebf37826d5aeb09d3eb3f9445013b9b1d28d02b76ec0",
+      "status": "copied",
+      "backup_sha256": "487c416410bc5f5e3bf4ebf37826d5aeb09d3eb3f9445013b9b1d28d02b76ec0",
+      "backup_size": 739
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_full_32gpu_no_think_user_worker_no_persist_max180k_35a3b_te_fused_ce_gbs72.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_full_32gpu_no_think_user_worker_no_persist_max180k_35a3b_te_fused_ce_gbs72.sh",
+      "source_size": 826,
+      "source_mtime_ns": 1781978389198340036,
+      "source_sha256": "c34bfec751ab04d01c27a3899eaf076e5076d33f5d2c27bfc26dcf8aa7b843ef",
+      "status": "copied",
+      "backup_sha256": "c34bfec751ab04d01c27a3899eaf076e5076d33f5d2c27bfc26dcf8aa7b843ef",
+      "backup_size": 826
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_full_32gpu_user_worker_35a3b_te_fused_ce_gbs72_max180k.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_full_32gpu_user_worker_35a3b_te_fused_ce_gbs72_max180k.sh",
+      "source_size": 722,
+      "source_mtime_ns": 1782122805855273006,
+      "source_sha256": "892f1f20074ddcff670d98bc733609c32a98541b2263194d5da1d971a4ec154e",
+      "status": "copied",
+      "backup_sha256": "892f1f20074ddcff670d98bc733609c32a98541b2263194d5da1d971a4ec154e",
+      "backup_size": 722
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_sampled_16gpu_no_think_all_1000_35a3b_te_fused_ce_pinned.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_sampled_16gpu_no_think_all_1000_35a3b_te_fused_ce_pinned.sh",
+      "source_size": 757,
+      "source_mtime_ns": 1782034081744640998,
+      "source_sha256": "fe43bf55a282d478ae148838ef553d31b6599fee9f0ad2a727017f0e5afb00ac",
+      "status": "copied",
+      "backup_sha256": "fe43bf55a282d478ae148838ef553d31b6599fee9f0ad2a727017f0e5afb00ac",
+      "backup_size": 757
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_sampled_16gpu_no_think_all_2000_35a3b_te_fused_ce_pinned.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_sampled_16gpu_no_think_all_2000_35a3b_te_fused_ce_pinned.sh",
+      "source_size": 757,
+      "source_mtime_ns": 1782034081932641002,
+      "source_sha256": "42b6ec46c073bff305cfe54349be007d0b1395c4f35fa85c5261e1ae5e413939",
+      "status": "copied",
+      "backup_sha256": "42b6ec46c073bff305cfe54349be007d0b1395c4f35fa85c5261e1ae5e413939",
+      "backup_size": 757
+    },
+    {
+      "path": "test_training/byteplus_jobs/train_verdent_online/train_sampled_16gpu_no_think_user_worker_1000_35a3b_te_fused_ce_pinned.sh",
+      "source_path": "/home/index/workspace/test_training/byteplus_jobs/train_verdent_online/train_sampled_16gpu_no_think_user_worker_1000_35a3b_te_fused_ce_pinned.sh",
+      "source_size": 796,
+      "source_mtime_ns": 1782034081549640995,
+      "source_sha256": "14adca181a047d2a5bbbbaae0ed86004c66f9f4af8a8ef0b4036e9292f797d6e",
+      "status": "copied",
+      "backup_sha256": "14adca181a047d2a5bbbbaae0ed86004c66f9f4af8a8ef0b4036e9292f797d6e",
+      "backup_size": 796
+    },
+    {
+      "path": "test_training/data/qwen36_frappe_glm_three_runs_20260806/dataset_manifest.json",
+      "source_path": "/home/index/workspace/test_training/data/qwen36_frappe_glm_three_runs_20260806/dataset_manifest.json",
+      "source_size": 4028,
+      "source_mtime_ns": 1786045922212594710,
+      "source_sha256": "b86de2b0b5f344c6b32ace007c2a2d519d754a1d5fc349edc69d0e4de57410be",
+      "status": "copied",
+      "backup_sha256": "b86de2b0b5f344c6b32ace007c2a2d519d754a1d5fc349edc69d0e4de57410be",
+      "backup_size": 4028
+    },
+    {
+      "path": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v3/dataset_manifest.json",
+      "source_path": "/home/index/workspace/test_training/data/qwen36_frappe_glm_three_runs_20260806_v3/dataset_manifest.json",
+      "source_size": 5235,
+      "source_mtime_ns": 1786049207867580721,
+      "source_sha256": "947b29021e7a3e6eb9c671dfb48fc1f24217277ca7172d1e37c22b1d68f44218",
+      "status": "copied",
+      "backup_sha256": "947b29021e7a3e6eb9c671dfb48fc1f24217277ca7172d1e37c22b1d68f44218",
+      "backup_size": 5235
+    },
+    {
+      "path": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_arrow_type_manifest.json",
+      "source_path": "/home/index/workspace/test_training/data/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_arrow_type_manifest.json",
+      "source_size": 980,
+      "source_mtime_ns": 1786061173898712380,
+      "source_sha256": "005c433daad539ed7c53dca6b9dcb8870a41757763b56dd293c9113def18edfe",
+      "status": "copied",
+      "backup_sha256": "005c433daad539ed7c53dca6b9dcb8870a41757763b56dd293c9113def18edfe",
+      "backup_size": 980
+    },
+    {
+      "path": "test_training/data/saas_sft_v0_volc_exact47/saas_sft_v0_fireworks_exact47.train.jsonl",
+      "source_path": "/home/index/workspace/test_training/data/saas_sft_v0_volc_exact47/saas_sft_v0_fireworks_exact47.train.jsonl",
+      "source_size": 14742747,
+      "source_mtime_ns": 1786016876237667687,
+      "source_sha256": "b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "test_training/data/saas_sft_v0_volc_exact47/summary.json",
+      "source_path": "/home/index/workspace/test_training/data/saas_sft_v0_volc_exact47/summary.json",
+      "source_size": 799,
+      "source_mtime_ns": 1786016876566667638,
+      "source_sha256": "209ad7a7d4df0a2aeebf8eee8b9387600e9370e47ad359e165f5672756ecde85",
+      "status": "copied",
+      "backup_sha256": "209ad7a7d4df0a2aeebf8eee8b9387600e9370e47ad359e165f5672756ecde85",
+      "backup_size": 799
+    },
+    {
+      "path": "test_training/debug/eliminated.md",
+      "source_path": "/home/index/workspace/test_training/debug/eliminated.md",
+      "source_size": 677,
+      "source_mtime_ns": 1784288111905776066,
+      "source_sha256": "a7a430109c7555957b307068329fbc0028c7b89258dbc10ca0da4366abe1195e",
+      "status": "copied",
+      "backup_sha256": "a7a430109c7555957b307068329fbc0028c7b89258dbc10ca0da4366abe1195e",
+      "backup_size": 677
+    },
+    {
+      "path": "test_training/debug/findings.md",
+      "source_path": "/home/index/workspace/test_training/debug/findings.md",
+      "source_size": 4426,
+      "source_mtime_ns": 1784288112089776090,
+      "source_sha256": "d7e1fbe8c7d572ddc97f7c48e2571e4d7d15f0d24c5f34dc29b7a3b3735dd831",
+      "status": "copied",
+      "backup_sha256": "d7e1fbe8c7d572ddc97f7c48e2571e4d7d15f0d24c5f34dc29b7a3b3735dd831",
+      "backup_size": 4426
+    },
+    {
+      "path": "test_training/debug/hypotheses.md",
+      "source_path": "/home/index/workspace/test_training/debug/hypotheses.md",
+      "source_size": 110,
+      "source_mtime_ns": 1784288111718776042,
+      "source_sha256": "3494f2cb5ccd45309b1105c827355033e3ebfa42220a01de31a4b88094413aee",
+      "status": "copied",
+      "backup_sha256": "3494f2cb5ccd45309b1105c827355033e3ebfa42220a01de31a4b88094413aee",
+      "backup_size": 110
+    },
+    {
+      "path": "test_training/debug/remotelab-502-20260907/eliminated.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-502-20260907/eliminated.md",
+      "source_size": 1009,
+      "source_mtime_ns": 1788784667114954288,
+      "source_sha256": "ec14fe061ae29e027a13f0a59615a22e7970f58e05320d70a9c3079491f0d09f",
+      "status": "copied",
+      "backup_sha256": "ec14fe061ae29e027a13f0a59615a22e7970f58e05320d70a9c3079491f0d09f",
+      "backup_size": 1009
+    },
+    {
+      "path": "test_training/debug/remotelab-502-20260907/findings.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-502-20260907/findings.md",
+      "source_size": 4665,
+      "source_mtime_ns": 1788784689883964525,
+      "source_sha256": "556f8befcd24a0d826d6caf67cc8a7b9b4d885eecd4897b88fa76bb843e1775a",
+      "status": "copied",
+      "backup_sha256": "556f8befcd24a0d826d6caf67cc8a7b9b4d885eecd4897b88fa76bb843e1775a",
+      "backup_size": 4665
+    },
+    {
+      "path": "test_training/debug/remotelab-502-20260907/hypotheses.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-502-20260907/hypotheses.md",
+      "source_size": 104,
+      "source_mtime_ns": 1788784667113954288,
+      "source_sha256": "1bc1ef95d4b399dd184ff2554ec7f9c781efae144a37fffd8f6d7e94e6bc1bf8",
+      "status": "copied",
+      "backup_sha256": "1bc1ef95d4b399dd184ff2554ec7f9c781efae144a37fffd8f6d7e94e6bc1bf8",
+      "backup_size": 104
+    },
+    {
+      "path": "test_training/debug/remotelab-auth-loss/eliminated.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-auth-loss/eliminated.md",
+      "source_size": 2887,
+      "source_mtime_ns": 1784544574403518242,
+      "source_sha256": "e81fda4216ee848a9bf9869acdb6d5065bd49604581aafab0e06c1c9dfac8c94",
+      "status": "copied",
+      "backup_sha256": "e81fda4216ee848a9bf9869acdb6d5065bd49604581aafab0e06c1c9dfac8c94",
+      "backup_size": 2887
+    },
+    {
+      "path": "test_training/debug/remotelab-auth-loss/findings.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-auth-loss/findings.md",
+      "source_size": 8038,
+      "source_mtime_ns": 1784544574593518278,
+      "source_sha256": "5376cd60ac05f9662d9745cd87bf20a9a07dacb66ef0dd9ca562f6f6253bf17a",
+      "status": "copied",
+      "backup_sha256": "5376cd60ac05f9662d9745cd87bf20a9a07dacb66ef0dd9ca562f6f6253bf17a",
+      "backup_size": 8038
+    },
+    {
+      "path": "test_training/debug/remotelab-auth-loss/hypotheses.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-auth-loss/hypotheses.md",
+      "source_size": 4991,
+      "source_mtime_ns": 1784544574212518204,
+      "source_sha256": "89bedf5714b91f4f37dd37ba8b9b8a3ea9790eff75361890abe929426a08077d",
+      "status": "copied",
+      "backup_sha256": "89bedf5714b91f4f37dd37ba8b9b8a3ea9790eff75361890abe929426a08077d",
+      "backup_size": 4991
+    },
+    {
+      "path": "test_training/debug/remotelab-feishu-dualbot-20260907/eliminated.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-feishu-dualbot-20260907/eliminated.md",
+      "source_size": 969,
+      "source_mtime_ns": 1788786874592595681,
+      "source_sha256": "afae4fbfb138dc7d088cf92a042476f6b185c2f60e450ef86499f709d298570e",
+      "status": "copied",
+      "backup_sha256": "afae4fbfb138dc7d088cf92a042476f6b185c2f60e450ef86499f709d298570e",
+      "backup_size": 969
+    },
+    {
+      "path": "test_training/debug/remotelab-feishu-dualbot-20260907/findings.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-feishu-dualbot-20260907/findings.md",
+      "source_size": 4948,
+      "source_mtime_ns": 1788786874593595682,
+      "source_sha256": "d03680c27b077466f3309b9a4d61d48216576e856742b300195eb62c04596b8c",
+      "status": "copied",
+      "backup_sha256": "d03680c27b077466f3309b9a4d61d48216576e856742b300195eb62c04596b8c",
+      "backup_size": 4948
+    },
+    {
+      "path": "test_training/debug/remotelab-feishu-dualbot-20260907/hypotheses.md",
+      "source_path": "/home/index/workspace/test_training/debug/remotelab-feishu-dualbot-20260907/hypotheses.md",
+      "source_size": 1286,
+      "source_mtime_ns": 1788786874592595681,
+      "source_sha256": "1f599dfb6da299172eb34b98a4957307bb56efd2d1ae40df74663cdb1ec974e0",
+      "status": "copied",
+      "backup_sha256": "1f599dfb6da299172eb34b98a4957307bb56efd2d1ae40df74663cdb1ec974e0",
+      "backup_size": 1286
+    },
+    {
+      "path": "test_training/docs/README.md",
+      "source_path": "/home/index/workspace/test_training/docs/README.md",
+      "source_size": 4847,
+      "source_mtime_ns": 1781630089480737958,
+      "source_sha256": "59559b3cc321b9551be1ac4382f14e9c8f46838489dfcb8a3c705adbee6455b0",
+      "status": "copied",
+      "backup_sha256": "59559b3cc321b9551be1ac4382f14e9c8f46838489dfcb8a3c705adbee6455b0",
+      "backup_size": 4847
+    },
+    {
+      "path": "test_training/docs/byteplus_mlp_training_runbook.md",
+      "source_path": "/home/index/workspace/test_training/docs/byteplus_mlp_training_runbook.md",
+      "source_size": 11799,
+      "source_mtime_ns": 1781630089325737592,
+      "source_sha256": "56a62053e6f2cb979663de515757af9483526b8e36208bea508ea37238368b60",
+      "status": "copied",
+      "backup_sha256": "56a62053e6f2cb979663de515757af9483526b8e36208bea508ea37238368b60",
+      "backup_size": 11799
+    },
+    {
+      "path": "test_training/docs/checkpoint_deployment_assessment.md",
+      "source_path": "/home/index/workspace/test_training/docs/checkpoint_deployment_assessment.md",
+      "source_size": 16244,
+      "source_mtime_ns": 1781014048492434947,
+      "source_sha256": "4c21bce28de292a77342ed7041e90d150a198c6ba7063fff3db0a8a40dfef417",
+      "status": "copied",
+      "backup_sha256": "4c21bce28de292a77342ed7041e90d150a198c6ba7063fff3db0a8a40dfef417",
+      "backup_size": 16244
+    },
+    {
+      "path": "test_training/docs/deployment_runbook.md",
+      "source_path": "/home/index/workspace/test_training/docs/deployment_runbook.md",
+      "source_size": 7604,
+      "source_mtime_ns": 1781014841295277753,
+      "source_sha256": "46078b6b238c85ce5876565c7b32889559a7d07f9129f29daf8f86ffbef11543",
+      "status": "copied",
+      "backup_sha256": "46078b6b238c85ce5876565c7b32889559a7d07f9129f29daf8f86ffbef11543",
+      "backup_size": 7604
+    },
+    {
+      "path": "test_training/docs/evidence_index.md",
+      "source_path": "/home/index/workspace/test_training/docs/evidence_index.md",
+      "source_size": 15808,
+      "source_mtime_ns": 1781673610783832655,
+      "source_sha256": "f847ece7449f1300193be48e6d0b4fc84cc9ae9723fdeb2db605dbfbd17778b8",
+      "status": "copied",
+      "backup_sha256": "f847ece7449f1300193be48e6d0b4fc84cc9ae9723fdeb2db605dbfbd17778b8",
+      "backup_size": 15808
+    },
+    {
+      "path": "test_training/docs/goal_completion_audit_20260609.md",
+      "source_path": "/home/index/workspace/test_training/docs/goal_completion_audit_20260609.md",
+      "source_size": 3176,
+      "source_mtime_ns": 1781014219817408855,
+      "source_sha256": "6ca0e8cf80f19a13f6a832d86de24a58cefc1ee582aa989ed5fbdf627f117dc8",
+      "status": "copied",
+      "backup_sha256": "6ca0e8cf80f19a13f6a832d86de24a58cefc1ee582aa989ed5fbdf627f117dc8",
+      "backup_size": 3176
+    },
+    {
+      "path": "test_training/docs/loss_alignment_data_mask_lessons.md",
+      "source_path": "/home/index/workspace/test_training/docs/loss_alignment_data_mask_lessons.md",
+      "source_size": 9845,
+      "source_mtime_ns": 1781006816106475182,
+      "source_sha256": "56e0c5b60e82c6f839f68b516f40cd6ed5b6b22ff147dcb976e7893d6b9beaac",
+      "status": "copied",
+      "backup_sha256": "56e0c5b60e82c6f839f68b516f40cd6ed5b6b22ff147dcb976e7893d6b9beaac",
+      "backup_size": 9845
+    },
+    {
+      "path": "test_training/docs/megatron_bridge_west_us_training_env.md",
+      "source_path": "/home/index/workspace/test_training/docs/megatron_bridge_west_us_training_env.md",
+      "source_size": 6440,
+      "source_mtime_ns": 1781006801766478073,
+      "source_sha256": "29b7a31bbcdbbc60893e60991c9cb0645d411ab688625830b256e71142a807a7",
+      "status": "copied",
+      "backup_sha256": "29b7a31bbcdbbc60893e60991c9cb0645d411ab688625830b256e71142a807a7",
+      "backup_size": 6440
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_full_sampled_1000_16gpu_te_fused_ce_pinned_zhangyu_online_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_full_sampled_1000_16gpu_te_fused_ce_pinned_zhangyu_online_task.yaml",
+      "source_size": 1333,
+      "source_mtime_ns": 1781899753681742127,
+      "source_sha256": "612ccbdd9e693da49777b3e354655fdfd23a1234c7a5eefff5a5b68198cfea1e",
+      "status": "copied",
+      "backup_sha256": "612ccbdd9e693da49777b3e354655fdfd23a1234c7a5eefff5a5b68198cfea1e",
+      "backup_size": 1333
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_full_sampled_1000_16gpu_te_fused_ce_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_full_sampled_1000_16gpu_te_fused_ce_task.yaml",
+      "source_size": 1697,
+      "source_mtime_ns": 1781689123654911354,
+      "source_sha256": "b9af2de1d962b5d5274298862037a7c618e5b74ec1d8aa412f8b8f7e71481d74",
+      "status": "copied",
+      "backup_sha256": "b9af2de1d962b5d5274298862037a7c618e5b74ec1d8aa412f8b8f7e71481d74",
+      "backup_size": 1697
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_full_sampled_1000_16gpu_te_fused_ce_zhangyu_online_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_full_sampled_1000_16gpu_te_fused_ce_zhangyu_online_task.yaml",
+      "source_size": 1276,
+      "source_mtime_ns": 1781886928184848421,
+      "source_sha256": "aa3bbf5524d7850c9d5f16a770cde4d84708952b7247effd8d54937293af487f",
+      "status": "copied",
+      "backup_sha256": "aa3bbf5524d7850c9d5f16a770cde4d84708952b7247effd8d54937293af487f",
+      "backup_size": 1276
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_all_sampled_1000_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_all_sampled_1000_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_size": 1253,
+      "source_mtime_ns": 1782034082308641010,
+      "source_sha256": "3b76ebf5bbd6e9b928e383054d3b0674b84803131b53f83fc98d9332e3be81a6",
+      "status": "copied",
+      "backup_sha256": "3b76ebf5bbd6e9b928e383054d3b0674b84803131b53f83fc98d9332e3be81a6",
+      "backup_size": 1253
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_all_sampled_2000_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_all_sampled_2000_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_size": 1253,
+      "source_mtime_ns": 1782034082493641014,
+      "source_sha256": "5b8aa755eb65c17cee08b6b461fbeb3b20605c9ce59e97c01f9b4291287b1b40",
+      "status": "copied",
+      "backup_sha256": "5b8aa755eb65c17cee08b6b461fbeb3b20605c9ce59e97c01f9b4291287b1b40",
+      "backup_size": 1253
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_full_16gpu_te_fused_ce_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_full_16gpu_te_fused_ce_task.yaml",
+      "source_size": 1364,
+      "source_mtime_ns": 1781795250642901698,
+      "source_sha256": "f7ea2ee1a2194fb4f2bec89543eb10611b440ef88f8def9d586b0889afb9fb87",
+      "status": "copied",
+      "backup_sha256": "f7ea2ee1a2194fb4f2bec89543eb10611b440ef88f8def9d586b0889afb9fb87",
+      "backup_size": 1364
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_full_24gpu_te_fused_ce_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_full_24gpu_te_fused_ce_task.yaml",
+      "source_size": 1364,
+      "source_mtime_ns": 1781794216597113009,
+      "source_sha256": "fc6473e87ba5cc79ea31b35251dd7406b72e2d403b0077b2d74cd5cf359e1995",
+      "status": "copied",
+      "backup_sha256": "fc6473e87ba5cc79ea31b35251dd7406b72e2d403b0077b2d74cd5cf359e1995",
+      "backup_size": 1364
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_full_32gpu_te_fused_ce_gbs72_max180k_debug_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_full_32gpu_te_fused_ce_gbs72_max180k_debug_task.yaml",
+      "source_size": 1315,
+      "source_mtime_ns": 1781886928526848791,
+      "source_sha256": "7ffd71d79e9c152dbc646c03d330d019fa9c0dfa13aaca92ab164517d06a32ae",
+      "status": "copied",
+      "backup_sha256": "7ffd71d79e9c152dbc646c03d330d019fa9c0dfa13aaca92ab164517d06a32ae",
+      "backup_size": 1315
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_full_32gpu_te_fused_ce_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_full_32gpu_te_fused_ce_task.yaml",
+      "source_size": 1364,
+      "source_mtime_ns": 1781794216426113083,
+      "source_sha256": "42378e9dce0c73b2e025498f05022399ea98b1a88450873d51aa94689e762b3d",
+      "status": "copied",
+      "backup_sha256": "42378e9dce0c73b2e025498f05022399ea98b1a88450873d51aa94689e762b3d",
+      "backup_size": 1364
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_full_48gpu_te_fused_ce_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_full_48gpu_te_fused_ce_task.yaml",
+      "source_size": 1350,
+      "source_mtime_ns": 1781759811590389370,
+      "source_sha256": "e94883e98bad44c2ff81531eb131c9eca9e46145d88a1f64c6133fea9ae182ca",
+      "status": "copied",
+      "backup_sha256": "e94883e98bad44c2ff81531eb131c9eca9e46145d88a1f64c6133fea9ae182ca",
+      "backup_size": 1350
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_full_dataset_preflight_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_full_dataset_preflight_task.yaml",
+      "source_size": 1187,
+      "source_mtime_ns": 1781759811420389235,
+      "source_sha256": "dc2e908476438e8b078df045c421caebf0e917c03637a492321f5011a517d322",
+      "status": "copied",
+      "backup_sha256": "dc2e908476438e8b078df045c421caebf0e917c03637a492321f5011a517d322",
+      "backup_size": 1187
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_sampled_16gpu_diag_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_sampled_16gpu_diag_task.yaml",
+      "source_size": 1665,
+      "source_mtime_ns": 1781602770457555121,
+      "source_sha256": "c0665d778ef2dde303fd571f65604222d792fa705e2b0e68f47be2e20f5e9499",
+      "status": "copied",
+      "backup_sha256": "c0665d778ef2dde303fd571f65604222d792fa705e2b0e68f47be2e20f5e9499",
+      "backup_size": 1665
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_sampled_16gpu_len32k_noxentfusion_diag_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_sampled_16gpu_len32k_noxentfusion_diag_task.yaml",
+      "source_size": 1705,
+      "source_mtime_ns": 1781605211737235967,
+      "source_sha256": "a7f9e7bae0490a66a1e44ef584142fa57860ca9617d3d11789ac27cb52383fd0",
+      "status": "copied",
+      "backup_sha256": "a7f9e7bae0490a66a1e44ef584142fa57860ca9617d3d11789ac27cb52383fd0",
+      "backup_size": 1705
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_sampled_16gpu_te_fused_ce_diag_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_sampled_16gpu_te_fused_ce_diag_task.yaml",
+      "source_size": 1663,
+      "source_mtime_ns": 1781629708611827696,
+      "source_sha256": "d7866a796c3c0478cee41c899b2edd3a41a0138867fef662b4d0581ce4fc5ded",
+      "status": "copied",
+      "backup_sha256": "d7866a796c3c0478cee41c899b2edd3a41a0138867fef662b4d0581ce4fc5ded",
+      "backup_size": 1663
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_sampled_24gpu_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_sampled_24gpu_task.yaml",
+      "source_size": 1625,
+      "source_mtime_ns": 1781553750687634447,
+      "source_sha256": "202c295d00fed4b6519a0a5657f7a0dca9119b95d1ac61bc3a4b88d79de4ab0d",
+      "status": "copied",
+      "backup_sha256": "202c295d00fed4b6519a0a5657f7a0dca9119b95d1ac61bc3a4b88d79de4ab0d",
+      "backup_size": 1625
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_short32_16gpu_len32k_noxentfusion_diag_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_short32_16gpu_len32k_noxentfusion_diag_task.yaml",
+      "source_size": 1708,
+      "source_mtime_ns": 1781607113604225915,
+      "source_sha256": "72c209fd6915350a38fcaff1f14ec1f1fefe729cbce122bac9f5886b49087143",
+      "status": "copied",
+      "backup_sha256": "72c209fd6915350a38fcaff1f14ec1f1fefe729cbce122bac9f5886b49087143",
+      "backup_size": 1708
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_user_worker_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_user_worker_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+      "source_size": 1322,
+      "source_mtime_ns": 1781953250290578190,
+      "source_sha256": "e36c78fb091f2d72f842cc317346ab9dba14189cf3370867c269c97138a8ccf3",
+      "status": "copied",
+      "backup_sha256": "e36c78fb091f2d72f842cc317346ab9dba14189cf3370867c269c97138a8ccf3",
+      "backup_size": 1322
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_user_worker_full_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_user_worker_full_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_size": 1234,
+      "source_mtime_ns": 1782122806367272902,
+      "source_sha256": "4c0e570c2344ba40c365398b9413c9e845dcf321897fe1fc9a79a9e5e4a9459f",
+      "status": "copied",
+      "backup_sha256": "4c0e570c2344ba40c365398b9413c9e845dcf321897fe1fc9a79a9e5e4a9459f",
+      "backup_size": 1234
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_user_worker_no_persist_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_user_worker_no_persist_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+      "source_size": 1346,
+      "source_mtime_ns": 1781953250470578349,
+      "source_sha256": "30b0aeb542c4940110ad217939b7faaef961a8a621005e6f3e25711972dfcbb7",
+      "status": "copied",
+      "backup_sha256": "30b0aeb542c4940110ad217939b7faaef961a8a621005e6f3e25711972dfcbb7",
+      "backup_size": 1346
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_no_think_user_worker_sampled_1000_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_no_think_user_worker_sampled_1000_16gpu_te_fused_ce_pinned_task.yaml",
+      "source_size": 1270,
+      "source_mtime_ns": 1782034082120641006,
+      "source_sha256": "9e2014f121b93fef2744f7b19accfbf5922b289e787a5f00db41b8415976cc1b",
+      "status": "copied",
+      "backup_sha256": "9e2014f121b93fef2744f7b19accfbf5922b289e787a5f00db41b8415976cc1b",
+      "backup_size": 1270
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun2_20260810_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun2_20260810_task.yaml",
+      "source_size": 2006,
+      "source_mtime_ns": 1786377725221226735,
+      "source_sha256": "f7a4d30177b02e83f39de2ad09d58827748a797fa06930c8e26035ee84bc638c",
+      "status": "copied",
+      "backup_sha256": "f7a4d30177b02e83f39de2ad09d58827748a797fa06930c8e26035ee84bc638c",
+      "backup_size": 2006
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun3_20260811_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun3_20260811_task.yaml",
+      "source_size": 1996,
+      "source_mtime_ns": 1786416589581954674,
+      "source_sha256": "cd1c0bc91d24ec437959b18826a7508c38e100e167ebd711b59402df73cf6cab",
+      "status": "copied",
+      "backup_sha256": "cd1c0bc91d24ec437959b18826a7508c38e100e167ebd711b59402df73cf6cab",
+      "backup_size": 1996
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun_20260810_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun_20260810_task.yaml",
+      "source_size": 2098,
+      "source_mtime_ns": 1786353971657337333,
+      "source_sha256": "1a7aa6825a3a0968ae2c6da1287d40c103a854aeab7df0799033a0e26ba0658c",
+      "status": "copied",
+      "backup_sha256": "1a7aa6825a3a0968ae2c6da1287d40c103a854aeab7df0799033a0e26ba0658c",
+      "backup_size": 2098
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_task.yaml",
+      "source_size": 2025,
+      "source_mtime_ns": 1786049175875529208,
+      "source_sha256": "353e413ac42ca4d4ef5ae26e451e4d7915cdd87e4fb6c715b515977c5963d2a9",
+      "status": "copied",
+      "backup_sha256": "353e413ac42ca4d4ef5ae26e451e4d7915cdd87e4fb6c715b515977c5963d2a9",
+      "backup_size": 2025
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun2_20260810_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun2_20260810_task.yaml",
+      "source_size": 2073,
+      "source_mtime_ns": 1786359302680109719,
+      "source_sha256": "ca578fc86599a9cad3062734f9ac89cc38eaab3eb5c7f693acca6d3c862da943",
+      "status": "copied",
+      "backup_sha256": "ca578fc86599a9cad3062734f9ac89cc38eaab3eb5c7f693acca6d3c862da943",
+      "backup_size": 2073
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun3_20260810_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun3_20260810_task.yaml",
+      "source_size": 2059,
+      "source_mtime_ns": 1786377725222226736,
+      "source_sha256": "1cfbd91ac3310ef0332771329407800aeab590acffbd6b6508cf80c24eb4a286",
+      "status": "copied",
+      "backup_sha256": "1cfbd91ac3310ef0332771329407800aeab590acffbd6b6508cf80c24eb4a286",
+      "backup_size": 2059
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun4_20260811_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun4_20260811_task.yaml",
+      "source_size": 2051,
+      "source_mtime_ns": 1786416589581954674,
+      "source_sha256": "0bad21c2d255c206507eb1276037554dea8a7d1ff73f9e50dad3a38454dde4e2",
+      "status": "copied",
+      "backup_sha256": "0bad21c2d255c206507eb1276037554dea8a7d1ff73f9e50dad3a38454dde4e2",
+      "backup_size": 2051
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun_20260810_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun_20260810_task.yaml",
+      "source_size": 2099,
+      "source_mtime_ns": 1786332072492175672,
+      "source_sha256": "816a5f60001748acff32d9814e36c372998a25092d48a7efa639a3c47fbadf3c",
+      "status": "copied",
+      "backup_sha256": "816a5f60001748acff32d9814e36c372998a25092d48a7efa639a3c47fbadf3c",
+      "backup_size": 2099
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_task.yaml",
+      "source_size": 2026,
+      "source_mtime_ns": 1786049175877529211,
+      "source_sha256": "26270b66cf9fb12a10ec5348ed4727ed2c260cc278d0df447a103b0ef0aeb5fd",
+      "status": "copied",
+      "backup_sha256": "26270b66cf9fb12a10ec5348ed4727ed2c260cc278d0df447a103b0ef0aeb5fd",
+      "backup_size": 2026
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_rerun_20260810_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_rerun_20260810_task.yaml",
+      "source_size": 2217,
+      "source_mtime_ns": 1786332072493175673,
+      "source_sha256": "0f91beafd1532b418f89578d9cc27ff790b708049569154f9b89b8ddd4fabc33",
+      "status": "copied",
+      "backup_sha256": "0f91beafd1532b418f89578d9cc27ff790b708049569154f9b89b8ddd4fabc33",
+      "backup_size": 2217
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_task.yaml",
+      "source_size": 2155,
+      "source_mtime_ns": 1786061200353762300,
+      "source_sha256": "0fb203cb68d6e84967e8ac2c646da68dcc0662ee4b3f2c4343e05d7cb8b6bc6d",
+      "status": "copied",
+      "backup_sha256": "0fb203cb68d6e84967e8ac2c646da68dcc0662ee4b3f2c4343e05d7cb8b6bc6d",
+      "backup_size": 2155
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_saas_sft_v0_exact47_qwen36_27b_16gpu_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_saas_sft_v0_exact47_qwen36_27b_16gpu_task.yaml",
+      "source_size": 1212,
+      "source_mtime_ns": 1786039556282518060,
+      "source_sha256": "6c56539cb18e702f279591f3faf890ba5d7ebbe0f4822a6e6a28ea781829c588",
+      "status": "copied",
+      "backup_sha256": "6c56539cb18e702f279591f3faf890ba5d7ebbe0f4822a6e6a28ea781829c588",
+      "backup_size": 1212
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_saas_sft_v0_exact47_submission_20260806.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_saas_sft_v0_exact47_submission_20260806.md",
+      "source_size": 3304,
+      "source_mtime_ns": 1786042316355898877,
+      "source_sha256": "9b84cd64ca93a1d635a427d79324746c0d3415815d109e529b92b9c0b345df9c",
+      "status": "copied",
+      "backup_sha256": "9b84cd64ca93a1d635a427d79324746c0d3415815d109e529b92b9c0b345df9c",
+      "backup_size": 3304
+    },
+    {
+      "path": "test_training/docs/generated/byteplus_user_worker_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/byteplus_user_worker_32gpu_te_fused_ce_gbs72_max180k_task.yaml",
+      "source_size": 1280,
+      "source_mtime_ns": 1782122806197272937,
+      "source_sha256": "7714001f23c168c2e4b804e11d7da2978cfb0b44adedae978a14e620446d593b",
+      "status": "copied",
+      "backup_sha256": "7714001f23c168c2e4b804e11d7da2978cfb0b44adedae978a14e620446d593b",
+      "backup_size": 1280
+    },
+    {
+      "path": "test_training/docs/generated/glm_s3_reader_test_training_policy.json",
+      "source_path": "/home/index/workspace/test_training/docs/generated/glm_s3_reader_test_training_policy.json",
+      "source_size": 2123,
+      "source_mtime_ns": 1780949489461966360,
+      "source_sha256": "5d7fc8da9a931463c34b942e1905215c59d5352649e819245f86b47a1af39fe6",
+      "status": "copied",
+      "backup_sha256": "5d7fc8da9a931463c34b942e1905215c59d5352649e819245f86b47a1af39fe6",
+      "backup_size": 2123
+    },
+    {
+      "path": "test_training/docs/generated/gpu_allocation_20260609.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/gpu_allocation_20260609.md",
+      "source_size": 3001,
+      "source_mtime_ns": 1781014029010437622,
+      "source_sha256": "829214a26555095ff67fcd4974a0dc90c92cc390e8134bdc83e92ea4f1ad41ec",
+      "status": "copied",
+      "backup_sha256": "829214a26555095ff67fcd4974a0dc90c92cc390e8134bdc83e92ea4f1ad41ec",
+      "backup_size": 3001
+    },
+    {
+      "path": "test_training/docs/generated/gpu_sharing_lowmem_runbook_20260615.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/gpu_sharing_lowmem_runbook_20260615.md",
+      "source_size": 10671,
+      "source_mtime_ns": 1781629553401456207,
+      "source_sha256": "082c84e50beb1391460fc1f7638662cc62d459f189bc3d725713de7bcdb604ae",
+      "status": "copied",
+      "backup_sha256": "082c84e50beb1391460fc1f7638662cc62d459f189bc3d725713de7bcdb604ae",
+      "backup_size": 10671
+    },
+    {
+      "path": "test_training/docs/generated/hyperpod_goal_completion_audit_20260616.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/hyperpod_goal_completion_audit_20260616.md",
+      "source_size": 6133,
+      "source_mtime_ns": 1781647824361202915,
+      "source_sha256": "d327d43ef2eda9db43a2509f4eb10d274ac1e90e205a8564598a95b5370ab954",
+      "status": "copied",
+      "backup_sha256": "d327d43ef2eda9db43a2509f4eb10d274ac1e90e205a8564598a95b5370ab954",
+      "backup_size": 6133
+    },
+    {
+      "path": "test_training/docs/generated/hyperpod_training_operator_install_notes.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/hyperpod_training_operator_install_notes.md",
+      "source_size": 3865,
+      "source_mtime_ns": 1781647590720727598,
+      "source_sha256": "19cb621aa64d35d599e3c746d1113a5dda4c22e69ec92f56cd02474e0bd8ad31",
+      "status": "copied",
+      "backup_sha256": "19cb621aa64d35d599e3c746d1113a5dda4c22e69ec92f56cd02474e0bd8ad31",
+      "backup_size": 3865
+    },
+    {
+      "path": "test_training/docs/generated/k8s_iam_s3_access_20260609.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/k8s_iam_s3_access_20260609.md",
+      "source_size": 2503,
+      "source_mtime_ns": 1781006471650491436,
+      "source_sha256": "7b03da76d433f16c71dc057195ddeb54769178827ca017076773e63c02c72909",
+      "status": "copied",
+      "backup_sha256": "7b03da76d433f16c71dc057195ddeb54769178827ca017076773e63c02c72909",
+      "backup_size": 2503
+    },
+    {
+      "path": "test_training/docs/generated/no_think_hot_switch_audit_20260620.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/no_think_hot_switch_audit_20260620.md",
+      "source_size": 3122,
+      "source_mtime_ns": 1781953483992779304,
+      "source_sha256": "cb5888452704ea4b28a7296723107631a992b6279d7d196e2f7fb5af11ae3b7f",
+      "status": "copied",
+      "backup_sha256": "cb5888452704ea4b28a7296723107631a992b6279d7d196e2f7fb5af11ae3b7f",
+      "backup_size": 3122
+    },
+    {
+      "path": "test_training/docs/generated/no_think_sampled_16gpu_submissions_20260621.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/no_think_sampled_16gpu_submissions_20260621.md",
+      "source_size": 3793,
+      "source_mtime_ns": 1782051764957029458,
+      "source_sha256": "71134422e9c6dfb92100cf2410fb8041d23efe37be01fe61db7dfea67e681074",
+      "status": "copied",
+      "backup_sha256": "71134422e9c6dfb92100cf2410fb8041d23efe37be01fe61db7dfea67e681074",
+      "backup_size": 3793
+    },
+    {
+      "path": "test_training/docs/generated/nvidia_device_plugin_time_slicing_configmap.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/nvidia_device_plugin_time_slicing_configmap.yaml",
+      "source_size": 516,
+      "source_mtime_ns": 1781553467068922629,
+      "source_sha256": "35c3969732368292db375cc9a805d850ccf5d0996af32e6b4b17fe6916453f7d",
+      "status": "copied",
+      "backup_sha256": "35c3969732368292db375cc9a805d850ccf5d0996af32e6b4b17fe6916453f7d",
+      "backup_size": 516
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_colocated_gpu_smoke_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_colocated_gpu_smoke_job.yaml",
+      "source_size": 1747,
+      "source_mtime_ns": 1781553548382120429,
+      "source_sha256": "060002a3c116fe2fe56032b90f7c45baf8781c23f6141b7bc43958273867bb86",
+      "status": "copied",
+      "backup_sha256": "060002a3c116fe2fe56032b90f7c45baf8781c23f6141b7bc43958273867bb86",
+      "backup_size": 1747
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_frappe_glm_three_run_final_report.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_frappe_glm_three_run_final_report.md",
+      "source_size": 3823,
+      "source_mtime_ns": 1786076661823479690,
+      "source_sha256": "1c16bb659ca9e00c7ddf91841a244459313ed692e3ad5444aeeea1f28ec60e21",
+      "status": "copied",
+      "backup_sha256": "1c16bb659ca9e00c7ddf91841a244459313ed692e3ad5444aeeea1f28ec60e21",
+      "backup_size": 3823
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_frappe_glm_three_run_final_summary.json",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_frappe_glm_three_run_final_summary.json",
+      "source_size": 2441,
+      "source_mtime_ns": 1786076661823479690,
+      "source_sha256": "6405b2cacb992ec4c98a77d1204af33e729a09faefcab0644e805acae854497e",
+      "status": "copied",
+      "backup_sha256": "6405b2cacb992ec4c98a77d1204af33e729a09faefcab0644e805acae854497e",
+      "backup_size": 2441
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_full_sft_100_colocated_b200_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_full_sft_100_colocated_b200_job.yaml",
+      "source_size": 16139,
+      "source_mtime_ns": 1781615561083753485,
+      "source_sha256": "e7cf53e2868b02a1f785d3b1b6786cea28941695b844c5f8a00ec6141eb0b30f",
+      "status": "copied",
+      "backup_sha256": "e7cf53e2868b02a1f785d3b1b6786cea28941695b844c5f8a00ec6141eb0b30f",
+      "backup_size": 16139
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_aligned_a11_hyperpod_pytorch_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_aligned_a11_hyperpod_pytorch_job.yaml",
+      "source_size": 5318,
+      "source_mtime_ns": 1781647764288078846,
+      "source_sha256": "d7dd93f706f6019f7feae4ccdddf613213735b1ecc0cd1b81edc10455a766a3c",
+      "status": "copied",
+      "backup_sha256": "d7dd93f706f6019f7feae4ccdddf613213735b1ecc0cd1b81edc10455a766a3c",
+      "backup_size": 5318
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_b200_adjusted_formal_hpea_preflight_20260617.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_b200_adjusted_formal_hpea_preflight_20260617.md",
+      "source_size": 4247,
+      "source_mtime_ns": 1781675282775065431,
+      "source_sha256": "8193cd9152423a334b2a277ba5d9f3f662086eb210b7993d610a250cbe8ca48d",
+      "status": "copied",
+      "backup_sha256": "8193cd9152423a334b2a277ba5d9f3f662086eb210b7993d610a250cbe8ca48d",
+      "backup_size": 4247
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_b200_adjusted_formal_submission_20260617.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_b200_adjusted_formal_submission_20260617.md",
+      "source_size": 5699,
+      "source_mtime_ns": 1781673610616832517,
+      "source_sha256": "7f50c4adf3395143d69cc85d61b53456c058135f0119ca437f186d12d0f1fbd5",
+      "status": "copied",
+      "backup_sha256": "7f50c4adf3395143d69cc85d61b53456c058135f0119ca437f186d12d0f1fbd5",
+      "backup_size": 5699
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_b200_adjusted_online_validation_20260617.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_b200_adjusted_online_validation_20260617.md",
+      "source_size": 4628,
+      "source_mtime_ns": 1781663394419098199,
+      "source_sha256": "6c951061a70243e69e3125f84426f2d10a16a9973db182660079f353ed8c3111",
+      "status": "copied",
+      "backup_sha256": "6c951061a70243e69e3125f84426f2d10a16a9973db182660079f353ed8c3111",
+      "backup_size": 4628
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_b200_fullseq_cp4_smoke_validation_20260616.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_b200_fullseq_cp4_smoke_validation_20260616.md",
+      "source_size": 3503,
+      "source_mtime_ns": 1781647574868695632,
+      "source_sha256": "4126a413af033b053658b52291a690bada4abc1c322a3c6f42963b408280b8cf",
+      "status": "copied",
+      "backup_sha256": "4126a413af033b053658b52291a690bada4abc1c322a3c6f42963b408280b8cf",
+      "backup_size": 3503
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_full_repro_readiness_20260616.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_full_repro_readiness_20260616.md",
+      "source_size": 4602,
+      "source_mtime_ns": 1781647824673203556,
+      "source_sha256": "580fc7e119d7310bbec638100ceead25711cf24ff3d00f89302e20210a3d663d",
+      "status": "copied",
+      "backup_sha256": "580fc7e119d7310bbec638100ceead25711cf24ff3d00f89302e20210a3d663d",
+      "backup_size": 4602
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_hypd_prereqs.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_hypd_prereqs.yaml",
+      "source_size": 1023,
+      "source_mtime_ns": 1781630542444810321,
+      "source_sha256": "bb9510655691d8aece7d6b1abfb78d258d3dcfa750e05a25478f874f3561687a",
+      "status": "copied",
+      "backup_sha256": "bb9510655691d8aece7d6b1abfb78d258d3dcfa750e05a25478f874f3561687a",
+      "backup_size": 1023
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_hypd_smoke_hyperpod_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_hypd_smoke_hyperpod_job.yaml",
+      "source_size": 5729,
+      "source_mtime_ns": 1781644378117388381,
+      "source_sha256": "8abbd42764bdf096ec984a791d6b745066084dc71bd9f02c5f9a27cc2193a7e4",
+      "status": "copied",
+      "backup_sha256": "8abbd42764bdf096ec984a791d6b745066084dc71bd9f02c5f9a27cc2193a7e4",
+      "backup_size": 5729
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_mb_swift_hypd_smoke_validation_20260616.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_mb_swift_hypd_smoke_validation_20260616.md",
+      "source_size": 5336,
+      "source_mtime_ns": 1781645527508447450,
+      "source_sha256": "8f7442246e46be12604ee9ff061c58419cfcd990433ea3334fc4c6d98cbd8133",
+      "status": "copied",
+      "backup_sha256": "8f7442246e46be12604ee9ff061c58419cfcd990433ea3334fc4c6d98cbd8133",
+      "backup_size": 5336
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_conversion_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_conversion_job.yaml",
+      "source_size": 3774,
+      "source_mtime_ns": 1780949305750753596,
+      "source_sha256": "eb20f1e50e3eec773370258aa8cc5898e5c97e88dcbcfd217519ccba28e256bc",
+      "status": "copied",
+      "backup_sha256": "eb20f1e50e3eec773370258aa8cc5898e5c97e88dcbcfd217519ccba28e256bc",
+      "backup_size": 3774
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_conversion_smoke_attempt.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_conversion_smoke_attempt.md",
+      "source_size": 3739,
+      "source_mtime_ns": 1780952170244783941,
+      "source_sha256": "17f8de8401d527e33a2ee1d4f13259dd1cefdbd0a3bdd36fe3b96f9a3e5f41d0",
+      "status": "copied",
+      "backup_sha256": "17f8de8401d527e33a2ee1d4f13259dd1cefdbd0a3bdd36fe3b96f9a3e5f41d0",
+      "backup_size": 3739
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_conversion_smoke_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_conversion_smoke_job.yaml",
+      "source_size": 3571,
+      "source_mtime_ns": 1780949314486810675,
+      "source_sha256": "25358f35384d961253d1924cd1f47cc80da19073aee80106adc030d943794f10",
+      "status": "copied",
+      "backup_sha256": "25358f35384d961253d1924cd1f47cc80da19073aee80106adc030d943794f10",
+      "backup_size": 3571
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_deploy_apply_attempt.json",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_deploy_apply_attempt.json",
+      "source_size": 9880,
+      "source_mtime_ns": 1781006406116508573,
+      "source_sha256": "ebb36814a94253113ef914ede2b532b42dc925a85df0447b7fa7c2fdcad4b394",
+      "status": "copied",
+      "backup_sha256": "ebb36814a94253113ef914ede2b532b42dc925a85df0447b7fa7c2fdcad4b394",
+      "backup_size": 9880
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_deploy_preflight.json",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_deploy_preflight.json",
+      "source_size": 9880,
+      "source_mtime_ns": 1781006404882508381,
+      "source_sha256": "6dc22b6b4a7e12512574ae45abc1ae0bc3808f86980da03fe2c72a2ea2b08265",
+      "status": "copied",
+      "backup_sha256": "6dc22b6b4a7e12512574ae45abc1ae0bc3808f86980da03fe2c72a2ea2b08265",
+      "backup_size": 9880
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_hf_export_preflight.json",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_hf_export_preflight.json",
+      "source_size": 5465,
+      "source_mtime_ns": 1781014374890385441,
+      "source_sha256": "7e0a234eb2a6d06633dc295559a524289190df6815062913d7fde40f062d29cf",
+      "status": "copied",
+      "backup_sha256": "7e0a234eb2a6d06633dc295559a524289190df6815062913d7fde40f062d29cf",
+      "backup_size": 5465
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_conversion_attempt.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_conversion_attempt.md",
+      "source_size": 9822,
+      "source_mtime_ns": 1781013899788456923,
+      "source_sha256": "32e34ce5738f282b73237d37a1b2cf3aaa68d6accbb6ad905ff5830d1ec2bddd",
+      "status": "copied",
+      "backup_sha256": "32e34ce5738f282b73237d37a1b2cf3aaa68d6accbb6ad905ff5830d1ec2bddd",
+      "backup_size": 9822
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_conversion_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_conversion_job.yaml",
+      "source_size": 7062,
+      "source_mtime_ns": 1780951387043585978,
+      "source_sha256": "6eef25095c798fafbcc67d6af1e5242ea3cd11d7f977a8656e6a6fd8df890d65",
+      "status": "copied",
+      "backup_sha256": "6eef25095c798fafbcc67d6af1e5242ea3cd11d7f977a8656e6a6fd8df890d65",
+      "backup_size": 7062
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_export_preflight_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_export_preflight_job.yaml",
+      "source_size": 5258,
+      "source_mtime_ns": 1780951191871311647,
+      "source_sha256": "1632e14f929c697ef1c2d26e32ef490316546425aa6eea873f187349a4f9603d",
+      "status": "copied",
+      "backup_sha256": "1632e14f929c697ef1c2d26e32ef490316546425aa6eea873f187349a4f9603d",
+      "backup_size": 5258
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_hfhub_conversion_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_hfhub_conversion_job.yaml",
+      "source_size": 5969,
+      "source_mtime_ns": 1780953810081917325,
+      "source_sha256": "e00ca2befa9c2328c56439fa7ba22e685f15607979842331d011d10ef21686ba",
+      "status": "copied",
+      "backup_sha256": "e00ca2befa9c2328c56439fa7ba22e685f15607979842331d011d10ef21686ba",
+      "backup_size": 5969
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_hfhub_probe_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_hfhub_probe_job.yaml",
+      "source_size": 5736,
+      "source_mtime_ns": 1780952287032597627,
+      "source_sha256": "233cdb1ff2c45e601bbcf8e3b0425e3fa171e7b15cd3f742677c6ea48b497333",
+      "status": "copied",
+      "backup_sha256": "233cdb1ff2c45e601bbcf8e3b0425e3fa171e7b15cd3f742677c6ea48b497333",
+      "backup_size": 5736
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_runtime_smoke_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_runtime_smoke_job.yaml",
+      "source_size": 2772,
+      "source_mtime_ns": 1780950930267570409,
+      "source_sha256": "031320cba4c417832460dc2df3538ff67bcd7e6804670024ad905ca236d46346",
+      "status": "copied",
+      "backup_sha256": "031320cba4c417832460dc2df3538ff67bcd7e6804670024ad905ca236d46346",
+      "backup_size": 2772
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_s3csi_smoke_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_s3csi_smoke_job.yaml",
+      "source_size": 3629,
+      "source_mtime_ns": 1780950815640798958,
+      "source_sha256": "0e6ae4fdf317a71d5efff3848b3cf01025d4a24c06ff38089aa72711b47d0e3a",
+      "status": "copied",
+      "backup_sha256": "0e6ae4fdf317a71d5efff3848b3cf01025d4a24c06ff38089aa72711b47d0e3a",
+      "backup_size": 3629
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_sglang_deployment.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_sglang_deployment.yaml",
+      "source_size": 5209,
+      "source_mtime_ns": 1781261923127401283,
+      "source_sha256": "c2cd34a7d03fb50ffea6bcffdfbcdd462736448eca1aa920b069e56a02ab22a4",
+      "status": "copied",
+      "backup_sha256": "c2cd34a7d03fb50ffea6bcffdfbcdd462736448eca1aa920b069e56a02ab22a4",
+      "backup_size": 5209
+    },
+    {
+      "path": "test_training/docs/generated/qwen36_swift_r13_sglang_smoke_job.yaml",
+      "source_path": "/home/index/workspace/test_training/docs/generated/qwen36_swift_r13_sglang_smoke_job.yaml",
+      "source_size": 6067,
+      "source_mtime_ns": 1781014374890385441,
+      "source_sha256": "a2e6bbbfeeee146de972e70fa456f3718152f390e545978f82df62458f86fbcf",
+      "status": "copied",
+      "backup_sha256": "a2e6bbbfeeee146de972e70fa456f3718152f390e545978f82df62458f86fbcf",
+      "backup_size": 6067
+    },
+    {
+      "path": "test_training/docs/generated/run_qwen36_sglang_smoke_with_restore.sh",
+      "source_path": "/home/index/workspace/test_training/docs/generated/run_qwen36_sglang_smoke_with_restore.sh",
+      "source_size": 2793,
+      "source_mtime_ns": 1781014374890385441,
+      "source_sha256": "3a2fd3675c8a8a343d9b49474d5bc45e06e3c82c70b8c07f145d0cc8f721da70",
+      "status": "copied",
+      "backup_sha256": "3a2fd3675c8a8a343d9b49474d5bc45e06e3c82c70b8c07f145d0cc8f721da70",
+      "backup_size": 2793
+    },
+    {
+      "path": "test_training/docs/generated/s3_evidence_refresh_20260609.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/s3_evidence_refresh_20260609.md",
+      "source_size": 4710,
+      "source_mtime_ns": 1781014219649408880,
+      "source_sha256": "ec9aeca5d5d5b4f4f2256dae69ff347624761e694b3f5ccf03bce7114758e80f",
+      "status": "copied",
+      "backup_sha256": "ec9aeca5d5d5b4f4f2256dae69ff347624761e694b3f5ccf03bce7114758e80f",
+      "backup_size": 4710
+    },
+    {
+      "path": "test_training/docs/generated/tos_checkpoint854_metadata_preflight.json",
+      "source_path": "/home/index/workspace/test_training/docs/generated/tos_checkpoint854_metadata_preflight.json",
+      "source_size": 2127,
+      "source_mtime_ns": 1780947799697905268,
+      "source_sha256": "3d97583c4611c0b338a955d4b6ed686c3f98d7a73f87f4c7b44c37097013305c",
+      "status": "copied",
+      "backup_sha256": "3d97583c4611c0b338a955d4b6ed686c3f98d7a73f87f4c7b44c37097013305c",
+      "backup_size": 2127
+    },
+    {
+      "path": "test_training/docs/generated/user_worker_full_submissions_20260622.md",
+      "source_path": "/home/index/workspace/test_training/docs/generated/user_worker_full_submissions_20260622.md",
+      "source_size": 2121,
+      "source_mtime_ns": 1782122926888260445,
+      "source_sha256": "e0966d29b32c3977b41a8fb6a1ac050abd16a300cfaa2ef097500c7f6dce5edc",
+      "status": "copied",
+      "backup_sha256": "e0966d29b32c3977b41a8fb6a1ac050abd16a300cfaa2ef097500c7f6dce5edc",
+      "backup_size": 2121
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_a11_full_repro/.hyp",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_a11_full_repro/.hyp",
+      "source_size": 16,
+      "source_mtime_ns": 1781645693006781994,
+      "source_sha256": "9aff843b4ad8b53acdcfc5bdbeb51a4f48c83be27e8863d1a583604e01d15768",
+      "status": "excluded",
+      "reason": "generated local HyperPod runtime state"
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_a11_full_repro/README.md",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_a11_full_repro/README.md",
+      "source_size": 1314,
+      "source_mtime_ns": 1781645693485783045,
+      "source_sha256": "e5f0e16ca8d1c6dbbeec7bf3cf85f6a15982686feed1de84493fdaf6f6dc5a4f",
+      "status": "copied",
+      "backup_sha256": "e5f0e16ca8d1c6dbbeec7bf3cf85f6a15982686feed1de84493fdaf6f6dc5a4f",
+      "backup_size": 1314
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_a11_full_repro/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_a11_full_repro/config.yaml",
+      "source_size": 1982,
+      "source_mtime_ns": 1781645720661843125,
+      "source_sha256": "adad6158c3edc5f6d60f0561681837b68467cd90fbf7bba511a76e63d7d5f750",
+      "status": "copied",
+      "backup_sha256": "adad6158c3edc5f6d60f0561681837b68467cd90fbf7bba511a76e63d7d5f750",
+      "backup_size": 1982
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_a11_full_repro/k8s.jinja",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_a11_full_repro/k8s.jinja",
+      "source_size": 2944,
+      "source_mtime_ns": 1781645720817843517,
+      "source_sha256": "20b60116e636b4f11af88bd91d738e73a69a5b80c4cfe03c8cdac2067021c3a4",
+      "status": "copied",
+      "backup_sha256": "20b60116e636b4f11af88bd91d738e73a69a5b80c4cfe03c8cdac2067021c3a4",
+      "backup_size": 2944
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/.hyp",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/.hyp",
+      "source_size": 16,
+      "source_mtime_ns": 1781664573385079805,
+      "source_sha256": "9aff843b4ad8b53acdcfc5bdbeb51a4f48c83be27e8863d1a583604e01d15768",
+      "status": "excluded",
+      "reason": "generated local HyperPod runtime state"
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/README.md",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/README.md",
+      "source_size": 2648,
+      "source_mtime_ns": 1781664992683108890,
+      "source_sha256": "f484cadb01e8919b7bd511338b16a7c0a1ce40d0526c59b4b9ca54d71c2f9b23",
+      "status": "copied",
+      "backup_sha256": "f484cadb01e8919b7bd511338b16a7c0a1ce40d0526c59b4b9ca54d71c2f9b23",
+      "backup_size": 2648
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/config.yaml",
+      "source_size": 2321,
+      "source_mtime_ns": 1781806408788565311,
+      "source_sha256": "63f2d5e10b44ed9bacc48d10d6110c013e02f676bbbe5c97dc45b31b3f988d1b",
+      "status": "copied",
+      "backup_sha256": "63f2d5e10b44ed9bacc48d10d6110c013e02f676bbbe5c97dc45b31b3f988d1b",
+      "backup_size": 2321
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/k8s.jinja",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/k8s.jinja",
+      "source_size": 2964,
+      "source_mtime_ns": 1781806408788565311,
+      "source_sha256": "605f037a87e741c31e7d7b33b09d84ed80304cff9a2ce23f57b7eb52c32773c0",
+      "status": "copied",
+      "backup_sha256": "605f037a87e741c31e7d7b33b09d84ed80304cff9a2ce23f57b7eb52c32773c0",
+      "backup_size": 2964
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/run/20260617T025010/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/run/20260617T025010/config.yaml",
+      "source_size": 2283,
+      "source_mtime_ns": 1781664610276171984,
+      "source_sha256": "ce0ef403710dccdab94a285ab03a007e607de392649663d16bac1c4f7e98ff91",
+      "status": "copied",
+      "backup_sha256": "ce0ef403710dccdab94a285ab03a007e607de392649663d16bac1c4f7e98ff91",
+      "backup_size": 2283
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/run/20260617T025010/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal/run/20260617T025010/k8s.yaml",
+      "source_size": 5689,
+      "source_mtime_ns": 1781664610276171984,
+      "source_sha256": "e4c5142cb399ed0306ca30c4b2ea42bd10e0c4ba16cdc627bfd171a912725a59",
+      "status": "copied",
+      "backup_sha256": "e4c5142cb399ed0306ca30c4b2ea42bd10e0c4ba16cdc627bfd171a912725a59",
+      "backup_size": 5689
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/README.md",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/README.md",
+      "source_size": 2041,
+      "source_mtime_ns": 1781675172266987909,
+      "source_sha256": "d387c4fea1846f7e4509b9a14b9f1128584ffd67c8817b01ccd293727b898f34",
+      "status": "copied",
+      "backup_sha256": "d387c4fea1846f7e4509b9a14b9f1128584ffd67c8817b01ccd293727b898f34",
+      "backup_size": 2041
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/config.yaml",
+      "source_size": 2094,
+      "source_mtime_ns": 1781806408786565309,
+      "source_sha256": "a5124f553e723edf9b4f90c7775c77c3f22dd76eef0c90272a8a0de65fdabcc2",
+      "status": "copied",
+      "backup_sha256": "a5124f553e723edf9b4f90c7775c77c3f22dd76eef0c90272a8a0de65fdabcc2",
+      "backup_size": 2094
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/hpea_worker.py",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/hpea_worker.py",
+      "source_size": 7108,
+      "source_mtime_ns": 1781674873083779063,
+      "source_sha256": "a27c7912d49902bc4fa2c1208770ee09f0038f5e7bdc0ba77f443bb6e8602fe5",
+      "status": "copied",
+      "backup_sha256": "a27c7912d49902bc4fa2c1208770ee09f0038f5e7bdc0ba77f443bb6e8602fe5",
+      "backup_size": 7108
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/k8s.jinja",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/k8s.jinja",
+      "source_size": 3406,
+      "source_mtime_ns": 1781806408787565310,
+      "source_sha256": "543b801cebeb8b2ceb45d8519fa7cb6e4ff2de2c7068d9bb84f0a446d588264c",
+      "status": "copied",
+      "backup_sha256": "543b801cebeb8b2ceb45d8519fa7cb6e4ff2de2c7068d9bb84f0a446d588264c",
+      "backup_size": 3406
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060547/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060547/config.yaml",
+      "source_size": 2066,
+      "source_mtime_ns": 1781676347133657337,
+      "source_sha256": "2c1c058c188d14d63133297d8027d7450d634bb8693d6bc562a34bf6d26b3bc9",
+      "status": "copied",
+      "backup_sha256": "2c1c058c188d14d63133297d8027d7450d634bb8693d6bc562a34bf6d26b3bc9",
+      "backup_size": 2066
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060547/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060547/k8s.yaml",
+      "source_size": 5899,
+      "source_mtime_ns": 1781676347133657337,
+      "source_sha256": "40fa8437bbc0103097fd142b4cf4005abb9b4e55d974fe3a46f7b6cc4473299e",
+      "status": "copied",
+      "backup_sha256": "40fa8437bbc0103097fd142b4cf4005abb9b4e55d974fe3a46f7b6cc4473299e",
+      "backup_size": 5899
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060710/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060710/config.yaml",
+      "source_size": 2056,
+      "source_mtime_ns": 1781676430757697641,
+      "source_sha256": "12daf9019aa3f94e883bb57e3e0ba0adfd7e03860f3781b333e0f163ccb6334d",
+      "status": "copied",
+      "backup_sha256": "12daf9019aa3f94e883bb57e3e0ba0adfd7e03860f3781b333e0f163ccb6334d",
+      "backup_size": 2056
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060710/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_formal_hpea/run/20260617T060710/k8s.yaml",
+      "source_size": 5889,
+      "source_mtime_ns": 1781676430757697641,
+      "source_sha256": "83329b459d121cb4796267662c72e4a8b203b1d31d1a641197e8b57bcb6cd0ef",
+      "status": "copied",
+      "backup_sha256": "83329b459d121cb4796267662c72e4a8b203b1d31d1a641197e8b57bcb6cd0ef",
+      "backup_size": 5889
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/.hyp",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/.hyp",
+      "source_size": 16,
+      "source_mtime_ns": 1781662019791158223,
+      "source_sha256": "9aff843b4ad8b53acdcfc5bdbeb51a4f48c83be27e8863d1a583604e01d15768",
+      "status": "excluded",
+      "reason": "generated local HyperPod runtime state"
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/README.md",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/README.md",
+      "source_size": 2417,
+      "source_mtime_ns": 1781663394581098568,
+      "source_sha256": "bb49aeac82d3c9f793ab63df4bc0bc72e0b119622673589c1008c212e09f07f8",
+      "status": "copied",
+      "backup_sha256": "bb49aeac82d3c9f793ab63df4bc0bc72e0b119622673589c1008c212e09f07f8",
+      "backup_size": 2417
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/config.yaml",
+      "source_size": 2228,
+      "source_mtime_ns": 1781662019956158564,
+      "source_sha256": "ea1ef384cfcea3f5f40572f750b67c5b9b4813a63d07caf11fd620bff5077f5e",
+      "status": "copied",
+      "backup_sha256": "ea1ef384cfcea3f5f40572f750b67c5b9b4813a63d07caf11fd620bff5077f5e",
+      "backup_size": 2228
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/k8s.jinja",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/k8s.jinja",
+      "source_size": 2964,
+      "source_mtime_ns": 1781662020136158936,
+      "source_sha256": "f340f6dcdec4f9e2cd20fe68bfb21a81f70920db0e8901dabef1578f092965c6",
+      "status": "copied",
+      "backup_sha256": "f340f6dcdec4f9e2cd20fe68bfb21a81f70920db0e8901dabef1578f092965c6",
+      "backup_size": 2964
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/run/20260617T020736/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/run/20260617T020736/config.yaml",
+      "source_size": 2228,
+      "source_mtime_ns": 1781662056475234838,
+      "source_sha256": "ea1ef384cfcea3f5f40572f750b67c5b9b4813a63d07caf11fd620bff5077f5e",
+      "status": "copied",
+      "backup_sha256": "ea1ef384cfcea3f5f40572f750b67c5b9b4813a63d07caf11fd620bff5077f5e",
+      "backup_size": 2228
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/run/20260617T020736/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_adjusted_online/run/20260617T020736/k8s.yaml",
+      "source_size": 5822,
+      "source_mtime_ns": 1781662056475234838,
+      "source_sha256": "ccc4aeb07fd4e82885a0ccc100f722032d95437e524a3ef306ea5889801a6a5f",
+      "status": "copied",
+      "backup_sha256": "ccc4aeb07fd4e82885a0ccc100f722032d95437e524a3ef306ea5889801a6a5f",
+      "backup_size": 5822
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/.hyp",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/.hyp",
+      "source_size": 16,
+      "source_mtime_ns": 1781646224547903785,
+      "source_sha256": "9aff843b4ad8b53acdcfc5bdbeb51a4f48c83be27e8863d1a583604e01d15768",
+      "status": "excluded",
+      "reason": "generated local HyperPod runtime state"
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/README.md",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/README.md",
+      "source_size": 1901,
+      "source_mtime_ns": 1781647590564727283,
+      "source_sha256": "2abfa640be83c3addc75193f59fc5d46cf79137027db1a274d1654ad442d8965",
+      "status": "copied",
+      "backup_sha256": "2abfa640be83c3addc75193f59fc5d46cf79137027db1a274d1654ad442d8965",
+      "backup_size": 1901
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/config.yaml",
+      "source_size": 2234,
+      "source_mtime_ns": 1781646224711904520,
+      "source_sha256": "72fbaa61e66af2da43b4b8365161d78a2157e4fb64dd6263ef3d1fc6cd85109d",
+      "status": "copied",
+      "backup_sha256": "72fbaa61e66af2da43b4b8365161d78a2157e4fb64dd6263ef3d1fc6cd85109d",
+      "backup_size": 2234
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/k8s.jinja",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/k8s.jinja",
+      "source_size": 2889,
+      "source_mtime_ns": 1781646224880905278,
+      "source_sha256": "abe2464f4136bca5871fade9f8520e682e27ff87c620cf4a28e94c1c42a84681",
+      "status": "copied",
+      "backup_sha256": "abe2464f4136bca5871fade9f8520e682e27ff87c620cf4a28e94c1c42a84681",
+      "backup_size": 2889
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/run/20260616T214422/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/run/20260616T214422/config.yaml",
+      "source_size": 2234,
+      "source_mtime_ns": 1781646262982988586,
+      "source_sha256": "72fbaa61e66af2da43b4b8365161d78a2157e4fb64dd6263ef3d1fc6cd85109d",
+      "status": "copied",
+      "backup_sha256": "72fbaa61e66af2da43b4b8365161d78a2157e4fb64dd6263ef3d1fc6cd85109d",
+      "backup_size": 2234
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/run/20260616T214422/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_b200_fullseq_cp4_smoke/run/20260616T214422/k8s.yaml",
+      "source_size": 5753,
+      "source_mtime_ns": 1781646262982988586,
+      "source_sha256": "3b6f0896711a556f1901dc5a97e4009fa877f1e072271e4bac1f26a3cd2707b4",
+      "status": "copied",
+      "backup_sha256": "3b6f0896711a556f1901dc5a97e4009fa877f1e072271e4bac1f26a3cd2707b4",
+      "backup_size": 5753
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/.hyp",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/.hyp",
+      "source_size": 16,
+      "source_mtime_ns": 1781630541830808832,
+      "source_sha256": "9aff843b4ad8b53acdcfc5bdbeb51a4f48c83be27e8863d1a583604e01d15768",
+      "status": "excluded",
+      "reason": "generated local HyperPod runtime state"
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/README.md",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/README.md",
+      "source_size": 1531,
+      "source_mtime_ns": 1781645527667447819,
+      "source_sha256": "269834f578d0b5e2d6e916953a768b6ffc631b791c889c16dc951273eb104e0d",
+      "status": "copied",
+      "backup_sha256": "269834f578d0b5e2d6e916953a768b6ffc631b791c889c16dc951273eb104e0d",
+      "backup_size": 1531
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/config.yaml",
+      "source_size": 2236,
+      "source_mtime_ns": 1781644365277350473,
+      "source_sha256": "875be3879c095f460571a1e88839b4026347a299dcb1f541700fb65f4a33920c",
+      "status": "copied",
+      "backup_sha256": "875be3879c095f460571a1e88839b4026347a299dcb1f541700fb65f4a33920c",
+      "backup_size": 2236
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/k8s.jinja",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/k8s.jinja",
+      "source_size": 2863,
+      "source_mtime_ns": 1781630542141809586,
+      "source_sha256": "d80877d1eb82fab66bdfc6a79d826868d21b909debd7eb17149e99c6a68caa70",
+      "status": "copied",
+      "backup_sha256": "d80877d1eb82fab66bdfc6a79d826868d21b909debd7eb17149e99c6a68caa70",
+      "backup_size": 2863
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T205417/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T205417/config.yaml",
+      "source_size": 2185,
+      "source_mtime_ns": 1781643257482214240,
+      "source_sha256": "566263037be864619e8efa043b8faaa2481d9b4142b3af12736b36cd65efdd53",
+      "status": "copied",
+      "backup_sha256": "566263037be864619e8efa043b8faaa2481d9b4142b3af12736b36cd65efdd53",
+      "backup_size": 2185
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T205417/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T205417/k8s.yaml",
+      "source_size": 5630,
+      "source_mtime_ns": 1781643257483214243,
+      "source_sha256": "e7521e6411f6419a1e68c36b82b100a0b796faff0b925b99ea13cf86cdc99638",
+      "status": "copied",
+      "backup_sha256": "e7521e6411f6419a1e68c36b82b100a0b796faff0b925b99ea13cf86cdc99638",
+      "backup_size": 5630
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T211532/config.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T211532/config.yaml",
+      "source_size": 2236,
+      "source_mtime_ns": 1781644532287829267,
+      "source_sha256": "875be3879c095f460571a1e88839b4026347a299dcb1f541700fb65f4a33920c",
+      "status": "copied",
+      "backup_sha256": "875be3879c095f460571a1e88839b4026347a299dcb1f541700fb65f4a33920c",
+      "backup_size": 2236
+    },
+    {
+      "path": "test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T211532/k8s.yaml",
+      "source_path": "/home/index/workspace/test_training/hyperpod/qwen36_mb_swift_hypd_smoke/run/20260616T211532/k8s.yaml",
+      "source_size": 5729,
+      "source_mtime_ns": 1781644532287829267,
+      "source_sha256": "8abbd42764bdf096ec984a791d6b745066084dc71bd9f02c5f9a27cc2193a7e4",
+      "status": "copied",
+      "backup_sha256": "8abbd42764bdf096ec984a791d6b745066084dc71bd9f02c5f9a27cc2193a7e4",
+      "backup_size": 5729
+    },
+    {
+      "path": "test_training/logs/monitor_volc_chain_progress.log",
+      "source_path": "/home/index/workspace/test_training/logs/monitor_volc_chain_progress.log",
+      "source_size": 288040,
+      "source_mtime_ns": 1783851493828658532,
+      "source_sha256": "3e93b75f275f91b092d16aeb1ad62dfa50a458a72790f25c8e2a238546761e28",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_a_rerun_20260810.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_a_rerun_20260810.log",
+      "source_size": 5312,
+      "source_mtime_ns": 1786359035867981181,
+      "source_sha256": "8f6e7734f7f2fe4f79ff62b2279aad13c1cf36cde25630f55d4924c09b928980",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_a_rerun_20260810.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_a_rerun_20260810.state.json",
+      "source_size": 2614,
+      "source_mtime_ns": 1786359035867981181,
+      "source_sha256": "f50a609f0495ad0c0fb533133bada662a4ab299ed032c723fd4fc8bf3cb91716",
+      "status": "copied",
+      "backup_sha256": "f50a609f0495ad0c0fb533133bada662a4ab299ed032c723fd4fc8bf3cb91716",
+      "backup_size": 2614
+    },
+    {
+      "path": "test_training/logs/qwen36_a_rerun_20260810.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_a_rerun_20260810.supervisor.log",
+      "source_size": 1506,
+      "source_mtime_ns": 1786359084945000562,
+      "source_sha256": "c10f0a8735dc566504baae512bfe3d874dbaf7d54f170d8e87e92ac237d3660e",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_a_rerun_20260810.supervisor.stdout.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_a_rerun_20260810.supervisor.stdout.log",
+      "source_size": 0,
+      "source_mtime_ns": 1786353983920343736,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_a_rerun_20260810.terminal_notified",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_a_rerun_20260810.terminal_notified",
+      "source_size": 0,
+      "source_mtime_ns": 1786359084943000561,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "runtime notification marker"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260810.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260810.log",
+      "source_size": 12326,
+      "source_mtime_ns": 1786389331259841868,
+      "source_sha256": "e68e18afc997eabec54ba28992167ca76f65f465fe755ccc7649d20954936d33",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260810.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260810.state.json",
+      "source_size": 5101,
+      "source_mtime_ns": 1786389331259841868,
+      "source_sha256": "7bcbe2a6dd91cb36a3f89c8ecbeb1e94a6cfad095ef35ee8288f4006f33db2a9",
+      "status": "copied",
+      "backup_sha256": "7bcbe2a6dd91cb36a3f89c8ecbeb1e94a6cfad095ef35ee8288f4006f33db2a9",
+      "backup_size": 5101
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260810.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260810.supervisor.log",
+      "source_size": 1541,
+      "source_mtime_ns": 1786389453943008027,
+      "source_sha256": "1a23dcb7843221d64b3da1c82da9e6d5990f0fc438605dbf48ded12eb9f33360",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260810.supervisor.stdout.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260810.supervisor.stdout.log",
+      "source_size": 0,
+      "source_mtime_ns": 1786377752010252901,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260810.terminal_notified",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260810.terminal_notified",
+      "source_size": 0,
+      "source_mtime_ns": 1786389453941008025,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "runtime notification marker"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260811.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260811.log",
+      "source_size": 12324,
+      "source_mtime_ns": 1786428193678164269,
+      "source_sha256": "0047c24ed43432a5065e1f5a267b38a90577625edec3eced8c46d08ac8c8c5c3",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260811.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260811.state.json",
+      "source_size": 5100,
+      "source_mtime_ns": 1786428193678164269,
+      "source_sha256": "0f594cf749f5e3541718bf0dfdbdd58174e77fa8f409208033426175c99d56dc",
+      "status": "copied",
+      "backup_sha256": "0f594cf749f5e3541718bf0dfdbdd58174e77fa8f409208033426175c99d56dc",
+      "backup_size": 5100
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260811.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260811.supervisor.log",
+      "source_size": 1556,
+      "source_mtime_ns": 1786428314750287075,
+      "source_sha256": "bca3fcf8f3148d7ed008a59dee54cc3805bc3a20ecf3b3f04e5ca76525d4001a",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260811.supervisor.stdout.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260811.supervisor.stdout.log",
+      "source_size": 0,
+      "source_mtime_ns": 1786416612829987565,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_ab_serial_rerun_20260811.terminal_notified",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_ab_serial_rerun_20260811.terminal_notified",
+      "source_size": 0,
+      "source_mtime_ns": 1786428314748287073,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "runtime notification marker"
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_arrow_type_fix_manifest.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_arrow_type_fix_manifest.json",
+      "source_size": 980,
+      "source_mtime_ns": 1786061120817615443,
+      "source_sha256": "005c433daad539ed7c53dca6b9dcb8870a41757763b56dd293c9113def18edfe",
+      "status": "copied",
+      "backup_sha256": "005c433daad539ed7c53dca6b9dcb8870a41757763b56dd293c9113def18edfe",
+      "backup_size": 980
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_arrow_type_green.txt",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_arrow_type_green.txt",
+      "source_size": 228,
+      "source_mtime_ns": 1786061138597648005,
+      "source_sha256": "36a1b20bacba9017d8de3f732ce9a9db020ab5faf1a293ec997254fbd78a924f",
+      "status": "copied",
+      "backup_sha256": "36a1b20bacba9017d8de3f732ce9a9db020ab5faf1a293ec997254fbd78a924f",
+      "backup_size": 228
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_arrow_type_red.txt",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_arrow_type_red.txt",
+      "source_size": 645,
+      "source_mtime_ns": 1786061106183588247,
+      "source_sha256": "6d91befb0fefd6bb706628ef0a666804fc147b763e8d086a57f60c5d7f02a357",
+      "status": "copied",
+      "backup_sha256": "6d91befb0fefd6bb706628ef0a666804fc147b763e8d086a57f60c5d7f02a357",
+      "backup_size": 645
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_hf_load_green.txt",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_hf_load_green.txt",
+      "source_size": 298,
+      "source_mtime_ns": 1786061150201668741,
+      "source_sha256": "de4c513e4372a16775d6c7008557facdd25f822668607e28f9bcaa36bccdb3a5",
+      "status": "copied",
+      "backup_sha256": "de4c513e4372a16775d6c7008557facdd25f822668607e28f9bcaa36bccdb3a5",
+      "backup_size": 298
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_retry_assets_green.txt",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_retry_assets_green.txt",
+      "source_size": 2166,
+      "source_mtime_ns": 1786061203504768205,
+      "source_sha256": "cde9ae4e33654a3cda3b908cf579368fac3f4406c6cedf8c12f2f30fd095a2c9",
+      "status": "copied",
+      "backup_sha256": "cde9ae4e33654a3cda3b908cf579368fac3f4406c6cedf8c12f2f30fd095a2c9",
+      "backup_size": 2166
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_retry_assets_red.txt",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_retry_assets_red.txt",
+      "source_size": 366,
+      "source_mtime_ns": 1786061177646719332,
+      "source_sha256": "6ebbf250de87afd43f1b261b1f45b2590ffbe09be24b89475d4077f98cdf1084",
+      "status": "copied",
+      "backup_sha256": "6ebbf250de87afd43f1b261b1f45b2590ffbe09be24b89475d4077f98cdf1084",
+      "backup_size": 366
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_retry_state_applied.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_retry_state_applied.json",
+      "source_size": 6888,
+      "source_mtime_ns": 1786061326020999829,
+      "source_sha256": "fc150b5cd4baae47edf7abc0287c115c37e875c151b2624e693494ef2a63ddce",
+      "status": "copied",
+      "backup_sha256": "fc150b5cd4baae47edf7abc0287c115c37e875c151b2624e693494ef2a63ddce",
+      "backup_size": 6888
+    },
+    {
+      "path": "test_training/logs/qwen36_arm_c_retry_state_dry_run.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_arm_c_retry_state_dry_run.json",
+      "source_size": 6888,
+      "source_mtime_ns": 1786061325953999702,
+      "source_sha256": "aa5b7931d23c18ebcf242c47be225089a782eda587501fd768c19d878b5197c8",
+      "status": "copied",
+      "backup_sha256": "aa5b7931d23c18ebcf242c47be225089a782eda587501fd768c19d878b5197c8",
+      "backup_size": 6888
+    },
+    {
+      "path": "test_training/logs/qwen36_b_rerun2_20260810.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_b_rerun2_20260810.log",
+      "source_size": 7137,
+      "source_mtime_ns": 1786365866232096809,
+      "source_sha256": "742ac731a24626c444193f06b5b4484df6ed3349f1f9470fd5bcc1153f625b04",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_b_rerun2_20260810.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_b_rerun2_20260810.state.json",
+      "source_size": 2663,
+      "source_mtime_ns": 1786365866231096808,
+      "source_sha256": "95cd9e7db8fedf82b506f3f79331e15fdd307f82bb1b8d21bb072aa9167e7c47",
+      "status": "copied",
+      "backup_sha256": "95cd9e7db8fedf82b506f3f79331e15fdd307f82bb1b8d21bb072aa9167e7c47",
+      "backup_size": 2663
+    },
+    {
+      "path": "test_training/logs/qwen36_b_rerun2_20260810.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_b_rerun2_20260810.supervisor.log",
+      "source_size": 1522,
+      "source_mtime_ns": 1786365939180128460,
+      "source_sha256": "c919e49c0fffd07a2c9a47d9d8dd8a1d935c20b203529851c952585c0e36d757",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_b_rerun2_20260810.supervisor.stdout.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_b_rerun2_20260810.supervisor.stdout.log",
+      "source_size": 0,
+      "source_mtime_ns": 1786359337982127663,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_b_rerun2_20260810.terminal_notified",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_b_rerun2_20260810.terminal_notified",
+      "source_size": 0,
+      "source_mtime_ns": 1786365939178128460,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "runtime notification marker"
+    },
+    {
+      "path": "test_training/logs/qwen36_bc_serial_rerun_20260810.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_bc_serial_rerun_20260810.log",
+      "source_size": 24732,
+      "source_mtime_ns": 1786353676522160397,
+      "source_sha256": "3bafa04129640d1125802ccc3838e0b74c4d7f61deb0a5cece364cc2c3cbcb5e",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_bc_serial_rerun_20260810.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_bc_serial_rerun_20260810.state.json",
+      "source_size": 5244,
+      "source_mtime_ns": 1786353676521160396,
+      "source_sha256": "e9df7602dee655b0a092c40cb50ee898acd00cf9be502accc5ad4d25a7984059",
+      "status": "copied",
+      "backup_sha256": "e9df7602dee655b0a092c40cb50ee898acd00cf9be502accc5ad4d25a7984059",
+      "backup_size": 5244
+    },
+    {
+      "path": "test_training/logs/qwen36_bc_serial_rerun_20260810.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_bc_serial_rerun_20260810.supervisor.log",
+      "source_size": 1515,
+      "source_mtime_ns": 1786353722258186858,
+      "source_sha256": "6a4d6e1c90adf481f891d97b78bbcf598021ab1252d7f0ea15a2d2b95ac12a60",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_bc_serial_rerun_20260810.supervisor.stdout.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_bc_serial_rerun_20260810.supervisor.stdout.log",
+      "source_size": 0,
+      "source_mtime_ns": 1786332118903234405,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_bc_serial_rerun_20260810.terminal_notified",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_bc_serial_rerun_20260810.terminal_notified",
+      "source_size": 0,
+      "source_mtime_ns": 1786353722257186857,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "runtime notification marker"
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain.log",
+      "source_size": 1693,
+      "source_mtime_ns": 1786047963266706493,
+      "source_sha256": "a00b9ed5cc18c10d66f979eb15024252f2de604bd3f7580bdf4d7f4d89ccd3e8",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain.state.json",
+      "source_size": 1273,
+      "source_mtime_ns": 1786047963266706493,
+      "source_sha256": "9ec89f877f2a57be6a78972cf30b8057faa8015a80d0cab3635aa538f775cae3",
+      "status": "copied",
+      "backup_sha256": "9ec89f877f2a57be6a78972cf30b8057faa8015a80d0cab3635aa538f775cae3",
+      "backup_size": 1273
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain.supervisor.log",
+      "source_size": 67,
+      "source_mtime_ns": 1786046239812082631,
+      "source_sha256": "6923ffe2f7d00e2584211b1b28ba53e9a09ed774d4b0a1ea4954c5f4d84c7280",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain_v3.log",
+      "source_size": 27517,
+      "source_mtime_ns": 1786076363875190949,
+      "source_sha256": "51ca9c8d7724e3ef7ad038d822c97d7b1257cf9a52771ee0c6f2a995248df73d",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain_v3.state.json",
+      "source_size": 9162,
+      "source_mtime_ns": 1786076363874190949,
+      "source_sha256": "b2eec38cfd71b59548ced34b9129d3e1887eeb2a50040841337467cbd6ee3fc7",
+      "status": "copied",
+      "backup_sha256": "b2eec38cfd71b59548ced34b9129d3e1887eeb2a50040841337467cbd6ee3fc7",
+      "backup_size": 9162
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.supervisor.log",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain_v3.supervisor.log",
+      "source_size": 1503,
+      "source_mtime_ns": 1786076539723345459,
+      "source_sha256": "115441a509fb08d3888f95ab7a266b2ae8a436bf43e6fd782b974053b9f11911",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.terminal_notified",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_frappe_glm_three_task_chain_v3.terminal_notified",
+      "source_size": 0,
+      "source_mtime_ns": 1786076539721345457,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "excluded",
+      "reason": "runtime notification marker"
+    },
+    {
+      "path": "test_training/logs/qwen36_three_run_final_assets_validation.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_three_run_final_assets_validation.json",
+      "source_size": 2166,
+      "source_mtime_ns": 1786076714210538031,
+      "source_sha256": "cde9ae4e33654a3cda3b908cf579368fac3f4406c6cedf8c12f2f30fd095a2c9",
+      "status": "copied",
+      "backup_sha256": "cde9ae4e33654a3cda3b908cf579368fac3f4406c6cedf8c12f2f30fd095a2c9",
+      "backup_size": 2166
+    },
+    {
+      "path": "test_training/logs/qwen36_three_run_final_checkpoint_audit.json",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_three_run_final_checkpoint_audit.json",
+      "source_size": 4156,
+      "source_mtime_ns": 1786076612573428458,
+      "source_sha256": "ed8796b2efb289f90f3685c73739c5b66cbf4b424a94cff753cd098a6120b1a7",
+      "status": "copied",
+      "backup_sha256": "ed8796b2efb289f90f3685c73739c5b66cbf4b424a94cff753cd098a6120b1a7",
+      "backup_size": 4156
+    },
+    {
+      "path": "test_training/logs/qwen36_three_run_final_preflight_postflight_audit.txt",
+      "source_path": "/home/index/workspace/test_training/logs/qwen36_three_run_final_preflight_postflight_audit.txt",
+      "source_size": 2875,
+      "source_mtime_ns": 1786076627282442975,
+      "source_sha256": "db38f6e083471212ad3fef7db143d9079b7004a85dd95b35439a413c7ec36d86",
+      "status": "copied",
+      "backup_sha256": "db38f6e083471212ad3fef7db143d9079b7004a85dd95b35439a413c7ec36d86",
+      "backup_size": 2875
+    },
+    {
+      "path": "test_training/logs/supervise_volc_progress_monitor.log",
+      "source_path": "/home/index/workspace/test_training/logs/supervise_volc_progress_monitor.log",
+      "source_size": 73,
+      "source_mtime_ns": 1782063791143887629,
+      "source_sha256": "c26933dc63e7ceaae6b32ecb8276fff0e640f88702a3e4a8faa46aaff1117262",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/supervise_watch_chain_user_worker_32gpu.log",
+      "source_path": "/home/index/workspace/test_training/logs/supervise_watch_chain_user_worker_32gpu.log",
+      "source_size": 65,
+      "source_mtime_ns": 1782063678914751569,
+      "source_sha256": "8de4ff8a0325205db5a08c63140f721b52b525ebe91133dd7eb2d12bb828693e",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/watch_chain_user_worker_32gpu.log",
+      "source_path": "/home/index/workspace/test_training/logs/watch_chain_user_worker_32gpu.log",
+      "source_size": 65451,
+      "source_mtime_ns": 1782063588393639418,
+      "source_sha256": "f65f33cfe119e60aa59710277802a65ca804f3f031d14b9573440d37ce581bef",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/watch_chain_user_worker_32gpu.progress.jsonl",
+      "source_path": "/home/index/workspace/test_training/logs/watch_chain_user_worker_32gpu.progress.jsonl",
+      "source_size": 25237882,
+      "source_mtime_ns": 1783851493827658532,
+      "source_sha256": "357c98d3d6407b36cc665e6b0bc0cd4f2df9daa3ffe5ac5140f5a0ec731bab7f",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "test_training/logs/watch_chain_user_worker_32gpu.progress.latest.json",
+      "source_path": "/home/index/workspace/test_training/logs/watch_chain_user_worker_32gpu.progress.latest.json",
+      "source_size": 10124,
+      "source_mtime_ns": 1783851493828658532,
+      "source_sha256": "09bdec1f0cef7496e3707b65c82f618d7dc2e6523d4aafcaa92224ea3d62544b",
+      "status": "copied",
+      "backup_sha256": "09bdec1f0cef7496e3707b65c82f618d7dc2e6523d4aafcaa92224ea3d62544b",
+      "backup_size": 10124
+    },
+    {
+      "path": "test_training/logs/watch_chain_user_worker_32gpu.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/watch_chain_user_worker_32gpu.state.json",
+      "source_size": 830,
+      "source_mtime_ns": 1782063588392639416,
+      "source_sha256": "b296e245e284ed6d733d8f1cceb177374a600f2914eecb421e976d45bd29ad89",
+      "status": "copied",
+      "backup_sha256": "b296e245e284ed6d733d8f1cceb177374a600f2914eecb421e976d45bd29ad89",
+      "backup_size": 830
+    },
+    {
+      "path": "test_training/logs/watch_resubmit_t-20260620003629-tnm7q.log",
+      "source_path": "/home/index/workspace/test_training/logs/watch_resubmit_t-20260620003629-tnm7q.log",
+      "source_size": 19362,
+      "source_mtime_ns": 1781952121125581755,
+      "source_sha256": "481a160dae3fdf819d907d58036b4c9047584113fb8c4d206d4898e2d923ad24",
+      "status": "excluded",
+      "reason": "raw runtime log"
+    },
+    {
+      "path": "test_training/logs/watch_resubmit_t-20260620003629-tnm7q.state.json",
+      "source_path": "/home/index/workspace/test_training/logs/watch_resubmit_t-20260620003629-tnm7q.state.json",
+      "source_size": 369,
+      "source_mtime_ns": 1781952121125581755,
+      "source_sha256": "ba95578c37b8b9e1c9fe2a31cce282b25809bee0680017f417560f91e04b878c",
+      "status": "copied",
+      "backup_sha256": "ba95578c37b8b9e1c9fe2a31cce282b25809bee0680017f417560f91e04b878c",
+      "backup_size": 369
+    },
+    {
+      "path": "test_training/scripts/apply_gpu_sharing_timeslicing.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/apply_gpu_sharing_timeslicing.sh",
+      "source_size": 2903,
+      "source_mtime_ns": 1781553467417923480,
+      "source_sha256": "c6bf2eb2536186b22c54c92dfaf48a89bd9e96ffcf5750b3b6cdf68b179366c2",
+      "status": "copied",
+      "backup_sha256": "c6bf2eb2536186b22c54c92dfaf48a89bd9e96ffcf5750b3b6cdf68b179366c2",
+      "backup_size": 2903
+    },
+    {
+      "path": "test_training/scripts/build_qwen36_frappe_glm_three_datasets.py",
+      "source_path": "/home/index/workspace/test_training/scripts/build_qwen36_frappe_glm_three_datasets.py",
+      "source_size": 10041,
+      "source_mtime_ns": 1786048818524985669,
+      "source_sha256": "3799cb94b8d37a9555bdc664f54274aa482643eb88016972c817a522b3933c10",
+      "status": "copied",
+      "backup_sha256": "3799cb94b8d37a9555bdc664f54274aa482643eb88016972c817a522b3933c10",
+      "backup_size": 10041
+    },
+    {
+      "path": "test_training/scripts/create_jsonl_sample.py",
+      "source_path": "/home/index/workspace/test_training/scripts/create_jsonl_sample.py",
+      "source_size": 3564,
+      "source_mtime_ns": 1781688918345899203,
+      "source_sha256": "c4d7b40a7bab4e53e61bce582edcb33b77e71fa435568b5580377bdfc721a76e",
+      "status": "copied",
+      "backup_sha256": "c4d7b40a7bab4e53e61bce582edcb33b77e71fa435568b5580377bdfc721a76e",
+      "backup_size": 3564
+    },
+    {
+      "path": "test_training/scripts/create_no_think_sample.py",
+      "source_path": "/home/index/workspace/test_training/scripts/create_no_think_sample.py",
+      "source_size": 5155,
+      "source_mtime_ns": 1781553290630492038,
+      "source_sha256": "fcdd49dfd598a4e1c01dcd66c38fddcfb5d862a493d40e5cb3365bb88d652d93",
+      "status": "copied",
+      "backup_sha256": "fcdd49dfd598a4e1c01dcd66c38fddcfb5d862a493d40e5cb3365bb88d652d93",
+      "backup_size": 5155
+    },
+    {
+      "path": "test_training/scripts/create_user_worker_full_dataset.py",
+      "source_path": "/home/index/workspace/test_training/scripts/create_user_worker_full_dataset.py",
+      "source_size": 6711,
+      "source_mtime_ns": 1782122518540340997,
+      "source_sha256": "4921ad18556bde5a354a71f093d89493a7c618e4bde1f96fa3f7d7704f1008de",
+      "status": "copied",
+      "backup_sha256": "4921ad18556bde5a354a71f093d89493a7c618e4bde1f96fa3f7d7704f1008de",
+      "backup_size": 6711
+    },
+    {
+      "path": "test_training/scripts/generate_langsmith_agent_readable.py",
+      "source_path": "/home/index/workspace/test_training/scripts/generate_langsmith_agent_readable.py",
+      "source_size": 12158,
+      "source_mtime_ns": 1782296793297855723,
+      "source_sha256": "a68304840f7a1a1170e0eeb297fda5b5097a4de0b03b153a3210acc9bd0febba",
+      "status": "copied",
+      "backup_sha256": "a68304840f7a1a1170e0eeb297fda5b5097a4de0b03b153a3210acc9bd0febba",
+      "backup_size": 12158
+    },
+    {
+      "path": "test_training/scripts/generate_langsmith_real_visualization.py",
+      "source_path": "/home/index/workspace/test_training/scripts/generate_langsmith_real_visualization.py",
+      "source_size": 51251,
+      "source_mtime_ns": 1781716900566110130,
+      "source_sha256": "13239f8ee31beab211e85724f260d77067a474ecabce56a35612cf3ecbc721c2",
+      "status": "copied",
+      "backup_sha256": "13239f8ee31beab211e85724f260d77067a474ecabce56a35612cf3ecbc721c2",
+      "backup_size": 51251
+    },
+    {
+      "path": "test_training/scripts/generate_langsmith_simple_visualization.py",
+      "source_path": "/home/index/workspace/test_training/scripts/generate_langsmith_simple_visualization.py",
+      "source_size": 24212,
+      "source_mtime_ns": 1781717577283882865,
+      "source_sha256": "501ca1d6ed6add795fce01803caacf2e12a4caf23631840fa78abe82a3084ba8",
+      "status": "copied",
+      "backup_sha256": "501ca1d6ed6add795fce01803caacf2e12a4caf23631840fa78abe82a3084ba8",
+      "backup_size": 24212
+    },
+    {
+      "path": "test_training/scripts/monitor_volc_chain_progress.py",
+      "source_path": "/home/index/workspace/test_training/scripts/monitor_volc_chain_progress.py",
+      "source_size": 7468,
+      "source_mtime_ns": 1781978897335770889,
+      "source_sha256": "6fb3db20b83e5e80154e145d8ed310e56da2229697b7965d97a47436ce911077",
+      "status": "copied",
+      "backup_sha256": "6fb3db20b83e5e80154e145d8ed310e56da2229697b7965d97a47436ce911077",
+      "backup_size": 7468
+    },
+    {
+      "path": "test_training/scripts/normalize_qwen36_arm_c_arrow_types.py",
+      "source_path": "/home/index/workspace/test_training/scripts/normalize_qwen36_arm_c_arrow_types.py",
+      "source_size": 3967,
+      "source_mtime_ns": 1786061096162569582,
+      "source_sha256": "2702277e8756a137f5bb4828a49aba78af911fa4b309941a0e6ae7c6048de60c",
+      "status": "copied",
+      "backup_sha256": "2702277e8756a137f5bb4828a49aba78af911fa4b309941a0e6ae7c6048de60c",
+      "backup_size": 3967
+    },
+    {
+      "path": "test_training/scripts/patch_qwen36_sglang_mem_fraction.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/patch_qwen36_sglang_mem_fraction.sh",
+      "source_size": 4491,
+      "source_mtime_ns": 1781613289725472862,
+      "source_sha256": "3e73cae6a8ef4c8279cd3a0d71065d62fe180597ab16d6d0e0d8b7ef17b369b6",
+      "status": "copied",
+      "backup_sha256": "3e73cae6a8ef4c8279cd3a0d71065d62fe180597ab16d6d0e0d8b7ef17b369b6",
+      "backup_size": 4491
+    },
+    {
+      "path": "test_training/scripts/query_mlp_resource_summary.py",
+      "source_path": "/home/index/workspace/test_training/scripts/query_mlp_resource_summary.py",
+      "source_size": 4627,
+      "source_mtime_ns": 1781554879708433601,
+      "source_sha256": "0faa5caba339139bf8cf5c17c8c7f714506874b6d27fb08e0d369451f40ccd25",
+      "status": "copied",
+      "backup_sha256": "0faa5caba339139bf8cf5c17c8c7f714506874b6d27fb08e0d369451f40ccd25",
+      "backup_size": 4627
+    },
+    {
+      "path": "test_training/scripts/retry_qwen36_arm_c_after_arrow_fix.py",
+      "source_path": "/home/index/workspace/test_training/scripts/retry_qwen36_arm_c_after_arrow_fix.py",
+      "source_size": 2182,
+      "source_mtime_ns": 1786061316906982505,
+      "source_sha256": "865f6088c7379cea66423060c867d6362947ee1d6d2aa66a03ef7b76d36de444",
+      "status": "copied",
+      "backup_sha256": "865f6088c7379cea66423060c867d6362947ee1d6d2aa66a03ef7b76d36de444",
+      "backup_size": 2182
+    },
+    {
+      "path": "test_training/scripts/run_qwen36_a_rerun_20260810.py",
+      "source_path": "/home/index/workspace/test_training/scripts/run_qwen36_a_rerun_20260810.py",
+      "source_size": 1333,
+      "source_mtime_ns": 1786353971658337333,
+      "source_sha256": "eb39526e0606115b844260319a02b64a839eb40bcc11107a9afcd98c609a699c",
+      "status": "copied",
+      "backup_sha256": "eb39526e0606115b844260319a02b64a839eb40bcc11107a9afcd98c609a699c",
+      "backup_size": 1333
+    },
+    {
+      "path": "test_training/scripts/run_qwen36_ab_serial_rerun_20260810.py",
+      "source_path": "/home/index/workspace/test_training/scripts/run_qwen36_ab_serial_rerun_20260810.py",
+      "source_size": 1819,
+      "source_mtime_ns": 1786377725222226736,
+      "source_sha256": "ecb74e9746fff3ed67232a0eefdeae61ddc767fbc96173e4dd6b28ff19681456",
+      "status": "copied",
+      "backup_sha256": "ecb74e9746fff3ed67232a0eefdeae61ddc767fbc96173e4dd6b28ff19681456",
+      "backup_size": 1819
+    },
+    {
+      "path": "test_training/scripts/run_qwen36_ab_serial_rerun_20260811.py",
+      "source_path": "/home/index/workspace/test_training/scripts/run_qwen36_ab_serial_rerun_20260811.py",
+      "source_size": 1817,
+      "source_mtime_ns": 1786416589581954674,
+      "source_sha256": "e5ce9e4dcd610e618a9f0bbd80e35159a71e5af97cabd4032739e4ecbaffb4be",
+      "status": "copied",
+      "backup_sha256": "e5ce9e4dcd610e618a9f0bbd80e35159a71e5af97cabd4032739e4ecbaffb4be",
+      "backup_size": 1817
+    },
+    {
+      "path": "test_training/scripts/run_qwen36_b_rerun2_20260810.py",
+      "source_path": "/home/index/workspace/test_training/scripts/run_qwen36_b_rerun2_20260810.py",
+      "source_size": 1356,
+      "source_mtime_ns": 1786359302680109719,
+      "source_sha256": "93ff5a06c760dac3b547f653c182c3776e112a10e4f896dbb69c2a693b4d1235",
+      "status": "copied",
+      "backup_sha256": "93ff5a06c760dac3b547f653c182c3776e112a10e4f896dbb69c2a693b4d1235",
+      "backup_size": 1356
+    },
+    {
+      "path": "test_training/scripts/run_qwen36_bc_serial_rerun_20260810.py",
+      "source_path": "/home/index/workspace/test_training/scripts/run_qwen36_bc_serial_rerun_20260810.py",
+      "source_size": 1915,
+      "source_mtime_ns": 1786332093125202083,
+      "source_sha256": "40db398e164427f1df0f557001394814016f31eeb7f803b557a5945aa2ef694f",
+      "status": "copied",
+      "backup_sha256": "40db398e164427f1df0f557001394814016f31eeb7f803b557a5945aa2ef694f",
+      "backup_size": 1915
+    },
+    {
+      "path": "test_training/scripts/run_qwen36_frappe_glm_three_task_chain.py",
+      "source_path": "/home/index/workspace/test_training/scripts/run_qwen36_frappe_glm_three_task_chain.py",
+      "source_size": 10934,
+      "source_mtime_ns": 1786061200354762302,
+      "source_sha256": "4e2f051e38a24d084ad5727aed5c8f52dbe7a92c7b16416e09056430d0d31445",
+      "status": "copied",
+      "backup_sha256": "4e2f051e38a24d084ad5727aed5c8f52dbe7a92c7b16416e09056430d0d31445",
+      "backup_size": 10934
+    },
+    {
+      "path": "test_training/scripts/supervise_qwen36_a_rerun_20260810.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_qwen36_a_rerun_20260810.sh",
+      "source_size": 2171,
+      "source_mtime_ns": 1786353971658337333,
+      "source_sha256": "82bcf46e7022803d9c420ac0f2d817c0b60bed458c9985b2846454eaf63865af",
+      "status": "copied",
+      "backup_sha256": "82bcf46e7022803d9c420ac0f2d817c0b60bed458c9985b2846454eaf63865af",
+      "backup_size": 2171
+    },
+    {
+      "path": "test_training/scripts/supervise_qwen36_ab_serial_rerun_20260810.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_qwen36_ab_serial_rerun_20260810.sh",
+      "source_size": 2275,
+      "source_mtime_ns": 1786377725222226736,
+      "source_sha256": "8621523ea7df3f8f54e2f21b74b1322870db78655f7ca5f252b8bbe11d6c6f4f",
+      "status": "copied",
+      "backup_sha256": "8621523ea7df3f8f54e2f21b74b1322870db78655f7ca5f252b8bbe11d6c6f4f",
+      "backup_size": 2275
+    },
+    {
+      "path": "test_training/scripts/supervise_qwen36_ab_serial_rerun_20260811.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_qwen36_ab_serial_rerun_20260811.sh",
+      "source_size": 2293,
+      "source_mtime_ns": 1786416589581954674,
+      "source_sha256": "055501c1c7d8285141a2b732cae93bcef100fb62615a168c828984ea89ab4752",
+      "status": "copied",
+      "backup_sha256": "055501c1c7d8285141a2b732cae93bcef100fb62615a168c828984ea89ab4752",
+      "backup_size": 2293
+    },
+    {
+      "path": "test_training/scripts/supervise_qwen36_b_rerun2_20260810.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_qwen36_b_rerun2_20260810.sh",
+      "source_size": 2202,
+      "source_mtime_ns": 1786359302681109719,
+      "source_sha256": "de1781e4d5a7d784e1f04f35355e8c2776f5506ac0215f2e8546aa088a519984",
+      "status": "copied",
+      "backup_sha256": "de1781e4d5a7d784e1f04f35355e8c2776f5506ac0215f2e8546aa088a519984",
+      "backup_size": 2202
+    },
+    {
+      "path": "test_training/scripts/supervise_qwen36_bc_serial_rerun_20260810.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_qwen36_bc_serial_rerun_20260810.sh",
+      "source_size": 2242,
+      "source_mtime_ns": 1786332093125202083,
+      "source_sha256": "ee768566ae8a09bfea41c33ac3be823d611d2eccfcfcd2196d6991f56c228372",
+      "status": "copied",
+      "backup_sha256": "ee768566ae8a09bfea41c33ac3be823d611d2eccfcfcd2196d6991f56c228372",
+      "backup_size": 2242
+    },
+    {
+      "path": "test_training/scripts/supervise_qwen36_frappe_glm_three_task_chain.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_qwen36_frappe_glm_three_task_chain.sh",
+      "source_size": 2412,
+      "source_mtime_ns": 1786061316906982505,
+      "source_sha256": "a2a9616c4d527e85b507bc1bace5ee8706167d901e5f6c9ffccdc501046eee87",
+      "status": "copied",
+      "backup_sha256": "a2a9616c4d527e85b507bc1bace5ee8706167d901e5f6c9ffccdc501046eee87",
+      "backup_size": 2412
+    },
+    {
+      "path": "test_training/scripts/supervise_volc_chain_watcher.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_volc_chain_watcher.sh",
+      "source_size": 1683,
+      "source_mtime_ns": 1781978450296387953,
+      "source_sha256": "b94e3c52c68985226c5d6baa05427809e2f5188333b3d3c0d83020dba8dacda4",
+      "status": "copied",
+      "backup_sha256": "b94e3c52c68985226c5d6baa05427809e2f5188333b3d3c0d83020dba8dacda4",
+      "backup_size": 1683
+    },
+    {
+      "path": "test_training/scripts/supervise_volc_progress_monitor.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/supervise_volc_progress_monitor.sh",
+      "source_size": 1578,
+      "source_mtime_ns": 1781979168238975694,
+      "source_sha256": "e9c5c21dee9b7d19dead195e21b1bdfa279b8d99a798e4b6bcb89f8f191d9a46",
+      "status": "copied",
+      "backup_sha256": "e9c5c21dee9b7d19dead195e21b1bdfa279b8d99a798e4b6bcb89f8f191d9a46",
+      "backup_size": 1578
+    },
+    {
+      "path": "test_training/scripts/train_diag_16gpu_no_think_sampled_35a3b_flash283_iters2.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_diag_16gpu_no_think_sampled_35a3b_flash283_iters2.sh",
+      "source_size": 5670,
+      "source_mtime_ns": 1781602770300554973,
+      "source_sha256": "58fb471a8f28cdd14ef525e98b27eb9e235495afeb0baead08376a94e5f18d78",
+      "status": "copied",
+      "backup_sha256": "58fb471a8f28cdd14ef525e98b27eb9e235495afeb0baead08376a94e5f18d78",
+      "backup_size": 5670
+    },
+    {
+      "path": "test_training/scripts/train_diag_16gpu_no_think_sampled_35a3b_len32k_noxentfusion_iters2.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_diag_16gpu_no_think_sampled_35a3b_len32k_noxentfusion_iters2.sh",
+      "source_size": 5706,
+      "source_mtime_ns": 1781605211579235784,
+      "source_sha256": "7efbed35a83c9ded078b2925c71a170a07860c3d34c36a35cb7bebe6718e165f",
+      "status": "copied",
+      "backup_sha256": "7efbed35a83c9ded078b2925c71a170a07860c3d34c36a35cb7bebe6718e165f",
+      "backup_size": 5706
+    },
+    {
+      "path": "test_training/scripts/train_diag_16gpu_no_think_sampled_35a3b_te_fused_ce_iters2.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_diag_16gpu_no_think_sampled_35a3b_te_fused_ce_iters2.sh",
+      "source_size": 5639,
+      "source_mtime_ns": 1781629708449827314,
+      "source_sha256": "24e655f7927979f57334c029f31b04992cda0d8b2d612c9b10c9936a3abaef90",
+      "status": "copied",
+      "backup_sha256": "24e655f7927979f57334c029f31b04992cda0d8b2d612c9b10c9936a3abaef90",
+      "backup_size": 5639
+    },
+    {
+      "path": "test_training/scripts/train_diag_16gpu_no_think_short32_35a3b_len32k_noxentfusion.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_diag_16gpu_no_think_short32_35a3b_len32k_noxentfusion.sh",
+      "source_size": 5608,
+      "source_mtime_ns": 1781607113445225748,
+      "source_sha256": "e667215b12d81b0866114e00b0eadcd0622b1ec306a6e51c476342f8d2ec5c85",
+      "status": "copied",
+      "backup_sha256": "e667215b12d81b0866114e00b0eadcd0622b1ec306a6e51c476342f8d2ec5c85",
+      "backup_size": 5608
+    },
+    {
+      "path": "test_training/scripts/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_full_16gpu_full_sampled_1000_35a3b_te_fused_ce.sh",
+      "source_size": 5618,
+      "source_mtime_ns": 1781689123494911357,
+      "source_sha256": "cfcc1b8413ac531ddf29d0fb40b4a7bee74ad184d001204232e90871a2ef95d1",
+      "status": "copied",
+      "backup_sha256": "cfcc1b8413ac531ddf29d0fb40b4a7bee74ad184d001204232e90871a2ef95d1",
+      "backup_size": 5618
+    },
+    {
+      "path": "test_training/scripts/train_full_24gpu_no_think_sampled_35a3b_gbs36.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_full_24gpu_no_think_sampled_35a3b_gbs36.sh",
+      "source_size": 5357,
+      "source_mtime_ns": 1781607113285225580,
+      "source_sha256": "b18a2dc6b84780196f8d3f6c6e28fe6a3c0fe5ec7143e10d980d82aabae05861",
+      "status": "copied",
+      "backup_sha256": "b18a2dc6b84780196f8d3f6c6e28fe6a3c0fe5ec7143e10d980d82aabae05861",
+      "backup_size": 5357
+    },
+    {
+      "path": "test_training/scripts/train_qwen36_27b_16gpu_gbs2_epoch2_dataset_arm.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_qwen36_27b_16gpu_gbs2_epoch2_dataset_arm.sh",
+      "source_size": 10700,
+      "source_mtime_ns": 1786046084735832611,
+      "source_sha256": "942d860e1e56c8097e16e4a18f9c4a870b851e8e215dac226859fd3b65f21918",
+      "status": "copied",
+      "backup_sha256": "942d860e1e56c8097e16e4a18f9c4a870b851e8e215dac226859fd3b65f21918",
+      "backup_size": 10700
+    },
+    {
+      "path": "test_training/scripts/train_saas_sft_v0_exact47_qwen36_27b_16gpu_gbs2_epoch2.sh",
+      "source_path": "/home/index/workspace/test_training/scripts/train_saas_sft_v0_exact47_qwen36_27b_16gpu_gbs2_epoch2.sh",
+      "source_size": 11128,
+      "source_mtime_ns": 1786039556280518059,
+      "source_sha256": "ad6775a6aa84524589b2bc972c4f07d9d561717ac9c7edb6ad2c37566987b41e",
+      "status": "copied",
+      "backup_sha256": "ad6775a6aa84524589b2bc972c4f07d9d561717ac9c7edb6ad2c37566987b41e",
+      "backup_size": 11128
+    },
+    {
+      "path": "test_training/scripts/validate_jsonl_arrow_type_consistency.py",
+      "source_path": "/home/index/workspace/test_training/scripts/validate_jsonl_arrow_type_consistency.py",
+      "source_size": 2649,
+      "source_mtime_ns": 1786061096162569582,
+      "source_sha256": "c023f93427891525842217d6570f01c7ad218a1ed9a9567d787ed8aefdf7327c",
+      "status": "copied",
+      "backup_sha256": "c023f93427891525842217d6570f01c7ad218a1ed9a9567d787ed8aefdf7327c",
+      "backup_size": 2649
+    },
+    {
+      "path": "test_training/scripts/validate_no_think_jsonl.py",
+      "source_path": "/home/index/workspace/test_training/scripts/validate_no_think_jsonl.py",
+      "source_size": 2702,
+      "source_mtime_ns": 1781553586732213252,
+      "source_sha256": "24b24536fe3141ac5eb97e092b8e8c73bd0ca65a1014d6cbddaa05e82ae8078d",
+      "status": "copied",
+      "backup_sha256": "24b24536fe3141ac5eb97e092b8e8c73bd0ca65a1014d6cbddaa05e82ae8078d",
+      "backup_size": 2702
+    },
+    {
+      "path": "test_training/scripts/validate_qwen36_frappe_glm_renderability.py",
+      "source_path": "/home/index/workspace/test_training/scripts/validate_qwen36_frappe_glm_renderability.py",
+      "source_size": 3736,
+      "source_mtime_ns": 1786048404496361198,
+      "source_sha256": "a88fe9adc5227b1e28a8985b9a25446184ae11ff1a8aa1ed60b30e58feb7769e",
+      "status": "copied",
+      "backup_sha256": "a88fe9adc5227b1e28a8985b9a25446184ae11ff1a8aa1ed60b30e58feb7769e",
+      "backup_size": 3736
+    },
+    {
+      "path": "test_training/scripts/validate_qwen36_frappe_glm_three_datasets.py",
+      "source_path": "/home/index/workspace/test_training/scripts/validate_qwen36_frappe_glm_three_datasets.py",
+      "source_size": 15040,
+      "source_mtime_ns": 1786048807787970158,
+      "source_sha256": "6c4f82a7efbd217209fc598a7f743666e6f47667a877d30149b5122bfdba3522",
+      "status": "copied",
+      "backup_sha256": "6c4f82a7efbd217209fc598a7f743666e6f47667a877d30149b5122bfdba3522",
+      "backup_size": 15040
+    },
+    {
+      "path": "test_training/scripts/validate_qwen36_frappe_glm_three_training_assets.py",
+      "source_path": "/home/index/workspace/test_training/scripts/validate_qwen36_frappe_glm_three_training_assets.py",
+      "source_size": 6676,
+      "source_mtime_ns": 1786061173898712380,
+      "source_sha256": "988c5c786ee44e80dde2c85fab18ade09e5b545ec0bdc4d8bbf8f999d9b3d041",
+      "status": "copied",
+      "backup_sha256": "988c5c786ee44e80dde2c85fab18ade09e5b545ec0bdc4d8bbf8f999d9b3d041",
+      "backup_size": 6676
+    },
+    {
+      "path": "test_training/scripts/validate_saas_sft_v0_volc_assets.py",
+      "source_path": "/home/index/workspace/test_training/scripts/validate_saas_sft_v0_volc_assets.py",
+      "source_size": 4058,
+      "source_mtime_ns": 1786016950171644100,
+      "source_sha256": "65e3dcf12ee8f264cfddd24b705b69f08e98f2dfbab910b6c30fcff5aca436c4",
+      "status": "copied",
+      "backup_sha256": "65e3dcf12ee8f264cfddd24b705b69f08e98f2dfbab910b6c30fcff5aca436c4",
+      "backup_size": 4058
+    },
+    {
+      "path": "test_training/scripts/watch_volc_chain_submit.py",
+      "source_path": "/home/index/workspace/test_training/scripts/watch_volc_chain_submit.py",
+      "source_size": 6934,
+      "source_mtime_ns": 1781953277780602249,
+      "source_sha256": "ef5b45b1bb332dbd3414715a0364d2c85675dff1f6082e485689af69f4fac27f",
+      "status": "copied",
+      "backup_sha256": "ef5b45b1bb332dbd3414715a0364d2c85675dff1f6082e485689af69f4fac27f",
+      "backup_size": 6934
+    },
+    {
+      "path": "test_training/scripts/watch_volc_task_and_resubmit.py",
+      "source_path": "/home/index/workspace/test_training/scripts/watch_volc_task_and_resubmit.py",
+      "source_size": 4312,
+      "source_mtime_ns": 1781903546642787243,
+      "source_sha256": "b3a61f1cdb065f7f3bba8911128c9053f2d4f890ca3918ed4027bc9d03d1a453",
+      "status": "copied",
+      "backup_sha256": "b3a61f1cdb065f7f3bba8911128c9053f2d4f890ca3918ed4027bc9d03d1a453",
+      "backup_size": 4312
+    },
+    {
+      "path": "test_training/textbook/LLM训练-sft.md",
+      "source_path": "/home/index/workspace/test_training/textbook/LLM训练-sft.md",
+      "source_size": 51688,
+      "source_mtime_ns": 1781719508888081267,
+      "source_sha256": "cb7d7f02ca042bd5bf689d2689fad59a828f7dee72c9d4aecb001ac5e87f6481",
+      "status": "copied",
+      "backup_sha256": "cb7d7f02ca042bd5bf689d2689fad59a828f7dee72c9d4aecb001ac5e87f6481",
+      "backup_size": 51688
+    },
+    {
+      "path": "test_training/textbook/agent_traceability_artifacts.md",
+      "source_path": "/home/index/workspace/test_training/textbook/agent_traceability_artifacts.md",
+      "source_size": 13808,
+      "source_mtime_ns": 1781629335266938930,
+      "source_sha256": "4bcb5baa40a63ae3a17d77fae0f8f2f3c5f2e6f0567f32536d5500990b9d77ca",
+      "status": "copied",
+      "backup_sha256": "4bcb5baa40a63ae3a17d77fae0f8f2f3c5f2e6f0567f32536d5500990b9d77ca",
+      "backup_size": 13808
+    },
+    {
+      "path": "test_training/textbook/dolly_probe_workflow.md",
+      "source_path": "/home/index/workspace/test_training/textbook/dolly_probe_workflow.md",
+      "source_size": 4072,
+      "source_mtime_ns": 1781629337961945141,
+      "source_sha256": "84b37357fbf8d60c7227638a11b6e324edecab8d4332729b19555ec7c176f22f",
+      "status": "copied",
+      "backup_sha256": "84b37357fbf8d60c7227638a11b6e324edecab8d4332729b19555ec7c176f22f",
+      "backup_size": 4072
+    },
+    {
+      "path": "test_training/textbook/post_training_run_interpretation_template.md",
+      "source_path": "/home/index/workspace/test_training/textbook/post_training_run_interpretation_template.md",
+      "source_size": 13541,
+      "source_mtime_ns": 1781629336634942086,
+      "source_sha256": "91383c309c83e28d07c141e1f9de1d2d2bbf80b8420784255129b39092c12103",
+      "status": "copied",
+      "backup_sha256": "91383c309c83e28d07c141e1f9de1d2d2bbf80b8420784255129b39092c12103",
+      "backup_size": 13541
+    },
+    {
+      "path": "test_training/textbook/sft_data_audit.md",
+      "source_path": "/home/index/workspace/test_training/textbook/sft_data_audit.md",
+      "source_size": 1605,
+      "source_mtime_ns": 1781691763741855656,
+      "source_sha256": "f1be13f006d932e4b873dc2625d1dd9f4fd0e152ee28cb83247f2bd861fd6f2e",
+      "status": "copied",
+      "backup_sha256": "f1be13f006d932e4b873dc2625d1dd9f4fd0e152ee28cb83247f2bd861fd6f2e",
+      "backup_size": 1605
+    },
+    {
+      "path": "test_training/textbook/z 模型训练学习.md",
+      "source_path": "/home/index/workspace/test_training/textbook/z 模型训练学习.md",
+      "source_size": 7946,
+      "source_mtime_ns": 1781629417699146552,
+      "source_sha256": "0117a8065ba6183a3cf19adc6cde73a85aeb7de92da6d6cf3b52fbbc77b4c821",
+      "status": "copied",
+      "backup_sha256": "0117a8065ba6183a3cf19adc6cde73a85aeb7de92da6d6cf3b52fbbc77b4c821",
+      "backup_size": 7946
+    },
+    {
+      "path": "fireworks/data_alignment/MODEL_ADAPTER_READINESS.md",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/MODEL_ADAPTER_READINESS.md",
+      "source_size": 5748,
+      "source_mtime_ns": 1784578524618086866,
+      "source_sha256": "6220e0da87427831bd7cd2f0ed2a37e4c6929be37a9e8c6464defeb890a87271",
+      "status": "copied",
+      "backup_sha256": "6220e0da87427831bd7cd2f0ed2a37e4c6929be37a9e8c6464defeb890a87271",
+      "backup_size": 5748
+    },
+    {
+      "path": "fireworks/data_alignment/alignment_sft_lib.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/alignment_sft_lib.py",
+      "source_size": 34702,
+      "source_mtime_ns": 1784578576205160380,
+      "source_sha256": "9d785247c4ddbb48eca4342a624d0799240c50f6efd290daf41fd2c522873bfa",
+      "status": "copied",
+      "backup_sha256": "9d785247c4ddbb48eca4342a624d0799240c50f6efd290daf41fd2c522873bfa",
+      "backup_size": 34702
+    },
+    {
+      "path": "fireworks/data_alignment/backup_manifest_kimi_glm_20260721.sha256",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/backup_manifest_kimi_glm_20260721.sha256",
+      "source_size": 1513,
+      "source_mtime_ns": 1784604903482125926,
+      "source_sha256": "712a6bad79b6913d6f0c8fb012bac67bd5fb4221cbfb62f07f2a86f2c3538445",
+      "status": "copied",
+      "backup_sha256": "712a6bad79b6913d6f0c8fb012bac67bd5fb4221cbfb62f07f2a86f2c3538445",
+      "backup_size": 1513
+    },
+    {
+      "path": "fireworks/data_alignment/conversion_script_principles.md",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/conversion_script_principles.md",
+      "source_size": 2621,
+      "source_mtime_ns": 1782880383979773464,
+      "source_sha256": "4f8b6ca3fd64a7eaa7165990993368b951f6e50a4c6a3c4f99245c77021508f0",
+      "status": "copied",
+      "backup_sha256": "4f8b6ca3fd64a7eaa7165990993368b951f6e50a4c6a3c4f99245c77021508f0",
+      "backup_size": 2621
+    },
+    {
+      "path": "fireworks/data_alignment/convert_mswift_jsonl_to_fireworks_chat.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/convert_mswift_jsonl_to_fireworks_chat.py",
+      "source_size": 10204,
+      "source_mtime_ns": 1782877172355968036,
+      "source_sha256": "79ddb38dddd2d8259bc471d3fae0df8727560b9ff570126364f6321159fbfad2",
+      "status": "copied",
+      "backup_sha256": "79ddb38dddd2d8259bc471d3fae0df8727560b9ff570126364f6321159fbfad2",
+      "backup_size": 10204
+    },
+    {
+      "path": "fireworks/data_alignment/execution_report.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/execution_report.json",
+      "source_size": 3606,
+      "source_mtime_ns": 1782849647316274133,
+      "source_sha256": "8e7d97e5dd431b296fce51079be54dae73d1861e387d121cb8e18745d5c54a2b",
+      "status": "copied",
+      "backup_sha256": "8e7d97e5dd431b296fce51079be54dae73d1861e387d121cb8e18745d5c54a2b",
+      "backup_size": 3606
+    },
+    {
+      "path": "fireworks/data_alignment/feature_list.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/feature_list.json",
+      "source_size": 897,
+      "source_mtime_ns": 1784578524619086868,
+      "source_sha256": "8dacc78682326b09d98e221b6befda4980c4a955b8ea442fa3f636de77fd7a72",
+      "status": "copied",
+      "backup_sha256": "8dacc78682326b09d98e221b6befda4980c4a955b8ea442fa3f636de77fd7a72",
+      "backup_size": 897
+    },
+    {
+      "path": "fireworks/data_alignment/model_adapter_readiness_report.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/model_adapter_readiness_report.json",
+      "source_size": 3489,
+      "source_mtime_ns": 1784572753176227594,
+      "source_sha256": "d0a1caf990fcb3f43fdc59d4e38d8c4cffec38b999bb42999d61dcc1382d3042",
+      "status": "copied",
+      "backup_sha256": "d0a1caf990fcb3f43fdc59d4e38d8c4cffec38b999bb42999d61dcc1382d3042",
+      "backup_size": 3489
+    },
+    {
+      "path": "fireworks/data_alignment/progress.txt",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/progress.txt",
+      "source_size": 1174,
+      "source_mtime_ns": 1784578524619086868,
+      "source_sha256": "3469f1ca5a0eff4d84d8f17be1f4c58b09ed4d9fa3a70c80aa9b22280ed09a1c",
+      "status": "copied",
+      "backup_sha256": "3469f1ca5a0eff4d84d8f17be1f4c58b09ed4d9fa3a70c80aa9b22280ed09a1c",
+      "backup_size": 1174
+    },
+    {
+      "path": "fireworks/data_alignment/run_alignment_sft.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/run_alignment_sft.py",
+      "source_size": 2436,
+      "source_mtime_ns": 1783526280455867177,
+      "source_sha256": "35def436549247ae5e1826ec0f7a3039e4937886babec14a7e3e9e65250f8d33",
+      "status": "copied",
+      "backup_sha256": "35def436549247ae5e1826ec0f7a3039e4937886babec14a7e3e9e65250f8d33",
+      "backup_size": 2436
+    },
+    {
+      "path": "fireworks/data_alignment/run_qwen36_27b_full_sft_a100.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/run_qwen36_27b_full_sft_a100.py",
+      "source_size": 16129,
+      "source_mtime_ns": 1782880769472721181,
+      "source_sha256": "5ac8c4cca1ca52a0e04cba46954b0fe43eb390cbe71b17371aec74ae8416ab1d",
+      "status": "copied",
+      "backup_sha256": "5ac8c4cca1ca52a0e04cba46954b0fe43eb390cbe71b17371aec74ae8416ab1d",
+      "backup_size": 16129
+    },
+    {
+      "path": "fireworks/data_alignment/run_qwen36_27b_full_sft_a100_single_datum.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/run_qwen36_27b_full_sft_a100_single_datum.py",
+      "source_size": 20100,
+      "source_mtime_ns": 1782882627492518686,
+      "source_sha256": "f3e6bf2f8589e692988ea3cd59807ac1a5d651ba7c1f4025efaafeeee7bc818c",
+      "status": "copied",
+      "backup_sha256": "f3e6bf2f8589e692988ea3cd59807ac1a5d651ba7c1f4025efaafeeee7bc818c",
+      "backup_size": 20100
+    },
+    {
+      "path": "fireworks/data_alignment/run_qwen36_27b_full_sft_preserve_thinking.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/run_qwen36_27b_full_sft_preserve_thinking.py",
+      "source_size": 21858,
+      "source_mtime_ns": 1783489943968265830,
+      "source_sha256": "03d8de5693538d4218eb843bdb38132afbfc8a90583ceb535cf636f7350ef72f",
+      "status": "copied",
+      "backup_sha256": "03d8de5693538d4218eb843bdb38132afbfc8a90583ceb535cf636f7350ef72f",
+      "backup_size": 21858
+    },
+    {
+      "path": "fireworks/data_alignment/run_qwen36_27b_full_sft_preserve_thinking_official.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/run_qwen36_27b_full_sft_preserve_thinking_official.py",
+      "source_size": 566,
+      "source_mtime_ns": 1783526280456867177,
+      "source_sha256": "5627f3b1889ae6a1e98fd6e49d0950a5737e4791fe69bce61b1b60869f561254",
+      "status": "copied",
+      "backup_sha256": "5627f3b1889ae6a1e98fd6e49d0950a5737e4791fe69bce61b1b60869f561254",
+      "backup_size": 566
+    },
+    {
+      "path": "fireworks/data_alignment/sample_manifest_summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/sample_manifest_summary.json",
+      "source_size": 11884,
+      "source_mtime_ns": 1782849647231274040,
+      "source_sha256": "d7ae15ac3a1d0fb12809a7ef43f2f43b38ab7a3e02db249640299d8f13fb9e9a",
+      "status": "copied",
+      "backup_sha256": "d7ae15ac3a1d0fb12809a7ef43f2f43b38ab7a3e02db249640299d8f13fb9e9a",
+      "backup_size": 11884
+    },
+    {
+      "path": "fireworks/data_alignment/test_alignment_model_adapters.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/test_alignment_model_adapters.py",
+      "source_size": 8864,
+      "source_mtime_ns": 1784602093648065101,
+      "source_sha256": "b9cf6f1fcd8dc228a0646beaaeebe1d6eb65d7713cec8e285076f8043649b6a7",
+      "status": "copied",
+      "backup_sha256": "b9cf6f1fcd8dc228a0646beaaeebe1d6eb65d7713cec8e285076f8043649b6a7",
+      "backup_size": 8864
+    },
+    {
+      "path": "fireworks/data_alignment/test_results.txt",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/test_results.txt",
+      "source_size": 99,
+      "source_mtime_ns": 1784604887007108895,
+      "source_sha256": "ac80f76cda8c03c8bc23fa47eff3519c22b548ca6be28dbb28618ba3dcd41eba",
+      "status": "copied",
+      "backup_sha256": "ac80f76cda8c03c8bc23fa47eff3519c22b548ca6be28dbb28618ba3dcd41eba",
+      "backup_size": 99
+    },
+    {
+      "path": "fireworks/data_alignment/training_10_b300_completion_report.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/training_10_b300_completion_report.json",
+      "source_size": 1806,
+      "source_mtime_ns": 1784578524617086865,
+      "source_sha256": "50aaf0c16f3b7c40ac4b75adc1ee85a68fc15e84999ec97c8c879facec94f82d",
+      "status": "copied",
+      "backup_sha256": "50aaf0c16f3b7c40ac4b75adc1ee85a68fc15e84999ec97c8c879facec94f82d",
+      "backup_size": 1806
+    },
+    {
+      "path": "fireworks/data_alignment/validate_alignment_sft_refactor.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/validate_alignment_sft_refactor.py",
+      "source_size": 4638,
+      "source_mtime_ns": 1783526312756858176,
+      "source_sha256": "c6318dfe1683d18ba7c2b711f764b94f07ba1bbbaa7a45287d0b2a12ea47a304",
+      "status": "copied",
+      "backup_sha256": "c6318dfe1683d18ba7c2b711f764b94f07ba1bbbaa7a45287d0b2a12ea47a304",
+      "backup_size": 4638
+    },
+    {
+      "path": "fireworks/data_alignment/validate_model_adapter_readiness.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/validate_model_adapter_readiness.py",
+      "source_size": 10479,
+      "source_mtime_ns": 1784572315234715190,
+      "source_sha256": "80b789ea16c594b5c7043de4a537949f3eb169557ec2854f09297ebeeda4f58b",
+      "status": "copied",
+      "backup_sha256": "80b789ea16c594b5c7043de4a537949f3eb169557ec2854f09297ebeeda4f58b",
+      "backup_size": 10479
+    },
+    {
+      "path": "fireworks/data_alignment/validation_result.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/validation_result.json",
+      "source_size": 122,
+      "source_mtime_ns": 1782879742781842595,
+      "source_sha256": "4b79c2891aaa2e01ea72e7656a7849bd5e85b171b3deada2a78dcb8c29e96b75",
+      "status": "copied",
+      "backup_sha256": "4b79c2891aaa2e01ea72e7656a7849bd5e85b171b3deada2a78dcb8c29e96b75",
+      "backup_size": 122
+    },
+    {
+      "path": "fireworks/data_alignment/configs/glm52_fp8_full_sft.yaml",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/configs/glm52_fp8_full_sft.yaml",
+      "source_size": 2514,
+      "source_mtime_ns": 1784572268873656285,
+      "source_sha256": "9e98913476c2ef508b3363a70404723d5a43df06f8977d9fff7dd21c071b854b",
+      "status": "copied",
+      "backup_sha256": "9e98913476c2ef508b3363a70404723d5a43df06f8977d9fff7dd21c071b854b",
+      "backup_size": 2514
+    },
+    {
+      "path": "fireworks/data_alignment/configs/kimi_k27_code_full_sft.yaml",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/configs/kimi_k27_code_full_sft.yaml",
+      "source_size": 2529,
+      "source_mtime_ns": 1784572268873656285,
+      "source_sha256": "172ea2660663f331bf8e9566bc426a035346b0c1d1e096d714cc828e9e11cc59",
+      "status": "copied",
+      "backup_sha256": "172ea2660663f331bf8e9566bc426a035346b0c1d1e096d714cc828e9e11cc59",
+      "backup_size": 2529
+    },
+    {
+      "path": "fireworks/data_alignment/configs/kimi_k27_code_overfit_3x20.yaml",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/configs/kimi_k27_code_overfit_3x20.yaml",
+      "source_size": 2521,
+      "source_mtime_ns": 1784602075786039411,
+      "source_sha256": "959a93d6e7130bff409549abc1a5d7e513585562550a52d61d6795e282926c43",
+      "status": "copied",
+      "backup_sha256": "959a93d6e7130bff409549abc1a5d7e513585562550a52d61d6795e282926c43",
+      "backup_size": 2521
+    },
+    {
+      "path": "fireworks/data_alignment/configs/qwen36_27b_preserve_thinking_official.yaml",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/configs/qwen36_27b_preserve_thinking_official.yaml",
+      "source_size": 2288,
+      "source_mtime_ns": 1783526280455867177,
+      "source_sha256": "7a614c0ed0e8b7d45aafec3dc00fee17f7f293c067d29eec7c7e4ac9ec62f630",
+      "status": "copied",
+      "backup_sha256": "7a614c0ed0e8b7d45aafec3dc00fee17f7f293c067d29eec7c7e4ac9ec62f630",
+      "backup_size": 2288
+    },
+    {
+      "path": "fireworks/data_alignment/core/conversion_report.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/conversion_report.json",
+      "source_size": 919,
+      "source_mtime_ns": 1782849647241274051,
+      "source_sha256": "e33a3784bd16d4b41e7248aaf747f6572fe914654b5031de35d01c8114582341",
+      "status": "copied",
+      "backup_sha256": "e33a3784bd16d4b41e7248aaf747f6572fe914654b5031de35d01c8114582341",
+      "backup_size": 919
+    },
+    {
+      "path": "fireworks/data_alignment/core/convert_core_aligned.fixed_0702.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/convert_core_aligned.fixed_0702.py",
+      "source_size": 18927,
+      "source_mtime_ns": 1784572100085441486,
+      "source_sha256": "fc6a496d82c22933cbd7ce68a62d717ceb1647ab34bb6b51c80becd6c6914257",
+      "status": "copied",
+      "backup_sha256": "fc6a496d82c22933cbd7ce68a62d717ceb1647ab34bb6b51c80becd6c6914257",
+      "backup_size": 18927
+    },
+    {
+      "path": "fireworks/data_alignment/core/convert_core_aligned.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/convert_core_aligned.py",
+      "source_size": 15939,
+      "source_mtime_ns": 1782879741177842731,
+      "source_sha256": "ff674e1bea1fb1e3e1930fbeac2d998e2ee16c93315f71da0a8349c2ded577ca",
+      "status": "copied",
+      "backup_sha256": "ff674e1bea1fb1e3e1930fbeac2d998e2ee16c93315f71da0a8349c2ded577ca",
+      "backup_size": 15939
+    },
+    {
+      "path": "fireworks/data_alignment/core/core_report.html",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/core_report.html",
+      "source_size": 21418,
+      "source_mtime_ns": 1782849647299274114,
+      "source_sha256": "e53f61d94b166886fade7675fd6d558d33398601849f500f9575af555c0f1764",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "fireworks/data_alignment/core/core_summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/core_summary.json",
+      "source_size": 290,
+      "source_mtime_ns": 1782849647248274059,
+      "source_sha256": "a0575273e039d3e136c485559e455c8630cda48813167ec28dd5a4b65b9d600a",
+      "status": "copied",
+      "backup_sha256": "a0575273e039d3e136c485559e455c8630cda48813167ec28dd5a4b65b9d600a",
+      "backup_size": 290
+    },
+    {
+      "path": "fireworks/data_alignment/core/cost_risk_report.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/cost_risk_report.json",
+      "source_size": 12933,
+      "source_mtime_ns": 1782848628480186917,
+      "source_sha256": "d29e5fe7926db276f01dcfc840a98696d37c35d3d3586b34af0c15ae3d76842a",
+      "status": "copied",
+      "backup_sha256": "d29e5fe7926db276f01dcfc840a98696d37c35d3d3586b34af0c15ae3d76842a",
+      "backup_size": 12933
+    },
+    {
+      "path": "fireworks/data_alignment/core/fireworks_chat.core_aligned.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/fireworks_chat.core_aligned.jsonl",
+      "source_size": 280493602,
+      "source_mtime_ns": 1782848498005063027,
+      "source_sha256": "509866769b7227b6d02e5008cc2104d66c8d1759f106758753366973e416b635",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/core/fireworks_core_audit.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/fireworks_core_audit.jsonl",
+      "source_size": 395973,
+      "source_mtime_ns": 1782848628479186916,
+      "source_sha256": "a9749ebb1dede6228e7d5c370582afd7c97c5b6029e34d295a62855da228f822",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/core/sample_manifest.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/sample_manifest.jsonl",
+      "source_size": 1889286,
+      "source_mtime_ns": 1782745229687355666,
+      "source_sha256": "b0fa0bbd1409ba4737d69d54e251778c4244860eafd202fe905c57d9437354e2",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/core/sample_manifest_summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/core/sample_manifest_summary.json",
+      "source_size": 11884,
+      "source_mtime_ns": 1782849647237274047,
+      "source_sha256": "d7ae15ac3a1d0fb12809a7ef43f2f43b38ab7a3e02db249640299d8f13fb9e9a",
+      "status": "copied",
+      "backup_sha256": "d7ae15ac3a1d0fb12809a7ef43f2f43b38ab7a3e02db249640299d8f13fb9e9a",
+      "backup_size": 11884
+    },
+    {
+      "path": "fireworks/data_alignment/parity/conversion_report.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/conversion_report.json",
+      "source_size": 913,
+      "source_mtime_ns": 1782849647241274051,
+      "source_sha256": "2f1680c5ca7653b9d18096b6814e3e2b9b0d4b01857c9514375b64ec487f4da0",
+      "status": "copied",
+      "backup_sha256": "2f1680c5ca7653b9d18096b6814e3e2b9b0d4b01857c9514375b64ec487f4da0",
+      "backup_size": 913
+    },
+    {
+      "path": "fireworks/data_alignment/parity/convert_ms_swift_compatible.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/convert_ms_swift_compatible.py",
+      "source_size": 15939,
+      "source_mtime_ns": 1782879741179842730,
+      "source_sha256": "ff674e1bea1fb1e3e1930fbeac2d998e2ee16c93315f71da0a8349c2ded577ca",
+      "status": "copied",
+      "backup_sha256": "ff674e1bea1fb1e3e1930fbeac2d998e2ee16c93315f71da0a8349c2ded577ca",
+      "backup_size": 15939
+    },
+    {
+      "path": "fireworks/data_alignment/parity/fireworks_chat.ms_swift_compatible.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/fireworks_chat.ms_swift_compatible.jsonl",
+      "source_size": 280033535,
+      "source_mtime_ns": 1782848506305070617,
+      "source_sha256": "4d50072ebad3e5759bc3a51b988abf5a5759106ab444265303a2b7967a6cbd46",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/parity/fireworks_render_audit.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/fireworks_render_audit.jsonl",
+      "source_size": 318061,
+      "source_mtime_ns": 1782849277393874989,
+      "source_sha256": "345aa707b80f1c5a0e6f6749567e1fc062726a93288dca6681fa515469438aa9",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/parity/ms_swift_render_audit.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/ms_swift_render_audit.jsonl",
+      "source_size": 96,
+      "source_mtime_ns": 1791472056021156016,
+      "symlink_target": "/home/index/workspace/fireworks/runs/data-alignment-20260629T145032Z/ms_swift_render_audit.jsonl",
+      "source_sha256": null,
+      "status": "excluded",
+      "reason": "symbolic link: external or runtime artifact"
+    },
+    {
+      "path": "fireworks/data_alignment/parity/parity_report.html",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/parity_report.html",
+      "source_size": 85160,
+      "source_mtime_ns": 1782849647315274131,
+      "source_sha256": "c9a945b4924a7837c488324464fea6eadbd8eab02c3df17cb91c322e121e5a14",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "fireworks/data_alignment/parity/parity_report.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/parity_report.jsonl",
+      "source_size": 932267,
+      "source_mtime_ns": 1782849277393874989,
+      "source_sha256": "e5fb11dd55509dd82e8977d681df4af130139cc75c16d22a9c541e919b864611",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/parity/parity_summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/parity_summary.json",
+      "source_size": 575,
+      "source_mtime_ns": 1782849647261274073,
+      "source_sha256": "cbad4a741ef186abe43046da671863e617960e89278d8535b0c1a775a5c355fa",
+      "status": "copied",
+      "backup_sha256": "cbad4a741ef186abe43046da671863e617960e89278d8535b0c1a775a5c355fa",
+      "backup_size": 575
+    },
+    {
+      "path": "fireworks/data_alignment/parity/sample_manifest.jsonl",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/sample_manifest.jsonl",
+      "source_size": 1889286,
+      "source_mtime_ns": 1782745229687355666,
+      "source_sha256": "b0fa0bbd1409ba4737d69d54e251778c4244860eafd202fe905c57d9437354e2",
+      "status": "excluded",
+      "reason": "raw training data, sample-level audit, or trace stream"
+    },
+    {
+      "path": "fireworks/data_alignment/parity/sample_manifest_summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/parity/sample_manifest_summary.json",
+      "source_size": 11884,
+      "source_mtime_ns": 1782849647237274047,
+      "source_sha256": "d7ae15ac3a1d0fb12809a7ef43f2f43b38ab7a3e02db249640299d8f13fb9e9a",
+      "status": "copied",
+      "backup_sha256": "d7ae15ac3a1d0fb12809a7ef43f2f43b38ab7a3e02db249640299d8f13fb9e9a",
+      "backup_size": 11884
+    },
+    {
+      "path": "fireworks/data_alignment/public/core_report.html",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/public/core_report.html",
+      "source_size": 21418,
+      "source_mtime_ns": 1782849647299274114,
+      "source_sha256": "e53f61d94b166886fade7675fd6d558d33398601849f500f9575af555c0f1764",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "fireworks/data_alignment/public/index.html",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/public/index.html",
+      "source_size": 1639,
+      "source_mtime_ns": 1782849647315274131,
+      "source_sha256": "7a429ee692f2661edd939a97de770d6e06d7077ecb47d69c04242ae3f158e840",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "fireworks/data_alignment/public/parity_report.html",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/public/parity_report.html",
+      "source_size": 85160,
+      "source_mtime_ns": 1782849647315274131,
+      "source_sha256": "c9a945b4924a7837c488324464fea6eadbd8eab02c3df17cb91c322e121e5a14",
+      "status": "excluded",
+      "reason": "visualization may embed raw sample content"
+    },
+    {
+      "path": "fireworks/data_alignment/renderer_adapters/__init__.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/renderer_adapters/__init__.py",
+      "source_size": 78,
+      "source_mtime_ns": 1784571634402886958,
+      "source_sha256": "d1ca9ee02a1f4518f321b5103c4c701acd77dedebd42300d432d4f6e44bfd2e0",
+      "status": "copied",
+      "backup_sha256": "d1ca9ee02a1f4518f321b5103c4c701acd77dedebd42300d432d4f6e44bfd2e0",
+      "backup_size": 78
+    },
+    {
+      "path": "fireworks/data_alignment/renderer_adapters/glm52_alignment.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/renderer_adapters/glm52_alignment.py",
+      "source_size": 2463,
+      "source_mtime_ns": 1784571634402886958,
+      "source_sha256": "41b51ea5039df8a47f87fbe08b747deb254125b7d6e8592cf7b95988a501faf1",
+      "status": "copied",
+      "backup_sha256": "41b51ea5039df8a47f87fbe08b747deb254125b7d6e8592cf7b95988a501faf1",
+      "backup_size": 2463
+    },
+    {
+      "path": "fireworks/data_alignment/renderer_adapters/kimi_k27_single_datum.py",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/renderer_adapters/kimi_k27_single_datum.py",
+      "source_size": 881,
+      "source_mtime_ns": 1784571634402886958,
+      "source_sha256": "597db6b7d54224a845889820f5088695ad7da883ef3b31d632c3df7251f92b83",
+      "status": "copied",
+      "backup_sha256": "597db6b7d54224a845889820f5088695ad7da883ef3b31d632c3df7251f92b83",
+      "backup_size": 881
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/debug-internal.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/debug-internal.log",
+      "source_size": 52,
+      "source_mtime_ns": 1784575892936352588,
+      "symlink_target": "run-20260720_193132-0aybqw2j/logs/debug-internal.log",
+      "source_sha256": null,
+      "resolved_size": 44382,
+      "resolved_sha256": "4c8214888ed83488b4303d14bfb9891d7275c832c99aca9fa38da5e13938bef6",
+      "status": "excluded",
+      "reason": "symbolic link: external or runtime artifact"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/debug.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/debug.log",
+      "source_size": 43,
+      "source_mtime_ns": 1784575892936352588,
+      "symlink_target": "run-20260720_193132-0aybqw2j/logs/debug.log",
+      "source_sha256": null,
+      "resolved_size": 2839,
+      "resolved_sha256": "d9c94446e16c01e5b67a36b0934e8fb6cc4da27db23f2a7f3d151dac97e86d48",
+      "status": "excluded",
+      "reason": "symbolic link: external or runtime artifact"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/run-0aybqw2j.wandb",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/run-0aybqw2j.wandb",
+      "source_size": 85142,
+      "source_mtime_ns": 1784578435575958850,
+      "source_sha256": "3ad86f89eeed2e09379df63630df986b921938108d247dba352b8e5c41e8e0f5",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/config.yaml",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/config.yaml",
+      "source_size": 2681,
+      "source_mtime_ns": 1784578431320952815,
+      "source_sha256": "2429126ee6644fe17db91457f2d9fd96968b6b5e07283ae40958b03f874a195a",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/output.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/output.log",
+      "source_size": 905,
+      "source_mtime_ns": 1784576634003406064,
+      "source_sha256": "9094d74ba519a272b90a27427eaf14d234ec8753f24fee16033c0b35d212e93d",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/requirements.txt",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/requirements.txt",
+      "source_size": 2147,
+      "source_mtime_ns": 1784575893716353854,
+      "source_sha256": "372b78e63149766827625e8cfde3a7f074b0f80db5f4323dd92911f705863ae6",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/wandb-metadata.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/wandb-metadata.json",
+      "source_size": 941,
+      "source_mtime_ns": 1784575893705353836,
+      "source_sha256": "b3392ea189aa81c93638e4fef86743af3d7aab995477cdea1a3cf68de6818e15",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/wandb-summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/files/wandb-summary.json",
+      "source_size": 718,
+      "source_mtime_ns": 1784578430944952283,
+      "source_sha256": "158c274aac775ecb90d4e56c51d91c1085ead37720c6863f607f625b9db3d526",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/logs/debug-core.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/logs/debug-core.log",
+      "source_size": 60,
+      "source_mtime_ns": 1791472056021156016,
+      "symlink_target": "/home/index/.cache/wandb/logs/core-debug-20260720_193118.log",
+      "source_sha256": null,
+      "status": "excluded",
+      "reason": "symbolic link: external or runtime artifact"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/logs/debug-internal.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/logs/debug-internal.log",
+      "source_size": 44382,
+      "source_mtime_ns": 1784578435575958850,
+      "source_sha256": "4c8214888ed83488b4303d14bfb9891d7275c832c99aca9fa38da5e13938bef6",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/logs/debug.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-0aybqw2j/logs/debug.log",
+      "source_size": 2839,
+      "source_mtime_ns": 1784578435575958850,
+      "source_sha256": "d9c94446e16c01e5b67a36b0934e8fb6cc4da27db23f2a7f3d151dac97e86d48",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/run-odmr6bs6.wandb",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/run-odmr6bs6.wandb",
+      "source_size": 73074,
+      "source_mtime_ns": 1784578033410421193,
+      "source_sha256": "a4a33c6dbb1a19377f3269366c3132ef81814184074f66572356348c47971b48",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/config.yaml",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/config.yaml",
+      "source_size": 2674,
+      "source_mtime_ns": 1784578032726420132,
+      "source_sha256": "2d9221e7c2bc8d97ea7e92475fa6c864c09188b94960d9cf272442513cf9ce69",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/output.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/output.log",
+      "source_size": 310,
+      "source_mtime_ns": 1784576696210491338,
+      "source_sha256": "cf2c236702f8d67f7b0f8ab74586fb1b9de579cd8112b950044db07ba73ba63d",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/requirements.txt",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/requirements.txt",
+      "source_size": 2147,
+      "source_mtime_ns": 1784575893529353551,
+      "source_sha256": "372b78e63149766827625e8cfde3a7f074b0f80db5f4323dd92911f705863ae6",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/wandb-metadata.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/wandb-metadata.json",
+      "source_size": 934,
+      "source_mtime_ns": 1784575893505353512,
+      "source_sha256": "3aed6bf747161cb7a3c78b48f9a0444012c43bf2a9619ff4bc0365d889525d88",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/wandb-summary.json",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/files/wandb-summary.json",
+      "source_size": 958,
+      "source_mtime_ns": 1784578032440419691,
+      "source_sha256": "ff9fd116f7b019607eec5c1754614c0a6332a47cbbfc44b9b0b12bfbd1e32af5",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/logs/debug-core.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/logs/debug-core.log",
+      "source_size": 60,
+      "source_mtime_ns": 1791472056021156016,
+      "symlink_target": "/home/index/.cache/wandb/logs/core-debug-20260720_193118.log",
+      "source_sha256": null,
+      "status": "excluded",
+      "reason": "symbolic link: external or runtime artifact"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/logs/debug-internal.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/logs/debug-internal.log",
+      "source_size": 37813,
+      "source_mtime_ns": 1784578033410421193,
+      "source_sha256": "57677835fb4b5b86a0cd67a6d6ccd86b1734c5908c56a4fb23cff8b31b6b3c5f",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    },
+    {
+      "path": "fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/logs/debug.log",
+      "source_path": "/home/index/workspace/fireworks/data_alignment/wandb/run-20260720_193132-odmr6bs6/logs/debug.log",
+      "source_size": 2835,
+      "source_mtime_ns": 1784578033409421191,
+      "source_sha256": "4ddd0b15a3f7fa61093f9932614b3c1bc2c684c23ce7e9d71d36400048714872",
+      "status": "excluded",
+      "reason": "W&B runtime files and binary history"
+    }
+  ]
+}

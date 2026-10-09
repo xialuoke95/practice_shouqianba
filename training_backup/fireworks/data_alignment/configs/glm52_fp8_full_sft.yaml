@@ -1,0 +1,87 @@
+name: glm52_fp8_full_sft
+
+paths:
+  root: /home/ubuntu/workspace/fireworks
+  data_alignment: /home/ubuntu/workspace/fireworks/data_alignment
+  source_run: /home/ubuntu/workspace/fireworks/runs/data-alignment-20260629T145032Z
+  default_run_root: /home/ubuntu/.remotelab/workspace/fireworks-runs
+  cookbook_roots:
+    - /home/ubuntu/.remotelab/workspace/fw-ai-cookbook
+    - /home/ubuntu/workspace/cookbook
+
+data:
+  source_sample_jsonl: sample_1000.jsonl
+  source_audit_jsonl: core/fireworks_core_audit.jsonl
+  source_manifest_jsonl: core/sample_manifest.jsonl
+  converter: core/convert_core_aligned.fixed_0702.py
+  converter_fallback: core/convert_core_aligned.py
+  converted_filename: glm52_fp8_sft_10.jsonl
+  conversion_report_filename: conversion_report.json
+  include_images: false
+  skip_image_rows: true
+  mixed_tool_call_loss_policy: report
+  converter_args:
+    - --no-merge-consecutive-tool-responses
+
+selection:
+  rule: explicit_sample_ids
+  sample_ids: [5, 29, 370, 414, 416, 470, 542, 602, 840, 898]
+  exclude_image_rows: true
+
+model:
+  base_model: accounts/fireworks/models/glm-5p2-fp8
+  tokenizer_model: zai-org/GLM-5.2
+  renderer_name: glm52_preserve_history_single_datum
+  renderer_modules:
+    - renderer_adapters.glm52_alignment
+  training_shape_id: accounts/fireworks/trainingShapes/glm-5p2-200k
+  max_seq_len: 204736
+  train_on_what: customized
+
+training:
+  limit: 10
+  batch_size: 8
+  epochs: 1
+  learning_rate: 1.0e-5
+  warmup_ratio: 0.05
+  min_lr_ratio: 0.1
+  weight_decay: 0.1
+  grad_clip_norm: 1.0
+  render_workers: 1
+  dcp_save_interval: 200
+  timeout_s: 10800
+  lora_rank: 0
+  render_samples_limit: 10
+  pipeline_depth: 1
+  save_final_checkpoint: true
+  eval_auto_carveout: false
+
+precheck:
+  require_single_datum_per_row: true
+  require_extension_property: true
+  require_tools_prefix: true
+  resolve_training_shape: true
+  resolve_base_model: true
+  forbid_images: true
+
+naming:
+  run_dir_prefix: glm52-fp8-full-sft
+  job_id_prefix: training-api-service-glm52-fp8-full
+  output_model_id_prefix: glm52-fp8-full-sft
+
+wandb:
+  project_default: fireworks-glm52-fp8-sft
+
+summary:
+  source: A-version core aligned conversion flow
+  render_contract: glm52_clear_thinking_false_single_datum
+  guarantees:
+    parse_tools: true
+    loss_0_to_trainable_false: true
+    tool_call_to_assistant_tool_calls: true
+    tool_response_linking: true
+    include_images: false
+    image_rows_excluded: true
+    no_user_turn_split: true
+    preserve_thinking: true
+    monkeypatch_single_datum_worker: false

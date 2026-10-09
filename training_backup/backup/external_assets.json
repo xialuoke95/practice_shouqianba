@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "note": "External PFS, S3 and checkpoint contents are not stored in this repository. Historical hashes and verification fields are not fresh checks. No unverified checkpoint hash is invented. Other source paths remain in the original backed-up configs and reports.",
+  "assets": [
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/frappe_skill_train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806/dataset_manifest.json",
+      "json_pointer": "/sources/frappe99",
+      "recorded_sha256": "1696b0b6208bfc902eb839a367607d7cd694ee21536c904a7d0ee15c2b7b1143",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/saas_sft_v0_exact47_20260806/saas_sft_v0_fireworks_exact47.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806/dataset_manifest.json",
+      "json_pointer": "/sources/saas47",
+      "recorded_sha256": "b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/april_may_data_versions/april_day01_30_plus_may_day01_30_final_keep_think_quality_ge5_ge30_ge10_ge80_20260719/april_day01_30_plus_may_day01_30.quality_ge5_ge30_ge10_ge80.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806/dataset_manifest.json",
+      "json_pointer": "/sources/general7708",
+      "recorded_sha256": "1614c7a09ef24c34303199909179d5ebc57843b89958f357b4ddc3249402f62c",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/frappe_skill_train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v3/dataset_manifest.json",
+      "json_pointer": "/sources/frappe99",
+      "recorded_sha256": "1696b0b6208bfc902eb839a367607d7cd694ee21536c904a7d0ee15c2b7b1143",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/saas_sft_v0_exact47_20260806/saas_sft_v0_fireworks_exact47.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v3/dataset_manifest.json",
+      "json_pointer": "/sources/saas47",
+      "recorded_sha256": "b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/april_may_data_versions/april_day01_30_plus_may_day01_30_final_keep_think_quality_ge5_ge30_ge10_ge80_20260719/april_day01_30_plus_may_day01_30.quality_ge5_ge30_ge10_ge80.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v3/dataset_manifest.json",
+      "json_pointer": "/sources/general7708",
+      "recorded_sha256": "1614c7a09ef24c34303199909179d5ebc57843b89958f357b4ddc3249402f62c",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_arrow_type_manifest.json",
+      "json_pointer": "/output",
+      "recorded_sha256": "851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/data/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_arrow_type_manifest.json",
+      "json_pointer": "/parent",
+      "recorded_sha256": "572d0a601ec28459ddfb257d3b9d229df55c935842a4e0eb7fbda2a02a5f2288",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/docs/generated/qwen36_frappe_glm_three_run_final_summary.json",
+      "json_pointer": "/arms/a_frappe_glm_99",
+      "recorded_sha256": null,
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/docs/generated/qwen36_frappe_glm_three_run_final_summary.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99",
+      "recorded_sha256": null,
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v4/v0-20260807-001156/checkpoint-492",
+      "kind": "checkpoint",
+      "source_record": "test_training/docs/generated/qwen36_frappe_glm_three_run_final_summary.json",
+      "json_pointer": "/arms/c_saas47_plus_frappe99_x2_plus_general200",
+      "recorded_sha256": null,
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-092850/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_a_rerun_20260810.state.json",
+      "json_pointer": "/arms/a_frappe_glm_99_rerun_20260810/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754622,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun2/v0-20260810-160508/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_ab_serial_rerun_20260810.state.json",
+      "json_pointer": "/arms/a_frappe_glm_99_rerun2_20260810/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754622,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun3/v0-20260810-172916/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_ab_serial_rerun_20260810.state.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99_rerun3_20260810/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754642,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260811_rerun3/v0-20260811-025245/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_ab_serial_rerun_20260811.state.json",
+      "json_pointer": "/arms/a_frappe_glm_99_rerun3_20260811/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754622,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260811_rerun4/v0-20260811-041643/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_ab_serial_rerun_20260811.state.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99_rerun4_20260811/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754642,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/logs/qwen36_arm_c_arrow_type_fix_manifest.json",
+      "json_pointer": "/output",
+      "recorded_sha256": "851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+      "kind": "dataset_or_external_asset",
+      "source_record": "test_training/logs/qwen36_arm_c_arrow_type_fix_manifest.json",
+      "json_pointer": "/parent",
+      "recorded_sha256": "572d0a601ec28459ddfb257d3b9d229df55c935842a4e0eb7fbda2a02a5f2288",
+      "recorded_bytes": null,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_arm_c_retry_state_applied.json",
+      "json_pointer": "/arms/a_frappe_glm_99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754614,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_arm_c_retry_state_applied.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754634,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_arm_c_retry_state_dry_run.json",
+      "json_pointer": "/arms/a_frappe_glm_99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754614,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_arm_c_retry_state_dry_run.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754634,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun2/v0-20260810-105804/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_b_rerun2_20260810.state.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99_rerun2_20260810/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754642,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-032429/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_bc_serial_rerun_20260810.state.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99_rerun_20260810/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754642,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260810_rerun1/v0-20260810-051315/checkpoint-492",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_bc_serial_rerun_20260810.state.json",
+      "json_pointer": "/arms/c_saas47_plus_frappe99_x2_plus_general200_rerun_20260810/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754755,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.state.json",
+      "json_pointer": "/arms/a_frappe_glm_99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754614,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.state.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754634,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v4/v0-20260807-001156/checkpoint-492",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_frappe_glm_three_task_chain_v3.state.json",
+      "json_pointer": "/arms/c_saas47_plus_frappe99_x2_plus_general200/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754747,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_three_run_final_checkpoint_audit.json",
+      "json_pointer": "/arms/a_frappe_glm_99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754614,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_three_run_final_checkpoint_audit.json",
+      "json_pointer": "/arms/b_saas47_plus_frappe99/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754634,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    },
+    {
+      "path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v4/v0-20260807-001156/checkpoint-492",
+      "kind": "checkpoint",
+      "source_record": "test_training/logs/qwen36_three_run_final_checkpoint_audit.json",
+      "json_pointer": "/arms/c_saas47_plus_frappe99_x2_plus_general200/verification",
+      "recorded_sha256": null,
+      "recorded_bytes": 54733754747,
+      "verification": "historical source record only; external asset not accessed or rehashed in this backup"
+    }
+  ]
+}

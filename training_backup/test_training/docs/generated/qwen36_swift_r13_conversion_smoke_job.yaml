@@ -1,0 +1,85 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-swift-r13-conv-smoke-v3-20260608
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-conv-smoke
+    test-training.verdent.ai/purpose: conversion-prereq-smoke
+spec:
+  activeDeadlineSeconds: 900
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-conv-smoke
+    spec:
+      restartPolicy: Never
+      nodeName: hyperpod-i-060621000d6270d47
+      serviceAccountName: sglang-s3-access
+      containers:
+      - name: smoke
+        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2-v1.39-soci
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          LOCAL_ROOT=/host-nvme/test_training/qwen36_swift_r13_hf_export_smoke
+          RUNTIME_RUN_DIR="${LOCAL_ROOT}/runtime_run"
+          RUNTIME_NODE_ROOT="${LOCAL_ROOT}/runtime_node0"
+          CHECKPOINT_S3=s3://verdent.tech/test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/training/qwen36_swift_all_full_r13/checkpoint_copy/
+          BRIDGE_SOURCE_S3=s3://verdent.tech/test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/env/Megatron-Bridge-v0.4.1-source.tar.gz
+          BRIDGE_SETUP_S3=s3://verdent.tech/test_training/sft_opus_sonnet_swift/qwen36-swift-fullsft-20260527-205700/artifacts/source/scripts/setup_aws_dlc_bridge_runtime.sh
+
+          mkdir -p "${RUNTIME_RUN_DIR}/env" "${RUNTIME_NODE_ROOT}"
+          aws s3 ls "${CHECKPOINT_S3}latest_checkpointed_iteration.txt" --region "${AWS_REGION}"
+          aws s3 cp "${BRIDGE_SOURCE_S3}" "${RUNTIME_RUN_DIR}/env/Megatron-Bridge-v0.4.1-source.tar.gz" --region "${AWS_REGION}"
+          aws s3 cp "${BRIDGE_SETUP_S3}" "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh" --region "${AWS_REGION}"
+          bash "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh" "${RUNTIME_RUN_DIR}" "${RUNTIME_NODE_ROOT}"
+
+          python - <<'PY'
+          import json
+          import torch
+          from megatron.bridge import AutoBridge
+
+          model_id = "Qwen/Qwen3.6-35B-A3B"
+          result = {
+              "torch": torch.__version__,
+              "cuda_available": torch.cuda.is_available(),
+              "supported_models_count": len(AutoBridge.list_supported_models()),
+              "can_handle_qwen36": AutoBridge.can_handle(model_id, trust_remote_code=True),
+          }
+          print(json.dumps(result, sort_keys=True))
+          if not result["can_handle_qwen36"]:
+              raise SystemExit("AutoBridge cannot handle Qwen/Qwen3.6-35B-A3B")
+          PY
+        env:
+        - name: AWS_REGION
+          value: us-west-2
+        - name: AWS_DEFAULT_REGION
+          value: us-west-2
+        - name: AWS_EC2_METADATA_DISABLED
+          value: "true"
+        - name: AWS_STS_REGIONAL_ENDPOINTS
+          value: regional
+        - name: HF_HOME
+          value: /host-nvme/test_training/qwen36_swift_r13_hf_export_smoke/hf_cache
+        - name: TRANSFORMERS_CACHE
+          value: /host-nvme/test_training/qwen36_swift_r13_hf_export_smoke/hf_cache
+        resources:
+          requests:
+            cpu: "2"
+            memory: "16Gi"
+          limits:
+            cpu: "8"
+            memory: "64Gi"
+        volumeMounts:
+        - name: host-nvme
+          mountPath: /host-nvme
+      volumes:
+      - name: host-nvme
+        hostPath:
+          path: /opt/dlami/nvme
+          type: DirectoryOrCreate

@@ -1,0 +1,39 @@
+TaskName: "train_qwen36_frappe_glm_a99_16gpu_rerun_20260810_r1"
+Description: "Arm A rerun 20260810: Qwen3.6-27B full SFT on all 99 GLM-5.2 Frappe trajectories after loss-masked turn closure and exact full-template validation; same verified 16 H100, GBS2, 2 epoch configuration"
+Entrypoint: "env ARM_NAME=a_frappe_glm_99_rerun_20260810 DATASET=/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_a_frappe_glm_99.train.jsonl DATASET_SUMMARY=/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/dataset_manifest.json OUTPUT_DIR=/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun1 EXPECTED_DATASET_LINES=99 EXPECTED_DATASET_SHA256=4c315dcebf9e2b00bcab14075478852bddcc1077fabadfb555f52f1170101b44 EXPECTED_TRAINABLE_MESSAGES=8999 EXPECTED_UNIQUE_TRACE_IDS=99 EXPECTED_SINGLETON_TRACE_IDS=99 EXPECTED_DUPLICATED_TRACE_IDS=0 EXPECTED_MAX_TRACE_MULTIPLICITY=1 EXPECTED_THINKING_ENABLED=99 EXPECTED_THINKING_NONE=0 EXPECTED_TOTAL_STEPS=99 SAVE_STEPS=50 bash /pfs-verdent/subingtian/coding_agent_models/scripts/saas/train_qwen36_27b_16gpu_gbs2_epoch2_dataset_arm.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+  - RoleName: "worker"
+    RoleReplicas: 2
+    Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 259200
+EnableTensorBoard: true
+TensorBoardStorage:
+  Type: "Vepfs"
+  SubPath: "guoyinuo/coding_agent_models/output/runs"
+Storages:
+  - Type: "Vepfs"
+    MountPath: "/pfs-verdent"
+    VepfsId: "vepfs-apse1754289b494ca"
+    SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+  EnableRetry: false
+  MaxRetryTimes: 0
+  IntervalSeconds: 120
+  PolicySets: []
+DiagOptions:
+  - Name: "EnvironmentalDiagnosis"
+    Enable: false
+  - Name: "PythonDetection"
+    Enable: false
+  - Name: "LogDetection"
+    Enable: false
+  - Name: "VecclHangDetection"
+    Enable: false

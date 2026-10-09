@@ -1,0 +1,10 @@
+{
+  "rows": 1000,
+  "rows_with_default_user_turn_split": 303,
+  "max_default_split_count": 60,
+  "max_default_cost_ratio_vs_ms": 30.6146,
+  "avg_default_cost_ratio_vs_ms": 1.6495,
+  "active_target_token_min": 0,
+  "active_target_token_max": 40932,
+  "accepted_core_target_split_count": 1
+}

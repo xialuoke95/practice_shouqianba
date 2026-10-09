@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dolly-probe-training
+  labels:
+    app.kubernetes.io/name: qwen36-mb-overlay-sft
+    verdent.ai/cluster-purpose: hyperpod-training-validation
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-verdent-tech-use1
+  labels:
+    app.kubernetes.io/name: qwen36-mb-overlay-sft
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 1200Gi
+  csi:
+    driver: s3.csi.aws.com
+    volumeAttributes:
+      bucketName: verdent.tech
+    volumeHandle: s3-csi-driver-volume-verdent-tech-use1
+  mountOptions:
+    - allow-delete
+    - region=us-east-1
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: s3-verdent-tech-use1
+  namespace: dolly-probe-training
+  labels:
+    app.kubernetes.io/name: qwen36-mb-overlay-sft
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1200Gi
+  storageClassName: ""
+  volumeName: pv-verdent-tech-use1

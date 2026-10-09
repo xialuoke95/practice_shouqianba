@@ -1,0 +1,168 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-swift-r13-sglang-smoke-20260608
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-sglang-smoke
+    test-training.verdent.ai/purpose: isolated-sglang-load-smoke
+spec:
+  activeDeadlineSeconds: 7200
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-sglang-smoke
+    spec:
+      restartPolicy: Never
+      nodeName: hyperpod-i-060621000d6270d47
+      tolerations:
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: sglang-smoke
+        image: 288761729453.dkr.ecr.us-east-2.amazonaws.com/sglang-kimik2-detector-patch:20260602085214
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          MODEL_NAME=Qwen3.6-35B-A3B-Swift-R13
+          MODEL_LOCAL=/opt/dlami/nvme/models/${MODEL_NAME}
+          MODEL_TMP=/opt/dlami/nvme/models/${MODEL_NAME}.tmp
+          SERVER_LOG=/opt/dlami/nvme/test_training/qwen36-swift-r13-sglang-smoke-20260608/server.log
+          mkdir -p /opt/dlami/nvme/models /opt/dlami/nvme/test_training/qwen36-swift-r13-sglang-smoke-20260608
+          mkdir -p /opt/dlami/nvme/triton-cache /opt/dlami/nvme/deepgemm-cache /opt/dlami/nvme/tmp /opt/dlami/nvme/cuda-cache /opt/dlami/nvme/torch-extensions
+          export TRITON_CACHE_DIR=/opt/dlami/nvme/triton-cache
+          export SGLANG_DG_CACHE_DIR=/opt/dlami/nvme/deepgemm-cache
+          export TMPDIR=/opt/dlami/nvme/tmp
+          export CUDA_CACHE_PATH=/opt/dlami/nvme/cuda-cache
+          export TORCH_EXTENSIONS_DIR=/opt/dlami/nvme/torch-extensions
+          export NCCL_DEBUG=INFO
+          export FI_PROVIDER=efa
+          export FI_EFA_USE_DEVICE_RDMA=1
+          export NVSHMEM_DISABLE_IBGDA=1
+          export NVSHMEM_IB_ENABLE_IBGDA=0
+          
+          if [ ! -f "${MODEL_LOCAL}/.copy_complete" ]; then
+            rm -rf "${MODEL_TMP}"
+            mkdir -p "${MODEL_TMP}"
+            cp -r /s3export/. "${MODEL_TMP}/"
+            test -f "${MODEL_TMP}/config.json"
+            test -f "${MODEL_TMP}/model.safetensors.index.json"
+            rm -rf "${MODEL_LOCAL}"
+            mv "${MODEL_TMP}" "${MODEL_LOCAL}"
+            touch "${MODEL_LOCAL}/.copy_complete"
+            echo ">>> Model staged at ${MODEL_LOCAL}: $(du -sh "${MODEL_LOCAL}" | cut -f1)"
+          else
+            echo ">>> Reusing cached model at ${MODEL_LOCAL}: $(du -sh "${MODEL_LOCAL}" | cut -f1)"
+          fi
+          
+          sglang serve \
+            --model-path "${MODEL_LOCAL}" \
+            --served-model-name "${MODEL_NAME}" \
+            --host 0.0.0.0 \
+            --port 30000 \
+            --tp-size 8 \
+            --ep-size 8 \
+            --trust-remote-code \
+            --kv-cache-dtype fp8_e4m3 \
+            --enable-fused-qk-norm-rope \
+            --mem-fraction-static 0.82 \
+            --moe-runner-backend flashinfer_trtllm \
+            --moe-dense-tp-size 1 \
+            --disable-flashinfer-autotune \
+            --watchdog-timeout 1000000 \
+            --enable-metrics \
+            >"${SERVER_LOG}" 2>&1 &
+          SERVER_PID=$!
+          
+          cleanup() {
+            if kill -0 "${SERVER_PID}" 2>/dev/null; then
+              kill "${SERVER_PID}" || true
+              wait "${SERVER_PID}" || true
+            fi
+          }
+          trap cleanup EXIT
+          
+          ready=0
+          for _ in $(seq 1 540); do
+            if curl -sf http://127.0.0.1:30000/health >/dev/null; then
+              ready=1
+              break
+            fi
+            if ! kill -0 "${SERVER_PID}" 2>/dev/null; then
+              echo "SGLang server exited before readiness" >&2
+              tail -200 "${SERVER_LOG}" >&2 || true
+              exit 1
+            fi
+            sleep 10
+          done
+          if [ "${ready}" != "1" ]; then
+            echo "SGLang server did not become healthy before timeout" >&2
+            tail -200 "${SERVER_LOG}" >&2 || true
+            exit 1
+          fi
+          
+          python - <<'PY'
+          import json
+          import urllib.request
+          
+          payload = {
+              "model": 'Qwen3.6-35B-A3B-Swift-R13',
+              "messages": [{"role": "user", "content": "Say OK."}],
+              "max_tokens": 4,
+              "temperature": 0,
+          }
+          req = urllib.request.Request(
+              "http://127.0.0.1:30000/v1/chat/completions",
+              data=json.dumps(payload).encode("utf-8"),
+              headers={"Content-Type": "application/json"},
+              method="POST",
+          )
+          with urllib.request.urlopen(req, timeout=120) as resp:
+              body = resp.read().decode("utf-8")
+              status = resp.status
+          print(json.dumps({"phase": "completion_smoke", "status": status, "body": body[:1000]}, sort_keys=True))
+          if status != 200:
+              raise SystemExit(f"unexpected status: {status}")
+          PY
+          
+          echo ">>> SGLang smoke succeeded"
+        resources:
+          requests:
+            cpu: "120"
+            memory: "1200Gi"
+            ephemeral-storage: "50Gi"
+            nvidia.com/gpu: "8"
+            vpc.amazonaws.com/efa: "8"
+          limits:
+            cpu: "160"
+            memory: "1600Gi"
+            ephemeral-storage: "80Gi"
+            nvidia.com/gpu: "8"
+            vpc.amazonaws.com/efa: "8"
+        ports:
+        - name: http
+          containerPort: 30000
+        volumeMounts:
+        - name: shm
+          mountPath: /dev/shm
+        - name: host-nvme
+          mountPath: /opt/dlami/nvme
+        - name: hfexport
+          mountPath: /s3export
+          readOnly: true
+      volumes:
+      - name: shm
+        emptyDir:
+          medium: Memory
+          sizeLimit: 64Gi
+      - name: host-nvme
+        hostPath:
+          path: /opt/dlami/nvme
+          type: DirectoryOrCreate
+      - name: hfexport
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13-hfexport

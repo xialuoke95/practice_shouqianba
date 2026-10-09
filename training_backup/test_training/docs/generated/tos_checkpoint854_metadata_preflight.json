@@ -1,0 +1,52 @@
+{
+  "blockers": [
+    "Checkpoint layout is unknown; required config/tokenizer/weight files were not found at the prefix root.",
+    "model.safetensors.index.json is present but referenced safetensors shards are missing from the same S3 prefix."
+  ],
+  "checkpoint": {
+    "blockers": [
+      "Checkpoint layout is unknown; required config/tokenizer/weight files were not found at the prefix root.",
+      "model.safetensors.index.json is present but referenced safetensors shards are missing from the same S3 prefix."
+    ],
+    "bucket": "verdent.tech",
+    "checkpoint_type": "unknown",
+    "features": {
+      "has_complete_safetensors_index": false,
+      "has_config_json": true,
+      "has_dist_checkpoint_metadata": false,
+      "has_distcp_shards": false,
+      "has_hf_weight_files": false,
+      "has_safetensors_index": true,
+      "has_tokenizer_files": true,
+      "missing_safetensors_index_shard_count": 16,
+      "safetensors_index_shard_count": 16,
+      "sharded_backend": null
+    },
+    "latest_checkpointed_iteration": "854",
+    "metadata": null,
+    "object_count": 10,
+    "prefix": "test_training/qwen36_megatron_bridge_overlay_sft/qwen36-mb-overlay-aligned-fullsft-20260602-211523/artifacts/alignment_refs/source_artifacts_v4/pfs/train_output/checkpoint-854_metadata/",
+    "sample_keys": [
+      "args.json",
+      "chat_template.jinja",
+      "common.pt",
+      "config.json",
+      "latest_checkpointed_iteration.txt",
+      "model.safetensors.index.json",
+      "preprocessor_config.json",
+      "processor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+    ],
+    "sglang_loadable": false,
+    "total_bytes": 20132349,
+    "uri": "s3://verdent.tech/test_training/qwen36_megatron_bridge_overlay_sft/qwen36-mb-overlay-aligned-fullsft-20260602-211523/artifacts/alignment_refs/source_artifacts_v4/pfs/train_output/checkpoint-854_metadata/"
+  },
+  "generated_at": "2026-06-08T19:43:19.699085+00:00",
+  "k8s": null,
+  "next_actions": [],
+  "region": "us-west-2",
+  "requested_model_name": "Qwen3.6-35B-A3B-Swift-R13",
+  "verdict": "blocked_before_live_deploy",
+  "warnings": []
+}

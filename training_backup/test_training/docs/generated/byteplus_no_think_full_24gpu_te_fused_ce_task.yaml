@@ -1,0 +1,40 @@
+# Full non-sampled no-think SFT, same training params as the 48 H100 run, 24 H100 schedule.
+TaskName: "train_full_sft_35a3b_no_think_full_24gpu_te_ce_gbs72"
+Description: "35A3B no-think full non-sampled SFT; same TP2 PP2 CP2 EP4 GBS72 TE fused CE config as 48 H100 run, scheduled on 24 H100"
+Entrypoint: "bash /pfs-verdent/guoyinuo/coding_agent_models/scripts/may/train_full_24gpu_no_think_full_35a3b_te_fused_ce_gbs72.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+    - RoleName: "worker"
+      RoleReplicas: 3
+      Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 864000
+EnableTensorBoard: true
+TensorBoardStorage:
+    Type: "Vepfs"
+    SubPath: "guoyinuo/coding_agent_models/output/runs"
+Storages:
+    - Type: "Vepfs"
+      MountPath: "/pfs-verdent"
+      VepfsId: "vepfs-apse1754289b494ca"
+      SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+    EnableRetry: false
+    MaxRetryTimes: 5
+    IntervalSeconds: 120
+    PolicySets: []
+DiagOptions:
+    - Name: "EnvironmentalDiagnosis"
+      Enable: false
+    - Name: "PythonDetection"
+      Enable: false
+    - Name: "LogDetection"
+      Enable: false
+    - Name: "VecclHangDetection"
+      Enable: false

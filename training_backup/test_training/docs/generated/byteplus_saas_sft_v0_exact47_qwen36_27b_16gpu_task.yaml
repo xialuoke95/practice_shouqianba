@@ -1,0 +1,39 @@
+TaskName: "train_saas_sft_v0_exact47_qwen36_27b_16gpu"
+Description: "Qwen3.6-27B full SFT on the exact 47 renderer-approved samples used by Fireworks saas_sft_v0; GBS2, 2 epochs"
+Entrypoint: "bash /pfs-verdent/subingtian/coding_agent_models/scripts/saas/train_saas_sft_v0_exact47_qwen36_27b_16gpu_gbs2_epoch2.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+  - RoleName: "worker"
+    RoleReplicas: 2
+    Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 259200
+EnableTensorBoard: true
+TensorBoardStorage:
+  Type: "Vepfs"
+  SubPath: "guoyinuo/coding_agent_models/output/runs"
+Storages:
+  - Type: "Vepfs"
+    MountPath: "/pfs-verdent"
+    VepfsId: "vepfs-apse1754289b494ca"
+    SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+  EnableRetry: false
+  MaxRetryTimes: 0
+  IntervalSeconds: 120
+  PolicySets: []
+DiagOptions:
+  - Name: "EnvironmentalDiagnosis"
+    Enable: false
+  - Name: "PythonDetection"
+    Enable: false
+  - Name: "LogDetection"
+    Enable: false
+  - Name: "VecclHangDetection"
+    Enable: false

@@ -1,0 +1,89 @@
+saas_sft_v0_volc_exact47 verification — 2026-08-06
+
+PASS local asset validator
+  rows=47
+  trainable_messages=2621
+  sha256=b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139
+  Fireworks-ready trace ID set equals BytePlus training trace ID set (47/47)
+
+PASS native no-think validator
+  total=47
+  thinking_type=none for all 47
+  thinking_budget=None for all 47
+
+PASS static checks
+  training script bash syntax valid
+  task YAML parses successfully
+  Python validator compiles successfully
+
+PASS BytePlus task
+  task_id=t-20260807020653-4r4cm
+  status=Success
+  workers=2/2 Success, exit_code=0
+  steps=47/47
+  platform_elapsed=2532s
+
+PASS fatal log scan
+  node0 fatal matches=0
+  node1 fatal matches=0
+
+PASS final checkpoint
+  checkpoint=checkpoint-47
+  latest_checkpointed_iteration=47
+  indexed_tensors=1184
+  referenced_safetensors_shards=12
+  present_safetensors_shards=12
+  missing_shards=0
+  indexed_weight_bytes=54713457120
+  checkpoint_directory_bytes=54733754624
+
+TRAINING METRICS
+  first_loss=0.67063159
+  final_loss=0.06153672
+  overall_mean_loss=0.2007109251
+  epoch0_mean_loss=0.2848247730 (23 steps)
+  epoch1_mean_loss=0.1201018208 (24 steps)
+  first_to_final_loss_reduction=90.82%
+  epoch_mean_loss_reduction=57.83%
+  peak_memory_gib=36.32
+  final_cumulative_train_speed_seconds_per_iteration=43.899283
+
+No validation or manual heldout evaluation was run, as requested. The model was not deployed.
+
+qwen36_frappe_glm_three_run_chain verification — 2026-08-07
+
+PASS accepted platform tasks
+  A task_id=t-20260807044717-dc78r status=Success elapsed=4998s
+  B task_id=t-20260807061117-sd8lx status=Success elapsed=6476s
+  C task_id=t-20260807080932-vdlmc status=Success elapsed=14944s
+
+PASS dataset preflight contracts
+  A rows=99 unique=99 trainable_messages=8999 sha256=4c315dcebf9e2b00bcab14075478852bddcc1077fabadfb555f52f1170101b44
+  B rows=146 unique=146 trainable_messages=11620 sha256=8cb425c7cb234d43292f6b439d38576fe50295bdfa3757794300b196816e2d93
+  C rows=492 unique=346 duplicated_ids=146 singleton_ids=200 trainable_messages=36656 sha256=851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425
+
+PASS Arrow metadata regression
+  v3 reproduces mixed numeric path dedup_stats.trainable_turn_ratio (34 int, 60 float)
+  v4 has zero mixed numeric paths
+  fresh HuggingFace/PyArrow load passes for all 492 rows
+  34 changed values are non-training metadata only; row-by-row normalized semantic comparison passes
+
+PASS final checkpoints
+  A checkpoint=checkpoint-99 steps=99 shards=12 missing=0 indexed_tensors=1184 postflight_logs=2 fatal_matches=0
+  B checkpoint=checkpoint-146 steps=146 shards=12 missing=0 indexed_tensors=1184 postflight_logs=2 fatal_matches=0
+  C checkpoint=checkpoint-492 steps=492 shards=12 missing=0 indexed_tensors=1184 postflight_logs=2 fatal_matches=0
+
+TRAINING METRICS
+  A first_loss=0.18474187 mean_loss=0.1718471719 final_loss=0.11864355 peak_memory_gib=51.26
+  B first_loss=0.53286195 mean_loss=0.1753811690 final_loss=0.13046010 peak_memory_gib=50.27
+  C first_loss=0.23737706 mean_loss=0.1381845370 final_loss=0.02629309 peak_memory_gib=55.11
+
+No model deployment and no manual heldout evaluation were performed, as requested.
+
+PASS final local validation
+  Python compilation passed for all changed controller, validator, normalization, and retry scripts
+  bash syntax passed for the generic training entrypoint and chain supervisor
+  training-asset contract validator passed
+  final summary/state/checkpoint cross-check passed for all three arms
+  ruff passed with zero findings
+  pytest discovered no repository tests; all task-specific executable validators above passed

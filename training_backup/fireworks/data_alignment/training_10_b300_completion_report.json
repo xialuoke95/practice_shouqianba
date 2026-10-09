@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "submitted_at": "2026-07-20T19:31:32Z",
+  "models": {
+    "kimi2.7": {
+      "run_dir": "/home/ubuntu/.remotelab/workspace/fireworks-runs/kimi-k27-full-sft-10-b300-20260720T193110Z",
+      "job_id": "training-api-service-kimi-k27-code-full-20260720-193117",
+      "job_state_after_cleanup": "JOB_STATE_DELETED",
+      "output_model": "accounts/yuyu/models/kimi-k27-code-full-sft-20260720-193117",
+      "output_model_state": "READY",
+      "checkpoint": "step-2",
+      "steps": 2,
+      "last_loss": 1.3002778270839728,
+      "last_ppl": 3.670316219329834,
+      "tokens": 145148,
+      "b300_accelerator_seconds": 15415,
+      "wandb_url": "https://wandb.ai/zhangyu95-yanchuang/fireworks-kimi-k27-code-sft/runs/0aybqw2j",
+      "wandb_state": "finished",
+      "checkpoint_retained_until": "2026-08-19"
+    },
+    "glm5.2": {
+      "run_dir": "/home/ubuntu/.remotelab/workspace/fireworks-runs/glm52-full-sft-10-b300-20260720T193110Z",
+      "job_id": "training-api-service-glm52-fp8-full-20260720-193117",
+      "job_state_after_cleanup": "JOB_STATE_DELETED",
+      "output_model": "accounts/yuyu/models/glm52-fp8-full-sft-20260720-193117",
+      "output_model_state": "READY",
+      "checkpoint": "step-2",
+      "steps": 2,
+      "last_loss": 0.4596474193109616,
+      "last_ppl": 1.5835155248641968,
+      "tokens": 155757,
+      "b300_accelerator_seconds": 11740,
+      "wandb_url": "https://wandb.ai/zhangyu95-yanchuang/fireworks-glm52-fp8-sft/runs/odmr6bs6",
+      "wandb_state": "finished",
+      "checkpoint_retained_until": "2026-08-19"
+    }
+  },
+  "verification": {
+    "both_models_ready": true,
+    "both_wandb_runs_finished": true,
+    "both_metrics_files_have_two_steps": true,
+    "both_trainer_resources_released": true,
+    "no_further_b300_billing": true
+  }
+}

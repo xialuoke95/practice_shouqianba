@@ -1,0 +1,374 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-full-sft-100-colocated-b200-r7
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-full-sft-100-colocated-b200
+    test-training.verdent.ai/purpose: colocated-full-sft-canary
+spec:
+  activeDeadlineSeconds: 21600
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 604800
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-full-sft-100-colocated-b200
+        test-training.verdent.ai/purpose: colocated-full-sft-canary
+    spec:
+      restartPolicy: Never
+      nodeSelector:
+        kubernetes.io/hostname: hyperpod-i-0da428942dd5a9cd9
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+      containers:
+        - name: train
+          image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2-v1.39-soci
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/bash
+            - -lc
+          args:
+            - |
+              set -euxo pipefail
+              ulimit -n 1048576 || true
+
+              export RUN_SRC=/s3run
+              export JOB_NAME=qwen36_full_sft_100_colocated_b200
+              export RUN_ID=qwen36-full-sft-100-colocated-20260615
+              export NODE_RANK=0
+              export NNODES=1
+              export NPROC_PER_NODE=8
+              export DIST_MASTER_ADDR=127.0.0.1
+              export DIST_MASTER_PORT=29555
+              export BASE_MODEL_ID=Qwen/Qwen3.6-35B-A3B
+              export GBS=16
+              export MBS=1
+              export SEQ_LENGTH=16384
+              export SAMPLE_SIZE=100
+              export SAMPLE_SEED=20260615
+
+              export LOCAL_ROOT=/host-nvme/test_training/${RUN_ID}
+              export NODE_ROOT=/scratch/node-work/test_training/${RUN_ID}/node0
+              export BRIDGE_SOURCE="${NODE_ROOT}/Megatron-Bridge-v0.4.1"
+              export BASE_CKPT="${NODE_ROOT}/base_checkpoints/qwen36_35b_a3b_megatron_mcore_r3"
+              export S3_BASE_CKPT="${RUN_SRC}/base_checkpoints/qwen36_35b_a3b_megatron_mcore_r3"
+              export DATASET_ROOT="${NODE_ROOT}/data/bridge_swift_all_train_test_100"
+              export WORK_DIR="${NODE_ROOT}/work"
+              export CHECKPOINT_SAVE="${NODE_ROOT}/checkpoints-r7"
+              export ARTIFACT_DIR="${LOCAL_ROOT}/artifacts-r7"
+              export LOG_DIR="${LOCAL_ROOT}/logs-r7"
+
+              rm -rf "${ARTIFACT_DIR}" "${LOG_DIR}"
+              mkdir -p "${NODE_ROOT}" "${DATASET_ROOT}" "${WORK_DIR}" "${CHECKPOINT_SAVE}" \
+                "${ARTIFACT_DIR}" "${LOG_DIR}" \
+                /scratch/hf /scratch/torch_extensions/${JOB_NAME} \
+                /scratch/triton/${JOB_NAME} /scratch/tmp/${JOB_NAME}
+
+              df -h /host-nvme /scratch /s3run
+              nvidia-smi
+
+              bash "${RUN_SRC}/artifacts/source/scripts/setup_aws_dlc_bridge_runtime.sh" "${RUN_SRC}" "${NODE_ROOT}" \
+                2>&1 | tee "${LOG_DIR}/00_runtime_setup.log"
+
+              # tilelang 0.1.11 currently aborts during import in this image with:
+              # tvm::ffi::Error: TypeAttr `__ffi_repr__` is already registered.
+              # The Qwen Bridge path imports successfully without it, so remove it
+              # after the historical runtime setup installs its dependency bundle.
+              python -m pip uninstall -y tilelang apache-tvm-ffi || true
+
+              export PYTHONPATH="${BRIDGE_SOURCE}/3rdparty/Megatron-LM:${BRIDGE_SOURCE}/src:${RUN_SRC}/artifacts/source/scripts:${PYTHONPATH:-}"
+              export HF_HOME="${NODE_ROOT}/hf_cache"
+              export HF_DATASETS_CACHE="${NODE_ROOT}/hf_cache/datasets"
+              export TRANSFORMERS_CACHE="${NODE_ROOT}/hf_cache/transformers"
+              export NEMO_HOME="${NODE_ROOT}/nemo_cache"
+              export NEMO_DATASETS_CACHE="${NODE_ROOT}/nemo_cache/datasets"
+              export TORCH_EXTENSIONS_DIR=/scratch/torch_extensions/${JOB_NAME}
+              export TRITON_CACHE_DIR=/scratch/triton/${JOB_NAME}
+              export TMPDIR=/scratch/tmp/${JOB_NAME}
+              export TOKENIZERS_PARALLELISM=false
+              export CUDA_DEVICE_MAX_CONNECTIONS=1
+              export NCCL_DEBUG=WARN
+              export NCCL_SOCKET_IFNAME=eth0
+              export GLOO_SOCKET_IFNAME=eth0
+              export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
+              export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+              helper_ext="$(python -c 'import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX"))')"
+              make -C "${BRIDGE_SOURCE}/3rdparty/Megatron-LM/megatron/core/datasets" "LIBEXT=${helper_ext}"
+
+              python - <<'PY'
+              import hashlib
+              import json
+              import os
+              import random
+              import shutil
+              from datetime import datetime, timezone
+              from pathlib import Path
+
+              src_root = Path(os.environ["RUN_SRC"]) / "data/bridge_swift_all_train_test"
+              dst_root = Path(os.environ["DATASET_ROOT"])
+              sample_size = int(os.environ["SAMPLE_SIZE"])
+              seed = int(os.environ["SAMPLE_SEED"])
+              rng = random.Random(seed)
+
+              def sample_file(src: Path, dst: Path) -> dict:
+                  reservoir = []
+                  count = 0
+                  with src.open("r", encoding="utf-8") as handle:
+                      for raw in handle:
+                          count += 1
+                          line = raw.rstrip("\n")
+                          if len(reservoir) < sample_size:
+                              reservoir.append(line)
+                          else:
+                              idx = rng.randrange(count)
+                              if idx < sample_size:
+                                  reservoir[idx] = line
+                  if len(reservoir) < sample_size:
+                      raise RuntimeError(f"{src} only had {len(reservoir)} rows")
+                  dst.parent.mkdir(parents=True, exist_ok=True)
+                  with dst.open("w", encoding="utf-8") as out:
+                      for line in reservoir:
+                          out.write(line + "\n")
+                  digest = hashlib.sha256(dst.read_bytes()).hexdigest()
+                  return {
+                      "source": str(src),
+                      "output": str(dst),
+                      "source_rows": count,
+                      "sample_rows": len(reservoir),
+                      "sha256": digest,
+                      "bytes": dst.stat().st_size,
+                  }
+
+              outputs = {}
+              for name in ["training", "validation", "test"]:
+                  outputs[name] = sample_file(src_root / f"{name}.jsonl", dst_root / f"{name}.jsonl")
+              manifest = {
+                  "created_utc": datetime.now(timezone.utc).isoformat(),
+                  "sample_size": sample_size,
+                  "seed": seed,
+                  "dataset_root": str(dst_root),
+                  "files": outputs,
+              }
+              (dst_root / "sample_manifest.json").write_text(
+                  json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+                  encoding="utf-8",
+              )
+              artifact_dir = Path(os.environ["ARTIFACT_DIR"])
+              artifact_dir.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(dst_root / "sample_manifest.json", artifact_dir / "sample_manifest.json")
+              print(json.dumps(manifest, indent=2, sort_keys=True))
+              PY
+
+              python - <<'PY'
+              import json
+              import os
+              import platform
+              import subprocess
+              from datetime import datetime, timezone
+              from pathlib import Path
+
+              out = Path(os.environ["ARTIFACT_DIR"]) / "run_context.json"
+              data = {
+                  "created_utc": datetime.now(timezone.utc).isoformat(),
+                  "job_name": os.environ["JOB_NAME"],
+                  "run_id": os.environ["RUN_ID"],
+                  "base_model_id": os.environ["BASE_MODEL_ID"],
+                  "dataset_root": os.environ["DATASET_ROOT"],
+                  "sample_size": os.environ["SAMPLE_SIZE"],
+                  "python": platform.python_version(),
+                  "parallelism_plan": {
+                      "nnodes": os.environ["NNODES"],
+                      "nproc_per_node": os.environ["NPROC_PER_NODE"],
+                      "seq_length": os.environ["SEQ_LENGTH"],
+                      "global_batch_size": os.environ["GBS"],
+                      "micro_batch_size": os.environ["MBS"],
+                      "tp": 2,
+                      "pp": 1,
+                      "cp": 1,
+                      "ep": 8,
+                      "peft": "none",
+                  },
+              }
+              for cmd, key in [(["nvidia-smi"], "nvidia_smi"), (["pip", "freeze"], "pip_freeze_head")]:
+                  try:
+                      res = subprocess.run(cmd, text=True, capture_output=True, timeout=60)
+                      data[key] = {"returncode": res.returncode, "stdout": res.stdout[:8000], "stderr": res.stderr[:2000]}
+                  except Exception as exc:
+                      data[key] = {"error": repr(exc)}
+              out.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+              print(out)
+              PY
+
+              copy_tree_no_preserve() {
+                src="$1"
+                dst="$2"
+                mkdir -p "${dst}"
+                while IFS= read -r -d '' file; do
+                  rel="${file#${src}/}"
+                  rel_dir="$(dirname "${rel}")"
+                  if [ "${rel_dir}" != "." ]; then
+                    mkdir -p "${dst}/${rel_dir}"
+                  fi
+                  cp --no-preserve=mode,ownership,timestamps "${file}" "${dst}/${rel}"
+                done < <(find "${src}" -type f -print0)
+              }
+
+              write_tree_manifest() {
+                root="$1"
+                out="$2"
+                python - "${root}" "${out}" <<'PY'
+              import json
+              import sys
+              from datetime import datetime, timezone
+              from pathlib import Path
+              root = Path(sys.argv[1])
+              out = Path(sys.argv[2])
+              files = []
+              total = 0
+              for path in sorted(root.rglob("*")):
+                  if path.is_file():
+                      size = path.stat().st_size
+                      total += size
+                      files.append({"path": str(path.relative_to(root)), "bytes": size})
+              out.parent.mkdir(parents=True, exist_ok=True)
+              out.write_text(json.dumps({
+                  "created_utc": datetime.now(timezone.utc).isoformat(),
+                  "root": str(root),
+                  "file_count": len(files),
+                  "total_bytes": total,
+                  "files": files[:200],
+              }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+              print(out)
+              PY
+              }
+
+              if [ -f "${BASE_CKPT}/latest_checkpointed_iteration.txt" ] && \
+                 [ -s "${BASE_CKPT}/iter_0000000/__0_0.distcp" ]; then
+                echo "Reusing local base checkpoint at ${BASE_CKPT}" \
+                  2>&1 | tee "${LOG_DIR}/05_base_checkpoint_copy.log"
+              else
+                copy_tree_no_preserve "${S3_BASE_CKPT}" "${BASE_CKPT}" \
+                  2>&1 | tee "${LOG_DIR}/05_base_checkpoint_copy.log"
+              fi
+              write_tree_manifest "${BASE_CKPT}" "${ARTIFACT_DIR}/base_checkpoint_import_manifest.json"
+
+              torchrun_common=(
+                --nnodes="${NNODES}"
+                --node_rank="${NODE_RANK}"
+                --nproc_per_node="${NPROC_PER_NODE}"
+                --rdzv_backend=c10d
+                --rdzv_endpoint="${DIST_MASTER_ADDR}:${DIST_MASTER_PORT}"
+                --rdzv_conf=timeout=3600,read_timeout=3600
+              )
+
+              TRAIN_ITERS=$(( (SAMPLE_SIZE + GBS - 1) / GBS ))
+              if [ "${TRAIN_ITERS}" -lt 1 ]; then TRAIN_ITERS=1; fi
+              echo "TRAIN_ITERS=${TRAIN_ITERS}"
+
+              common_bridge_args=(
+                --recipe qwen35_vl_35b_a3b
+                --hf-path "${BASE_MODEL_ID}"
+                --dataset-root "${DATASET_ROOT}"
+                --pretrained-checkpoint "${BASE_CKPT}"
+                --checkpoint-save "${CHECKPOINT_SAVE}"
+                --work-dir "${WORK_DIR}"
+                --peft none
+                --global-batch-size "${GBS}"
+                --micro-batch-size "${MBS}"
+                --seq-length "${SEQ_LENGTH}"
+                --lr 5.0e-6
+                --min-lr 0.0
+                --weight-decay 0.0
+                --clip-grad 0.5
+                --tensor-model-parallel-size 2
+                --pipeline-model-parallel-size 1
+                --context-parallel-size 1
+                --expert-model-parallel-size 8
+                --expert-tensor-parallel-size 1
+                --recompute-granularity full
+                --recompute-method uniform
+                --recompute-num-layers 4
+                --no-moe-enable-deepep
+                --moe-token-dispatcher-type alltoall
+                --num-workers 1
+                --log-interval 1
+              )
+
+              torchrun "${torchrun_common[@]}" \
+                --rdzv_id="${JOB_NAME}_train" \
+                "${RUN_SRC}/artifacts/source/scripts/bridge_dolly_train.py" \
+                --phase train \
+                --run-name "${JOB_NAME}_train" \
+                --artifact-dir "${ARTIFACT_DIR}/train" \
+                --train-iters "${TRAIN_ITERS}" \
+                --eval-iters 1 \
+                --eval-interval "${TRAIN_ITERS}" \
+                --save-interval 1000 \
+                "${common_bridge_args[@]}" \
+                2>&1 | tee "${LOG_DIR}/20_train.log"
+
+              python - <<'PY'
+              import json
+              import os
+              import re
+              from datetime import datetime, timezone
+              from pathlib import Path
+
+              log = Path(os.environ["LOG_DIR"]) / "20_train.log"
+              text = log.read_text(encoding="utf-8", errors="replace") if log.exists() else ""
+              losses = re.findall(r"lm loss: ([0-9.E+-]+)", text)
+              status = {
+                  "created_utc": datetime.now(timezone.utc).isoformat(),
+                  "status": "completed",
+                  "loss_count": len(losses),
+                  "losses": losses[-20:],
+                  "log": str(log),
+              }
+              out = Path(os.environ["ARTIFACT_DIR"]) / "status.json"
+              out.write_text(json.dumps(status, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+              print(json.dumps(status, indent=2, sort_keys=True))
+              PY
+          resources:
+            requests:
+              cpu: "32"
+              memory: 512Gi
+              ephemeral-storage: 50Gi
+              nvidia.com/gpu: "8"
+            limits:
+              cpu: "72"
+              memory: 1600Gi
+              ephemeral-storage: 200Gi
+              nvidia.com/gpu: "8"
+          securityContext:
+            capabilities:
+              add: ["IPC_LOCK"]
+          volumeMounts:
+            - name: host-nvme
+              mountPath: /host-nvme
+            - name: scratch
+              mountPath: /scratch
+            - name: dshm
+              mountPath: /dev/shm
+            - name: verdent-run
+              mountPath: /s3run
+              readOnly: true
+      volumes:
+        - name: host-nvme
+          hostPath:
+            path: /opt/dlami/nvme
+            type: DirectoryOrCreate
+        - name: scratch
+          hostPath:
+            path: /opt/dlami/nvme/test_training/qwen36-full-sft-100-colocated-20260615/scratch
+            type: DirectoryOrCreate
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Gi
+        - name: verdent-run
+          persistentVolumeClaim:
+            claimName: s3-claim-verdent-qwen36-r13

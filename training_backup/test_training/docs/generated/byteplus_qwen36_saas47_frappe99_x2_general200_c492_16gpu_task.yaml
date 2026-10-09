@@ -1,0 +1,39 @@
+TaskName: "train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_v4"
+Description: "Arm C v4: Qwen3.6-27B full SFT on (47 SaaS plus 99 render-clean Frappe) x2 plus 200 fixed-seed, full-template-valid general traces; Arrow-stable metadata, 16 H100, GBS2, 2 epochs"
+Entrypoint: "env ARM_NAME=c_saas47_plus_frappe99_x2_plus_general200 DATASET=/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl DATASET_SUMMARY=/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_arrow_type_manifest.json OUTPUT_DIR=/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v4 EXPECTED_DATASET_LINES=492 EXPECTED_DATASET_SHA256=851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425 EXPECTED_TRAINABLE_MESSAGES=36656 EXPECTED_UNIQUE_TRACE_IDS=346 EXPECTED_SINGLETON_TRACE_IDS=200 EXPECTED_DUPLICATED_TRACE_IDS=146 EXPECTED_MAX_TRACE_MULTIPLICITY=2 EXPECTED_THINKING_ENABLED=398 EXPECTED_THINKING_NONE=94 EXPECTED_TOTAL_STEPS=492 SAVE_STEPS=246 bash /pfs-verdent/subingtian/coding_agent_models/scripts/saas/train_qwen36_27b_16gpu_gbs2_epoch2_dataset_arm.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+  - RoleName: "worker"
+    RoleReplicas: 2
+    Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 259200
+EnableTensorBoard: true
+TensorBoardStorage:
+  Type: "Vepfs"
+  SubPath: "guoyinuo/coding_agent_models/output/runs"
+Storages:
+  - Type: "Vepfs"
+    MountPath: "/pfs-verdent"
+    VepfsId: "vepfs-apse1754289b494ca"
+    SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+  EnableRetry: false
+  MaxRetryTimes: 0
+  IntervalSeconds: 120
+  PolicySets: []
+DiagOptions:
+  - Name: "EnvironmentalDiagnosis"
+    Enable: false
+  - Name: "PythonDetection"
+    Enable: false
+  - Name: "LogDetection"
+    Enable: false
+  - Name: "VecclHangDetection"
+    Enable: false

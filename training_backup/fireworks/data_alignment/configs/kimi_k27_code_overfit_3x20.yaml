@@ -1,0 +1,86 @@
+name: kimi_k27_code_overfit_3x20
+
+paths:
+  root: /home/ubuntu/workspace/fireworks
+  data_alignment: /home/ubuntu/workspace/fireworks/data_alignment
+  source_run: /home/ubuntu/workspace/fireworks/runs/data-alignment-20260629T145032Z
+  default_run_root: /home/ubuntu/.remotelab/workspace/fireworks-runs
+  cookbook_roots:
+    - /home/ubuntu/.remotelab/workspace/fw-ai-cookbook
+    - /home/ubuntu/workspace/cookbook
+
+data:
+  source_sample_jsonl: sample_1000.jsonl
+  source_audit_jsonl: core/fireworks_core_audit.jsonl
+  source_manifest_jsonl: core/sample_manifest.jsonl
+  converter: core/convert_core_aligned.fixed_0702.py
+  converter_fallback: core/convert_core_aligned.py
+  converted_filename: kimi_k27_code_overfit_3x20.jsonl
+  conversion_report_filename: conversion_report.json
+  include_images: true
+  skip_image_rows: false
+  mixed_tool_call_loss_policy: report
+  converter_args:
+    - --no-merge-consecutive-tool-responses
+
+selection:
+  rule: explicit_sample_ids
+  sample_ids: [236, 238, 602]
+  exclude_image_rows: false
+
+model:
+  base_model: accounts/fireworks/models/kimi-k2p7-code
+  tokenizer_model: moonshotai/Kimi-K2.7-Code
+  renderer_name: kimi_k27_code_single_datum
+  renderer_modules:
+    - renderer_adapters.kimi_k27_single_datum
+  training_shape_id: accounts/fireworks/trainingShapes/kimi-k2p7-coder-256k
+  max_seq_len: 262144
+  train_on_what: customized
+
+training:
+  limit: 3
+  batch_size: 3
+  epochs: 20
+  learning_rate: 1.0e-5
+  warmup_ratio: 0.05
+  min_lr_ratio: 0.1
+  weight_decay: 0.1
+  grad_clip_norm: 1.0
+  render_workers: 1
+  dcp_save_interval: 200
+  timeout_s: 10800
+  lora_rank: 0
+  render_samples_limit: 3
+  pipeline_depth: 1
+  save_final_checkpoint: true
+  eval_auto_carveout: false
+
+precheck:
+  require_single_datum_per_row: true
+  require_extension_property: true
+  require_tools_prefix: true
+  resolve_training_shape: true
+  resolve_base_model: true
+  forbid_images: false
+
+naming:
+  run_dir_prefix: kimi-k27-code-overfit-3x20
+  job_id_prefix: training-api-service-kimi-k27-code-overfit-3x20
+  output_model_id_prefix: kimi-k27-code-overfit-3x20
+
+wandb:
+  project_default: fireworks-kimi-k27-code-overfit
+
+summary:
+  source: A-version fixed-sample overfit probe
+  render_contract: kimi_k27_preserve_history_single_datum
+  guarantees:
+    parse_tools: true
+    loss_0_to_trainable_false: true
+    tool_call_to_assistant_tool_calls: true
+    tool_response_linking: true
+    include_images: true
+    no_user_turn_split: true
+    preserve_thinking: true
+    monkeypatch_single_datum_worker: false

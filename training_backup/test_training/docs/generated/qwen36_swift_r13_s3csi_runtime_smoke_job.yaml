@@ -1,0 +1,76 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qwen36-swift-r13-s3csi-runtime-smoke-20260608
+  namespace: glm51-pd-b200-p1d1
+  labels:
+    app.kubernetes.io/name: qwen36-swift-r13-s3csi-runtime-smoke
+    test-training.verdent.ai/purpose: bridge-runtime-smoke
+spec:
+  activeDeadlineSeconds: 1800
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qwen36-swift-r13-s3csi-runtime-smoke
+    spec:
+      restartPolicy: Never
+      nodeName: hyperpod-i-060621000d6270d47
+      containers:
+      - name: smoke
+        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2-v1.39-soci
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-lc"]
+        args:
+        - |
+          set -euxo pipefail
+          S3_ROOT=/s3target
+          LOCAL_ROOT=/host-nvme/test_training/qwen36_swift_r13_s3csi_runtime_smoke
+          RUNTIME_RUN_DIR="${LOCAL_ROOT}/runtime_run"
+          RUNTIME_NODE_ROOT="${LOCAL_ROOT}/runtime_node0"
+
+          rm -rf "${LOCAL_ROOT}"
+          mkdir -p "${RUNTIME_RUN_DIR}/env" "${RUNTIME_NODE_ROOT}"
+          cp "${S3_ROOT}/env/Megatron-Bridge-v0.4.1-source.tar.gz" "${RUNTIME_RUN_DIR}/env/Megatron-Bridge-v0.4.1-source.tar.gz"
+          cp "${S3_ROOT}/artifacts/source/scripts/setup_aws_dlc_bridge_runtime.sh" "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh"
+          bash "${LOCAL_ROOT}/setup_aws_dlc_bridge_runtime.sh" "${RUNTIME_RUN_DIR}" "${RUNTIME_NODE_ROOT}"
+
+          python - <<'PY'
+          import json
+          import torch
+          from megatron.bridge import AutoBridge
+
+          model_id = "Qwen/Qwen3.6-35B-A3B"
+          result = {
+              "torch": torch.__version__,
+              "cuda_available": torch.cuda.is_available(),
+              "supported_models_count": len(AutoBridge.list_supported_models()),
+              "can_handle_qwen36": AutoBridge.can_handle(model_id, trust_remote_code=True),
+          }
+          print(json.dumps(result, sort_keys=True))
+          if not result["can_handle_qwen36"]:
+              raise SystemExit("AutoBridge cannot handle Qwen/Qwen3.6-35B-A3B")
+          PY
+        resources:
+          requests:
+            cpu: "8"
+            memory: "64Gi"
+            ephemeral-storage: "50Gi"
+          limits:
+            cpu: "32"
+            memory: "256Gi"
+        volumeMounts:
+        - name: host-nvme
+          mountPath: /host-nvme
+        - name: verdent-s3
+          mountPath: /s3target
+          readOnly: true
+      volumes:
+      - name: host-nvme
+        hostPath:
+          path: /opt/dlami/nvme
+          type: DirectoryOrCreate
+      - name: verdent-s3
+        persistentVolumeClaim:
+          claimName: s3-claim-verdent-qwen36-r13

@@ -1,0 +1,87 @@
+# template: hyp-pytorch-job
+# version: 1.1
+
+job_name: qwen36-mb-swift-aligned-smoke-b200-s16k
+image: nvcr.io/nvidia/nemo:26.04.00
+namespace: dolly-probe-training
+
+command:
+  - /bin/bash
+  - -lc
+  - export JOB_NAME="${QWEN36_JOB_NAME}" NNODES="${QWEN36_NNODES}" NPROC_PER_NODE="${QWEN36_NPROC_PER_NODE}" && /scripts/run_qwen36_overlay_sft_job.sh
+args: []
+
+environment:
+  RUN_ROOT: /s3-verdent/test_training/qwen36_megatron_bridge_overlay_sft
+  RUN_ID: qwen36-mb-overlay-aligned-fullsft-20260602-211523
+  QWEN36_JOB_NAME: qwen36_mb_swift_aligned_smoke_b200_s16k_20260616
+  KUBE_JOB_NAME: qwen36-mb-swift-aligned-smoke-b200-s16k
+  DATASET_KEY: sft_opus_sonnet_swift_mbjson_v2
+  EXPERIMENT_MODE: split
+  DIST_MASTER_PORT: "29686"
+  QWEN36_NNODES: "1"
+  QWEN36_NPROC_PER_NODE: "8"
+  GBS: "16"
+  MBS: "1"
+  SEQ_LENGTH: "16384"
+  TP: "2"
+  PP: "1"
+  CP: "2"
+  EP: "8"
+  ETP: "1"
+  RELOAD_CHECKPOINT_SOURCE: local_save
+  EPOCHS: "2"
+  TRUNCATION_METHOD: left
+  CALCULATE_PER_TOKEN_LOSS: "true"
+  DDP_AVERAGE_IN_COLLECTIVE: "false"
+  DATA_SHARDING: "false"
+  LR: "1.0e-5"
+  MIN_LR: "1.0e-6"
+  WEIGHT_DECAY: "0.1"
+  CLIP_GRAD: "1.0"
+  RECOMPUTE_GRANULARITY: full
+  RECOMPUTE_METHOD: uniform
+  RECOMPUTE_NUM_LAYERS: "1"
+  MOE_AUX_LOSS_COEFF: "0.0"
+  ATTENTION_BACKEND: auto
+  NVTE_FLASH_ATTN: "1"
+  NVTE_FUSED_ATTN: "1"
+  NVTE_UNFUSED_ATTN: "1"
+  PYTORCH_CUDA_ALLOC_CONF: expandable_segments:True
+  SKIP_BASELINE_EVAL: "true"
+  TRAIN_ITERS_OVERRIDE: "1"
+  MAX_TRAIN_SAMPLES: "16"
+  EXIT_AFTER_TRAIN: "true"
+
+pull_policy: IfNotPresent
+instance_type: ml.p6-b200.48xlarge
+replica_count: 1
+tasks_per_node: 8
+label_selector:
+  sagemaker.amazonaws.com/node-health-status: Schedulable
+deep_health_check_passed_nodes_only: False
+scheduler_type:
+queue_name:
+accelerators: 8
+vcpu: 150
+memory: 1800
+accelerators_limit: 8
+vcpu_limit:
+memory_limit: 1900
+efa: 8
+efa_limit: 8
+accelerator_partition_type:
+accelerator_partition_count:
+accelerator_partition_limit:
+priority:
+max_retry:
+volume: []
+service_account_name:
+preferred_topology:
+required_topology:
+elastic_replica_increment_step:
+max_replica_count:
+elastic_graceful_shutdown_timeout_in_seconds:
+elastic_scaling_timeout_in_seconds:
+elastic_scale_up_snooze_time_in_seconds:
+elastic_replica_discrete_values:

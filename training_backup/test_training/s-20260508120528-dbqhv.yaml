@@ -1,0 +1,20 @@
+# service name e.g. test_service
+ServiceName: qwen-35-a3
+# user define ports conf
+Ports:
+    - ListenPort: 8000
+      ExposePort: 8000
+      Type: HTTP/1.1
+      Path: /
+      Source: Service
+    - ListenPort: 8000
+      ExposePort: 8000
+      Type: Metrics
+      Path: /metrics
+      Source: Service
+# instancenetwork conf
+InstanceNetwork:
+    SecurityGroupIds: []
+# apig conf
+ApigConfig: {}
+ResourceGroupID: r-20260128180700-np4h5

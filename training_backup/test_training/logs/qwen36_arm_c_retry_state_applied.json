@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06T20:47:15.380095+00:00",
+  "arms": {
+    "a_frappe_glm_99": {
+      "config": "docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3",
+      "expected_steps": 99,
+      "task_id": "t-20260807044717-dc78r",
+      "submitted_at": "2026-08-06T20:47:20.363144+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 4998,
+        "End": "2026-08-06T22:10:36Z",
+        "JobId": "t-20260807044717-dc78r",
+        "JobName": "train_qwen36_frappe_glm_a99_16gpu_v3",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-06T20:47:18Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-06T22:11:12.370708+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/checkpoint-99",
+        "checkpoint_directory_bytes": 54733754614,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.11864355,
+        "final_train_speed_seconds_per_iteration": 46.900935,
+        "first_loss": 0.18474187,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944/logging.jsonl",
+        "max_loss": 0.37236261,
+        "mean_loss": 0.17184717191919194,
+        "min_loss": 0.05460584,
+        "missing_shards": 0,
+        "peak_memory_gib": 51.26,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-204944",
+        "safetensors_shards": 12,
+        "steps": 99
+      },
+      "verified": true,
+      "verified_at": "2026-08-06T22:11:14.940301+00:00"
+    },
+    "b_saas47_plus_frappe99": {
+      "config": "docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3",
+      "expected_steps": 146,
+      "task_id": "t-20260807061117-sd8lx",
+      "submitted_at": "2026-08-06T22:11:19.844520+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 6476,
+        "End": "2026-08-06T23:59:13Z",
+        "JobId": "t-20260807061117-sd8lx",
+        "JobName": "train_qwen36_saas47_frappe99_b146_16gpu_v3",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-06T22:11:17Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-06T23:59:42.449258+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/checkpoint-146",
+        "checkpoint_directory_bytes": 54733754634,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.1304601,
+        "final_train_speed_seconds_per_iteration": 41.934963,
+        "first_loss": 0.53286195,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343/logging.jsonl",
+        "max_loss": 0.53286195,
+        "mean_loss": 0.17538116904109588,
+        "min_loss": 0.03971247,
+        "missing_shards": 0,
+        "peak_memory_gib": 50.27,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260806_v3/v0-20260806-221343",
+        "safetensors_shards": 12,
+        "steps": 146
+      },
+      "verified": true,
+      "verified_at": "2026-08-06T23:59:44.873885+00:00"
+    },
+    "c_saas47_plus_frappe99_x2_plus_general200": {
+      "config": "docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v4",
+      "expected_steps": 492,
+      "attempts": [
+        {
+          "config": "docs/generated/byteplus_qwen36_saas47_frappe99_x2_general200_c492_16gpu_task.yaml",
+          "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_gbs2_epoch2_20260806_v3",
+          "expected_steps": 492,
+          "task_id": "t-20260807075948-t4jss",
+          "submitted_at": "2026-08-06T23:59:50.728927+00:00",
+          "status": "Killed",
+          "task": {
+            "Creator": "zhangyu",
+            "Elapsed": 474,
+            "End": "2026-08-07T00:07:42Z",
+            "JobId": "t-20260807075948-t4jss",
+            "JobName": "train_qwen36_saas47_frappe99_x2_general200_c492_16gpu_v3",
+            "ResourceQueueId": "q-20260128181205-z9l2h",
+            "Start": "2026-08-06T23:59:48Z",
+            "Status": "Killed",
+            "TaskRoleSpecs": [
+              {
+                "RoleName": "worker",
+                "RoleReplicas": 2,
+                "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+                "ResourceSpec": {
+                  "FlavorID": "ml.hpcpni3h.42xlarge",
+                  "FlavorType": "mlp_flavor"
+                },
+                "RoleRestartPolicy": "Never",
+                "RoleRestartMaxRetryCount": 0
+              }
+            ]
+          },
+          "last_checked_at": "2026-08-07T00:08:01.886464+00:00",
+          "failure_reason": "HuggingFace/PyArrow JSON schema inference rejected mixed int/float dedup_stats.trainable_turn_ratio metadata"
+        }
+      ],
+      "retry_reason": "normalize_arrow_numeric_metadata_v1",
+      "retry_prepared_at": "2026-08-07T00:08:46.020992+00:00"
+    }
+  }
+}

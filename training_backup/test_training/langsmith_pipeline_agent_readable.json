@@ -1,0 +1,1077 @@
+{
+  "artifact_type": "langsmith_pipeline_agent_readable_spec",
+  "version": "2026-06-24",
+  "generated_at": "2026-06-24 10:27:39 UTC",
+  "redaction_policy": {
+    "raw_message_content_included": false,
+    "message_fields_kept": [
+      "role",
+      "content_len",
+      "content_hash",
+      "block_types",
+      "markers",
+      "signature"
+    ],
+    "ids_kept": [
+      "thread_id",
+      "trace_id",
+      "run_id"
+    ],
+    "note": "This is intended for pipeline reasoning, not direct model training."
+  },
+  "source": {
+    "local_parquet_files": [
+      "/tmp/langsmith_raw_sample.parquet",
+      "/tmp/langsmith_raw_sample_large.parquet",
+      "/tmp/langsmith_raw_sample_2.parquet"
+    ],
+    "source_s3_uris": [
+      "s3://verdent-external-public/langsmith_exports/export_id=02235b1c-5dad-4348-9145-dac711388030/tenant_id=b7e99591-5365-4a94-87da-822c93245ac3/session_id=d151628e-5260-43c5-af46-4ce710778a2b/resource=runs/year=2026/month=3/day=14/1bd7eaf6-ce04-4209-b0a8-f7c376ff2c4a.parquet",
+      "s3://verdent-external-public/langsmith_exports/export_id=02235b1c-5dad-4348-9145-dac711388030/tenant_id=b7e99591-5365-4a94-87da-822c93245ac3/session_id=d151628e-5260-43c5-af46-4ce710778a2b/resource=runs/year=2026/month=3/day=14/9c024fb6-df6d-499f-ae1f-9256aa03924a.parquet",
+      "s3://verdent-external-public/langsmith_exports/export_id=02bf9b81-e2a4-45ac-96df-d4da0a97601a/tenant_id=b7e99591-5365-4a94-87da-822c93245ac3/session_id=d151628e-5260-43c5-af46-4ce710778a2b/resource=runs/year=2026/month=4/day=10/a77b6f03-7601-49b8-a291-b1d92224f528.parquet"
+    ],
+    "selected_threads": [
+      "065f3f48-3bf1-4c19-b363-0614ba7418d0",
+      "72abdc70-3ca6-4fb9-93fe-bb88b63469df",
+      "1fd44340-deaf-4d0b-9b5c-866bd0d2871e"
+    ],
+    "row_count": 521
+  },
+  "object_model": {
+    "RawRun": {
+      "purpose": "One LangSmith parquet row. This is the atomic observed execution span.",
+      "important_fields": [
+        "id",
+        "trace_id",
+        "thread_id",
+        "parent_run_id",
+        "dotted_order",
+        "run_type",
+        "inputs",
+        "outputs",
+        "extra.metadata.ls_model_name",
+        "extra.metadata.thread_id"
+      ],
+      "training_status": "candidate_source_only"
+    },
+    "RedactedMessage": {
+      "purpose": "Message-level summary used in these artifacts. It deliberately omits raw content.",
+      "fields": [
+        "role",
+        "content_len",
+        "content_hash",
+        "block_types",
+        "markers",
+        "signature"
+      ],
+      "redaction_guarantee": "No raw content field is emitted."
+    },
+    "RichMessage": {
+      "purpose": "Proposed internal object before final JSONL emit.",
+      "required_fields": [
+        "role",
+        "content_or_redacted_content",
+        "source_run_id",
+        "source_trace_id",
+        "source_thread_id",
+        "source_model",
+        "source_kind",
+        "window_id",
+        "loss",
+        "mask_reason"
+      ],
+      "why": "Keep provenance until selection, dedup, and model-specific masking are complete."
+    },
+    "CandidateWindow": {
+      "purpose": "A possible training window derived from one or more main LLM runs.",
+      "not_final_sample": true,
+      "typical_sources": [
+        "one main LLM run as prompt/completion",
+        "a strict prefix chain of main LLM runs",
+        "a terminal or longest-prefix snapshot inside one trace"
+      ]
+    },
+    "SelectedWindow": {
+      "purpose": "A candidate window selected for training after branch/compact/fork logic.",
+      "selection_examples": [
+        "terminal_per_trace",
+        "longest_prefix_per_trace"
+      ],
+      "final_sample_count_should_be": "same order as trace/window count, not same order as raw run count"
+    },
+    "TrainingSample": {
+      "purpose": "Final emitted JSONL row consumed by ms-swift.",
+      "fields": [
+        "messages",
+        "tools",
+        "session_id",
+        "trace_id",
+        "model",
+        "masked_count",
+        "trainable_asst_count"
+      ],
+      "loss_semantics": {
+        "missing_loss": "trainable when role/template strategy allows it",
+        "loss_0": "force labels=-100 for that message span"
+      }
+    }
+  },
+  "pipelines": {
+    "current_trace_first": {
+      "summary": "Current implementation groups raw runs by trace_id and flattens one trace into one messages sample.",
+      "steps": [
+        {
+          "id": "group_by_trace",
+          "input": "RawRun[]",
+          "operation": "group rows by trace_id",
+          "output": "TraceRunGroup[]"
+        },
+        {
+          "id": "filter_main_llm",
+          "operation": "drop sidecar LLM runs by system-prompt signatures",
+          "output": "main_llm_runs"
+        },
+        {
+          "id": "choose_last_snapshot",
+          "operation": "first main LLM run defines history boundary; last main LLM run provides inputs + outputs",
+          "output": "TraceFirstSample"
+        },
+        {
+          "id": "flatten_messages",
+          "operation": "convert Anthropic blocks into target roles assistant/tool_call/tool_response",
+          "metadata_loss": [
+            "source_run_id",
+            "source_model",
+            "source_trace_id"
+          ]
+        },
+        {
+          "id": "mask_compact_history",
+          "operation": "set loss=0 for history/compact generated spans"
+        },
+        {
+          "id": "global_postprocess",
+          "operation": "group emitted JSONL by session_id/thread_id and dedup by content signatures",
+          "limitation": "dedup sees flattened messages, not original run provenance"
+        }
+      ]
+    },
+    "proposed_thread_first_rich": {
+      "summary": "Use thread_id as outer collection, preserve run provenance, then select and mask before flattening.",
+      "steps": [
+        {
+          "id": "group_by_thread",
+          "input": "RawRun[]",
+          "operation": "group rows by metadata.thread_id/session_id",
+          "output": "ThreadRunGroup[]"
+        },
+        {
+          "id": "build_rich_messages",
+          "operation": "convert inputs/outputs into RichMessage while preserving source_run_id/source_model/source_trace_id",
+          "output": "CandidateWindow[]"
+        },
+        {
+          "id": "classify_relationships",
+          "operation": "infer prefix_extend, branch_or_partial_replay, compact_or_reset, fork_or_side_branch",
+          "inputs": [
+            "dotted_order",
+            "parent_run_id",
+            "tool_call_id",
+            "message signatures",
+            "compact markers"
+          ]
+        },
+        {
+          "id": "select_final_windows",
+          "operation": "choose terminal or longest-prefix windows; do not train every candidate",
+          "output": "SelectedWindow[]"
+        },
+        {
+          "id": "thread_dedup",
+          "operation": "mask duplicate generated turns within a thread before emit",
+          "dedup_key": "thread_id + role + normalized content signature"
+        },
+        {
+          "id": "model_mask",
+          "operation": "mask generated spans where source_model != target_model",
+          "requires": "source_model retained on RichMessage"
+        },
+        {
+          "id": "emit",
+          "operation": "drop provenance fields only after loss/mask decisions are final",
+          "output": "TrainingSample JSONL"
+        }
+      ]
+    }
+  },
+  "rulebook": {
+    "selection_rules": {
+      "terminal_per_trace": {
+        "definition": "For each trace or branch, choose the latest main LLM window after sidecar filtering.",
+        "good_for": "Training final actions while avoiding candidate explosion."
+      },
+      "longest_prefix_per_trace": {
+        "definition": "For each trace or branch, choose the candidate with the largest message count.",
+        "good_for": "Training the richest available context snapshot."
+      },
+      "not_recommended_as_final": {
+        "all_candidates": "Training every main LLM run repeats cumulative prefixes and visually/compute-wise explodes."
+      }
+    },
+    "mask_rules_ordered": [
+      {
+        "id": "non_generated_context",
+        "when": "role not in {assistant, tool_call}",
+        "loss": 0,
+        "reason": "prompt_or_context"
+      },
+      {
+        "id": "compact_history",
+        "when": "source_kind == compact_history",
+        "loss": 0,
+        "reason": "compact_history"
+      },
+      {
+        "id": "source_model_mismatch",
+        "when": "target_model != all and source_model != target_model",
+        "loss": 0,
+        "reason": "source_model_mismatch"
+      },
+      {
+        "id": "thread_duplicate_turn",
+        "when": "same generated message signature already trained in this thread",
+        "loss": 0,
+        "reason": "thread_duplicate_turn"
+      },
+      {
+        "id": "train",
+        "when": "generated message passes all masks",
+        "loss": null,
+        "reason": "train"
+      }
+    ],
+    "framework_notes": {
+      "ms_swift_default": "Framework masks system/user/tool context by role/template, but it cannot infer compact history, duplicates, or source_model mismatch.",
+      "pipeline_responsibility": "Pipeline must write loss=0 for business/provenance masks before metadata is dropped."
+    }
+  },
+  "decision_notes": {
+    "why_not_raw_run_only": [
+      "Raw run is a valid one-step prompt/completion training unit.",
+      "However, run-only training repeats cumulative prefixes and cannot express thread-level dedup without grouping.",
+      "Run-level is a good internal candidate representation; final sample selection still benefits from thread context."
+    ],
+    "why_not_trace_only": [
+      "Trace is a useful local call-tree boundary, but it can contain branches, sidecars, retries, and compact/reset effects.",
+      "Flattening by trace too early drops source_model/source_run_id needed for target-model masking."
+    ],
+    "recommended_default": [
+      "Use thread_id as the outer collection key.",
+      "Keep RawRun/RichMessage provenance through selection, dedup, and masking.",
+      "Emit final JSONL only after loss decisions are complete."
+    ],
+    "open_policy_choices": [
+      "terminal_per_trace vs longest_prefix_per_trace selection",
+      "whether to train only run.outputs or all same-window generated assistant/tool_call spans",
+      "how to classify parallel subagent branches",
+      "whether compact summaries should be context-only or partly trainable for specific models"
+    ]
+  },
+  "observed_summary": {
+    "generated_at": "2026-06-24 10:27:39 UTC",
+    "target_default": "claude-opus-4-6",
+    "targets": [
+      "all",
+      "claude-opus-4-5@20251101",
+      "claude-opus-4-6",
+      "claude-sonnet-4-5@20250929",
+      "claude-sonnet-4-6",
+      "gemini-3-flash-preview",
+      "gemini-3.1-pro-preview",
+      "gpt-5.2"
+    ],
+    "totals": {
+      "rows": 521,
+      "threads": 3,
+      "traces": 5,
+      "main_llm_runs": 148,
+      "current_samples": 5,
+      "proposed_windows": 5,
+      "candidate_windows": 148
+    },
+    "threads": [
+      {
+        "thread_id": "065f3f48-3bf1-4c19-b363-0614ba7418d0",
+        "rows": 336,
+        "traces": 3,
+        "main_llm_runs": 87,
+        "candidate_windows": 87,
+        "models": {
+          "claude-opus-4-6": 42,
+          "gemini-3-flash-preview": 32,
+          "claude-sonnet-4-6": 2,
+          "gpt-5.2": 10,
+          "gemini-3.1-pro-preview": 2,
+          "claude-sonnet-4-5@20250929": 2
+        },
+        "markers": {
+          "persisted-output": 12,
+          "<persisted-output>": 12,
+          "compression": 75,
+          "thinking": 85
+        },
+        "current": {
+          "samples": 3,
+          "messages": 82,
+          "trainable_generated": 12,
+          "masked_generated": 26,
+          "lost_outputs": 84,
+          "representative": {
+            "trace_id": "73921128-c66c-40b9-96f5-d53bb9bfa5bd",
+            "first_run_id": "940efea9-4dfa-49bd-8dde-859be98882a9",
+            "last_run_id": "ae383d44-7b0f-4dbb-94f2-b68c23d0c434",
+            "first_model": "claude-opus-4-6",
+            "last_model": "claude-opus-4-6",
+            "main_runs": 61,
+            "messages": 34,
+            "context_messages": 27,
+            "trainable_generated": 7,
+            "masked_generated": 9,
+            "lost_outputs": 60,
+            "generated_by_model": {
+              "unknown": 6,
+              "claude-opus-4-6": 1
+            },
+            "preview": [
+              {
+                "role": "system",
+                "len": 20530,
+                "hash": "8aebd3771e79",
+                "blocks": "text",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 71,
+                "hash": "78ba7b7a67d5",
+                "blocks": "text",
+                "markers": [],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "assistant",
+                "len": 2074,
+                "hash": "42a449b020b2",
+                "blocks": "thinking/text/tool_use",
+                "markers": [
+                  "thinking"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 390,
+                "hash": "5142ca3aec90",
+                "blocks": "tool_result",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "assistant",
+                "len": 1571,
+                "hash": "c390dca2b8a1",
+                "blocks": "tool_use/tool_use",
+                "markers": [],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 780,
+                "hash": "e051a7d994e6",
+                "blocks": "tool_result/tool_result",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              }
+            ]
+          }
+        },
+        "proposed": {
+          "selected_windows": 3,
+          "context_messages": 79,
+          "output_messages": 3,
+          "representative": {
+            "trace_id": "73921128-c66c-40b9-96f5-d53bb9bfa5bd",
+            "run_id": "ae383d44-7b0f-4dbb-94f2-b68c23d0c434",
+            "source_model": "claude-opus-4-6",
+            "context_messages": 33,
+            "output_messages": 1,
+            "output_sigs": [
+              "assistant:6eeac3ffe1536d45"
+            ],
+            "output_preview": [
+              {
+                "role": "assistant",
+                "len": 9500,
+                "hash": "7787f514b12e",
+                "blocks": "reasoning/tool_call",
+                "markers": [],
+                "loss": null,
+                "source_model": ""
+              }
+            ],
+            "start_time": "2026-03-14 15:24:39.589471+00:00"
+          }
+        },
+        "by_target": {
+          "all": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 0,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 3,
+              "model_masked": 0,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "claude-opus-4-5@20251101": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 3,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 3,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "claude-opus-4-6": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 1,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 2,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "claude-sonnet-4-5@20250929": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 3,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 3,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "claude-sonnet-4-6": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 3,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 3,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "gemini-3-flash-preview": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 2,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 1,
+              "model_masked": 2,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "gemini-3.1-pro-preview": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 3,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 3,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          },
+          "gpt-5.2": {
+            "current": {
+              "trainable": 12,
+              "would_need_model_mask": 3,
+              "unknown_source": 9
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 3,
+              "dedup_masked": 0,
+              "outputs": 3,
+              "by_model": {
+                "claude-opus-4-6": 2,
+                "gemini-3-flash-preview": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "thread_id": "1fd44340-deaf-4d0b-9b5c-866bd0d2871e",
+        "rows": 3,
+        "traces": 1,
+        "main_llm_runs": 1,
+        "candidate_windows": 1,
+        "models": {
+          "claude-opus-4-5@20251101": 2
+        },
+        "markers": {
+          "persisted-output": 1,
+          "<persisted-output>": 1,
+          "compression": 1
+        },
+        "current": {
+          "samples": 1,
+          "messages": 3,
+          "trainable_generated": 1,
+          "masked_generated": 0,
+          "lost_outputs": 0,
+          "representative": {
+            "trace_id": "4a628118-1c97-4bb5-8a0b-38d4259c61e6",
+            "first_run_id": "1fd44340-deaf-4d0b-9b5c-866bd0d2871e",
+            "last_run_id": "1fd44340-deaf-4d0b-9b5c-866bd0d2871e",
+            "first_model": "claude-opus-4-5@20251101",
+            "last_model": "claude-opus-4-5@20251101",
+            "main_runs": 1,
+            "messages": 3,
+            "context_messages": 2,
+            "trainable_generated": 1,
+            "masked_generated": 0,
+            "lost_outputs": 0,
+            "generated_by_model": {
+              "claude-opus-4-5@20251101": 1
+            },
+            "preview": [
+              {
+                "role": "system",
+                "len": 21387,
+                "hash": "4955a72b37eb",
+                "blocks": "text",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 14062,
+                "hash": "635b16db4ed8",
+                "blocks": "text/text/text/text/text/text",
+                "markers": [],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "assistant",
+                "len": 596,
+                "hash": "649a4d288328",
+                "blocks": "tool_call",
+                "markers": [],
+                "loss": null,
+                "source_model": "claude-opus-4-5@20251101"
+              }
+            ]
+          }
+        },
+        "proposed": {
+          "selected_windows": 1,
+          "context_messages": 2,
+          "output_messages": 1,
+          "representative": {
+            "trace_id": "4a628118-1c97-4bb5-8a0b-38d4259c61e6",
+            "run_id": "1fd44340-deaf-4d0b-9b5c-866bd0d2871e",
+            "source_model": "claude-opus-4-5@20251101",
+            "context_messages": 2,
+            "output_messages": 1,
+            "output_sigs": [
+              "assistant:221ef9d144bf6eb2"
+            ],
+            "output_preview": [
+              {
+                "role": "assistant",
+                "len": 596,
+                "hash": "649a4d288328",
+                "blocks": "tool_call",
+                "markers": [],
+                "loss": null,
+                "source_model": ""
+              }
+            ],
+            "start_time": "2026-04-10 14:06:43.070199+00:00"
+          }
+        },
+        "by_target": {
+          "all": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 0,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 1,
+              "model_masked": 0,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "claude-opus-4-5@20251101": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 0,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 1,
+              "model_masked": 0,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "claude-opus-4-6": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 1,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "claude-sonnet-4-5@20250929": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 1,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "claude-sonnet-4-6": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 1,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "gemini-3-flash-preview": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 1,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "gemini-3.1-pro-preview": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 1,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          },
+          "gpt-5.2": {
+            "current": {
+              "trainable": 1,
+              "would_need_model_mask": 1,
+              "unknown_source": 0
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-5@20251101": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "thread_id": "72abdc70-3ca6-4fb9-93fe-bb88b63469df",
+        "rows": 182,
+        "traces": 1,
+        "main_llm_runs": 60,
+        "candidate_windows": 60,
+        "models": {
+          "claude-opus-4-6": 18,
+          "claude-sonnet-4-5@20250929": 39,
+          "claude-sonnet-4-6": 2,
+          "gpt-5.2": 1,
+          "gemini-3.1-pro-preview": 1
+        },
+        "markers": {
+          "persisted-output": 4,
+          "<persisted-output>": 4,
+          "compression": 58,
+          "thinking": 32
+        },
+        "current": {
+          "samples": 1,
+          "messages": 18,
+          "trainable_generated": 3,
+          "masked_generated": 5,
+          "lost_outputs": 59,
+          "representative": {
+            "trace_id": "183f2025-05dc-4150-a0a8-2853e1c5ccdb",
+            "first_run_id": "75b3c263-d120-47c8-a6a8-350cf376770f",
+            "last_run_id": "07d4963a-bb2b-47d8-a728-e76e5f3c9a6b",
+            "first_model": "claude-opus-4-6",
+            "last_model": "claude-opus-4-6",
+            "main_runs": 60,
+            "messages": 18,
+            "context_messages": 15,
+            "trainable_generated": 3,
+            "masked_generated": 5,
+            "lost_outputs": 59,
+            "generated_by_model": {
+              "unknown": 2,
+              "claude-opus-4-6": 1
+            },
+            "preview": [
+              {
+                "role": "system",
+                "len": 20530,
+                "hash": "8aebd3771e79",
+                "blocks": "text",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 76,
+                "hash": "dc54c9a2aeea",
+                "blocks": "text",
+                "markers": [],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "assistant",
+                "len": 3458,
+                "hash": "feba08d25e90",
+                "blocks": "thinking/text/tool_use",
+                "markers": [
+                  "thinking"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 390,
+                "hash": "39c9dd44afd3",
+                "blocks": "tool_result",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "assistant",
+                "len": 4562,
+                "hash": "25953c72d7d3",
+                "blocks": "tool_use/tool_use/tool_use/tool_use/tool_use",
+                "markers": [],
+                "loss": 0,
+                "source_model": ""
+              },
+              {
+                "role": "user",
+                "len": 1950,
+                "hash": "284f22770cdf",
+                "blocks": "tool_result/tool_result/tool_result/tool_result/tool_result",
+                "markers": [
+                  "persisted-output",
+                  "<persisted-output>"
+                ],
+                "loss": 0,
+                "source_model": ""
+              }
+            ]
+          }
+        },
+        "proposed": {
+          "selected_windows": 1,
+          "context_messages": 17,
+          "output_messages": 1,
+          "representative": {
+            "trace_id": "183f2025-05dc-4150-a0a8-2853e1c5ccdb",
+            "run_id": "07d4963a-bb2b-47d8-a728-e76e5f3c9a6b",
+            "source_model": "claude-opus-4-6",
+            "context_messages": 17,
+            "output_messages": 1,
+            "output_sigs": [
+              "assistant:8b36a64a4607b707"
+            ],
+            "output_preview": [
+              {
+                "role": "assistant",
+                "len": 16193,
+                "hash": "631bfd4fa2d2",
+                "blocks": "reasoning/tool_call",
+                "markers": [],
+                "loss": null,
+                "source_model": ""
+              }
+            ],
+            "start_time": "2026-03-14 15:16:05.606125+00:00"
+          }
+        },
+        "by_target": {
+          "all": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 0,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 1,
+              "model_masked": 0,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "claude-opus-4-5@20251101": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 1,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "claude-opus-4-6": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 0,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 1,
+              "model_masked": 0,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "claude-sonnet-4-5@20250929": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 1,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "claude-sonnet-4-6": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 1,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "gemini-3-flash-preview": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 1,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "gemini-3.1-pro-preview": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 1,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          },
+          "gpt-5.2": {
+            "current": {
+              "trainable": 3,
+              "would_need_model_mask": 1,
+              "unknown_source": 2
+            },
+            "proposed": {
+              "train": 0,
+              "model_masked": 1,
+              "dedup_masked": 0,
+              "outputs": 1,
+              "by_model": {
+                "claude-opus-4-6": 1
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "source_jsonl": "/home/ubuntu/.remotelab/workspace/fireworks-runs/qwen36-27b-saas-sft-v0-20260805T1926Z/clean_train_source.jsonl",
+  "fireworks_renderer_approved_jsonl": "/home/ubuntu/.remotelab/workspace/fireworks-runs/qwen36-27b-saas-sft-v0-20260805T1926Z/fireworks_ready.jsonl",
+  "output_jsonl": "data/saas_sft_v0_volc_exact47/saas_sft_v0_fireworks_exact47.train.jsonl",
+  "selection": "trace_id membership in Fireworks renderer-approved dataset",
+  "source_rows": 49,
+  "fireworks_ready_rows": 47,
+  "output_rows": 47,
+  "source_sha256": "463a9b3481ba51fb0da46accf933403c6a5c810d1bc775a69c83da676f07a690",
+  "fireworks_ready_sha256": "998b1dc579f618099396af21cb2d02465dc7533e03c43fe79ba90d4528912197",
+  "output_sha256": "b8d936581953d8edf59d24906fa4b6a88911b0bec2da12183f2b8aa2ccaad139"
+}

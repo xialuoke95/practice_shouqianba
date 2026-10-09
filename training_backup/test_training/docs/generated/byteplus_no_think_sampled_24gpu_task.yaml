@@ -1,0 +1,51 @@
+# self define e.g text_classfication
+TaskName: "train_full_sft_35a3b_no_think_sampled_24gpu"
+# description for this task
+Description: "35A3B full SFT on 1000-row native no-think-sampled dataset, 24 H100 GPUs"
+# entry point command
+Entrypoint: "bash /pfs-verdent/guoyinuo/coding_agent_models/scripts/may/train_full_24gpu_no_think_sampled_35a3b_gbs36.sh"
+Tags: []
+# the code path you want to upload locally
+UserCodePath: ""
+# remote path mount in training container
+RemoteMountCodePath: ""
+# user define env var
+Envs: []
+# queue created under Resource Group, empty as default queue
+ResourceQueueID: "q-20260128181205-z9l2h"
+# distributed framework, support: TensorFlow PS,PyTorch DDP,Horovod,BytePS
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+    - RoleName: "worker"
+      RoleReplicas: 3
+      Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 864000
+# enable tensor board or not
+EnableTensorBoard: true
+TensorBoardStorage:
+    Type: "Vepfs"
+    SubPath: "guoyinuo/coding_agent_models/output/runs"
+# storages
+Storages:
+    - Type: "Vepfs"
+      MountPath: "/pfs-verdent"
+      VepfsId: "vepfs-apse1754289b494ca"
+      SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+# user define retry options
+RetryOptions:
+    EnableRetry: false
+    MaxRetryTimes: 5
+    IntervalSeconds: 120
+    PolicySets: []
+# diagnosis options
+DiagOptions:
+    - Name: "EnvironmentalDiagnosis"
+      Enable: false
+    - Name: "PythonDetection"
+      Enable: false
+    - Name: "LogDetection"
+      Enable: false
+    - Name: "VecclHangDetection"
+      Enable: false

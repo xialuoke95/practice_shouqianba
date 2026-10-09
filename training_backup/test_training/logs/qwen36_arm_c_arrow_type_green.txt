@@ -1,0 +1,6 @@
+{
+  "input": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+  "mixed_numeric_paths": [],
+  "rows": 492,
+  "valid": true
+}

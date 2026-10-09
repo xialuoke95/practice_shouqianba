@@ -1,0 +1,24 @@
+{
+  "duplicated_trace_ids": 146,
+  "max_trace_multiplicity": 2,
+  "output": {
+    "path": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v4/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+    "sha256": "851ab2a30f50b4b5e5aea4fdba1639acf626afdc5f8343daafd2672f77fba425"
+  },
+  "parent": {
+    "path": "/pfs-verdent/subingtian/coding_agent_models/output/qwen36_frappe_glm_three_runs_20260806_v3/arm_c_saas47_plus_frappe99_x2_plus_general200.train.jsonl",
+    "sha256": "572d0a601ec28459ddfb257d3b9d229df55c935842a4e0eb7fbda2a02a5f2288"
+  },
+  "rows": 492,
+  "schema_version": 1,
+  "singleton_trace_ids": 200,
+  "trainable_messages": 36656,
+  "transformation": {
+    "changed_rows": 34,
+    "changes_training_content": false,
+    "name": "normalize_arrow_numeric_metadata_v1",
+    "path": "dedup_stats.trainable_turn_ratio",
+    "rule": "convert integer values to numerically equivalent floats"
+  },
+  "unique_trace_ids": 346
+}

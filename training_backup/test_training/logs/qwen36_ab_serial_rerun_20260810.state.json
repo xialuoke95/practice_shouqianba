@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-10T16:02:32.109460+00:00",
+  "arms": {
+    "a_frappe_glm_99_rerun2_20260810": {
+      "config": "docs/generated/byteplus_qwen36_frappe_glm_a99_16gpu_rerun2_20260810_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun2",
+      "expected_steps": 99,
+      "task_id": "t-20260811000235-mwgrm",
+      "submitted_at": "2026-08-10T16:02:38.262468+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 4983,
+        "End": "2026-08-10T17:25:39Z",
+        "JobId": "t-20260811000235-mwgrm",
+        "JobName": "train_qwen36_frappe_glm_a99_16gpu_rerun_20260810_r2",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-10T16:02:36Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-10T17:26:48.135161+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun2/v0-20260810-160508/checkpoint-99",
+        "checkpoint_directory_bytes": 54733754622,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.11922412,
+        "final_train_speed_seconds_per_iteration": 46.625382,
+        "first_loss": 0.18474187,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun2/v0-20260810-160508/logging.jsonl",
+        "max_loss": 0.3695873,
+        "mean_loss": 0.17193899222222223,
+        "min_loss": 0.06608899,
+        "missing_shards": 0,
+        "peak_memory_gib": 49.84,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_frappe_glm_a99_16gpu_gbs2_epoch2_20260810_rerun2/v0-20260810-160508",
+        "safetensors_shards": 12,
+        "steps": 99
+      },
+      "verified": true,
+      "verified_at": "2026-08-10T17:26:50.579090+00:00"
+    },
+    "b_saas47_plus_frappe99_rerun3_20260810": {
+      "config": "docs/generated/byteplus_qwen36_saas47_frappe99_b146_16gpu_rerun3_20260810_task.yaml",
+      "output_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun3",
+      "expected_steps": 146,
+      "task_id": "t-20260811012653-jxhdr",
+      "submitted_at": "2026-08-10T17:26:55.518729+00:00",
+      "status": "Success",
+      "task": {
+        "Creator": "zhangyu",
+        "Elapsed": 6472,
+        "End": "2026-08-10T19:14:45Z",
+        "JobId": "t-20260811012653-jxhdr",
+        "JobName": "train_qwen36_saas47_frappe99_b146_16gpu_rerun_20260810_r3",
+        "ResourceQueueId": "q-20260128181205-z9l2h",
+        "Start": "2026-08-10T17:26:53Z",
+        "Status": "Success",
+        "TaskRoleSpecs": [
+          {
+            "RoleName": "worker",
+            "RoleReplicas": 2,
+            "ResourceSpecId": "ml.hpcpni3h.42xlarge",
+            "ResourceSpec": {
+              "FlavorID": "ml.hpcpni3h.42xlarge",
+              "FlavorType": "mlp_flavor"
+            },
+            "RoleRestartPolicy": "Never",
+            "RoleRestartMaxRetryCount": 0
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-10T19:15:28.668328+00:00",
+      "verification": {
+        "checkpoint": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun3/v0-20260810-172916/checkpoint-146",
+        "checkpoint_directory_bytes": 54733754642,
+        "fatal_matches": 0,
+        "final_learning_rate": 1e-06,
+        "final_loss": 0.13351209,
+        "final_train_speed_seconds_per_iteration": 41.881972,
+        "first_loss": 0.53286195,
+        "indexed_tensors": 1184,
+        "indexed_weight_bytes": 54713457120,
+        "logging_path": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun3/v0-20260810-172916/logging.jsonl",
+        "max_loss": 0.53286195,
+        "mean_loss": 0.17560881452054794,
+        "min_loss": 0.04746579,
+        "missing_shards": 0,
+        "peak_memory_gib": 51.05,
+        "postflight_logs": 2,
+        "run_dir": "/pfs-verdent/guoyinuo/coding_agent_models/output/train_qwen36_saas47_frappe99_b146_16gpu_gbs2_epoch2_20260810_rerun3/v0-20260810-172916",
+        "safetensors_shards": 12,
+        "steps": 146
+      },
+      "verified": true,
+      "verified_at": "2026-08-10T19:15:31.259641+00:00"
+    }
+  },
+  "terminal_status": "Success",
+  "completed_at": "2026-08-10T19:15:31.260288+00:00"
+}

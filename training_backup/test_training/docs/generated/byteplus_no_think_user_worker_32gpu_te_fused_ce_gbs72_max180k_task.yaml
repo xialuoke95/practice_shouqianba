@@ -1,0 +1,39 @@
+TaskName: "train_full_sft_35a3b_no_think_user_worker_32gpu_te_ce_gbs72_max180k"
+Description: "32 H100 no-think user_worker 35A3B SFT; TP2 PP2 CP2 EP4 GBS72 TE fused CE, max_length=180K; checkpoints/logs under zhangyu/train_verdent_online"
+Entrypoint: "bash /pfs-verdent/zhangyu/train_verdent_online/scripts/train_full_32gpu_no_think_user_worker_35a3b_te_fused_ce_gbs72_max180k.sh"
+Tags: []
+UserCodePath: ""
+RemoteMountCodePath: ""
+Envs: []
+ResourceQueueID: "q-20260128181205-z9l2h"
+Framework: "PyTorchDDP"
+TaskRoleSpecs:
+    - RoleName: "worker"
+      RoleReplicas: 4
+      Flavor: "ml.hpcpni3h.42xlarge"
+ActiveDeadlineSeconds: 864000
+EnableTensorBoard: true
+TensorBoardStorage:
+    Type: "Vepfs"
+    SubPath: "zhangyu/train_verdent_online/output/runs"
+Storages:
+    - Type: "Vepfs"
+      MountPath: "/pfs-verdent"
+      VepfsId: "vepfs-apse1754289b494ca"
+      SubPath: ""
+ImageUrl: "mlp-ap-southeast-1.cr.bytepluses.com/preset-images/pytorch:2.7.1-cu12.8.1-py3.12-ubuntu22.04"
+CacheType: "Cloudfs"
+RetryOptions:
+    EnableRetry: false
+    MaxRetryTimes: 5
+    IntervalSeconds: 120
+    PolicySets: []
+DiagOptions:
+    - Name: "EnvironmentalDiagnosis"
+      Enable: false
+    - Name: "PythonDetection"
+      Enable: false
+    - Name: "LogDetection"
+      Enable: false
+    - Name: "VecclHangDetection"
+      Enable: false

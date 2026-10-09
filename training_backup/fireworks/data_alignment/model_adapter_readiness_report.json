@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "ready_to_submit": true,
+  "remote_training_submitted": false,
+  "errors": [],
+  "models": {
+    "kimi2.7": {
+      "status": "PASS",
+      "run_dir": "/home/ubuntu/.remotelab/workspace/fireworks-runs/kimi-k27-adapter-validation-10-ready",
+      "dataset": "/home/ubuntu/.remotelab/workspace/fireworks-runs/kimi-k27-adapter-validation-10-ready/kimi_k27_code_sft_10.jsonl",
+      "dataset_sha256": "9c5a8a7ffae06af3c78496b4143a9bdaf778f3cd55c255848bbe06befaa5a281",
+      "renderer": "kimi_k27_code_single_datum",
+      "training_shape_version": "accounts/fireworks/trainingShapes/kimi-k2p7-coder-256k/versions/jpk93g11",
+      "base_model": "accounts/fireworks/models/kimi-k2p7-code",
+      "checks": {
+        "rows_written": true,
+        "renderer_rows_ok": true,
+        "single_datum_per_row": true,
+        "official_dataloader_rows": true,
+        "official_dataloader_datums": true,
+        "official_dataloader_in_process": true,
+        "shape_resolved": true,
+        "shape_context_exact": true,
+        "base_model_ready": true,
+        "no_unresolved_tool_calls": true,
+        "no_orphan_tool_results": true,
+        "images_as_expected": true,
+        "no_image_mapping_errors": true,
+        "no_mixed_loss_groups": true,
+        "no_remote_submission": true,
+        "full_parameter_sft": true
+      },
+      "terminal_unanswered_tool_call_ids": 0
+    },
+    "glm5.2": {
+      "status": "PASS",
+      "run_dir": "/home/ubuntu/.remotelab/workspace/fireworks-runs/glm52-adapter-validation-10-ready",
+      "dataset": "/home/ubuntu/.remotelab/workspace/fireworks-runs/glm52-adapter-validation-10-ready/glm52_fp8_sft_10.jsonl",
+      "dataset_sha256": "7996dd1078c6addf1858784b6079ad493374ed67092e25060f3bfd8de6951dc3",
+      "renderer": "glm52_preserve_history_single_datum",
+      "training_shape_version": "accounts/fireworks/trainingShapes/glm-5p2-200k/versions/rfpesks1",
+      "base_model": "accounts/fireworks/models/glm-5p2-fp8",
+      "checks": {
+        "rows_written": true,
+        "renderer_rows_ok": true,
+        "single_datum_per_row": true,
+        "official_dataloader_rows": true,
+        "official_dataloader_datums": true,
+        "official_dataloader_in_process": true,
+        "shape_resolved": true,
+        "shape_context_exact": true,
+        "base_model_ready": true,
+        "no_unresolved_tool_calls": true,
+        "no_orphan_tool_results": true,
+        "images_as_expected": true,
+        "no_image_mapping_errors": true,
+        "no_mixed_loss_groups": true,
+        "no_remote_submission": true,
+        "full_parameter_sft": true
+      },
+      "terminal_unanswered_tool_call_ids": 1
+    }
+  },
+  "renderer_parity": {
+    "kimi_official_renderer": {
+      "status": "PASS",
+      "token_exact_with_official_renderer": true,
+      "token_count": 96,
+      "official_extension_property": false,
+      "adapter_extension_property": true
+    },
+    "glm_hf_template": {
+      "status": "PASS",
+      "token_exact_with_hf_clear_thinking_false": true,
+      "token_count": 186,
+      "adapter_extension_property": true
+    }
+  },
+  "required_before_submission": [],
+  "optional_environment_warnings": [
+    "HF_TOKEN is unset; cached public tokenizers work but Hub rate limits are lower",
+    "sentencepiece is absent; Kimi tokenizer validated via its TikToken fallback"
+  ],
+  "submission_boundary": "Run run_alignment_sft.py without --dry-run; this is the only remaining step that creates billable trainer resources."
+}

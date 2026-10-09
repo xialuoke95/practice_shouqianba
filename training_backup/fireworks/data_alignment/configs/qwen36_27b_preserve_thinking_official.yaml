@@ -1,0 +1,76 @@
+name: qwen36_27b_preserve_thinking_official
+
+paths:
+  root: /home/ubuntu/workspace/fireworks
+  data_alignment: /home/ubuntu/workspace/fireworks/data_alignment
+  source_run: /home/ubuntu/workspace/fireworks/runs/data-alignment-20260629T145032Z
+  default_run_root: /home/ubuntu/.remotelab/workspace/fireworks-runs
+  cookbook_roots:
+    - /home/ubuntu/.remotelab/workspace/fw-ai-cookbook
+    - /home/ubuntu/workspace/cookbook
+
+data:
+  source_sample_jsonl: sample_1000.jsonl
+  source_audit_jsonl: core/fireworks_core_audit.jsonl
+  source_manifest_jsonl: core/sample_manifest.jsonl
+  converter: core/convert_core_aligned.fixed_0702.py
+  converter_fallback: core/convert_core_aligned.py
+  converted_filename: qwen36_27b_a100_sft.jsonl
+  conversion_report_filename: a100_conversion_report.json
+  include_images: true
+  mixed_tool_call_loss_policy: report
+
+selection:
+  rule: shortest_ok_active
+
+model:
+  base_model: accounts/fireworks/models/qwen3p6-27b
+  tokenizer_model: Qwen/Qwen3.6-27B
+  renderer_name: qwen3_6_preserve_thinking
+  training_shape_id: accounts/fireworks/trainingShapes/qwen3p6-27b-256k
+  max_seq_len: 262144
+  train_on_what: customized
+
+training:
+  limit: 100
+  batch_size: 48
+  epochs: 1
+  learning_rate: 1.0e-5
+  warmup_ratio: 0.05
+  min_lr_ratio: 0.1
+  weight_decay: 0.1
+  grad_clip_norm: 1.0
+  render_workers: 4
+  dcp_save_interval: 200
+  timeout_s: 10800
+  lora_rank: 0
+  render_samples_limit: 10
+  pipeline_depth: 1
+  save_final_checkpoint: true
+  eval_auto_carveout: false
+
+precheck:
+  require_single_datum_per_row: true
+
+naming:
+  run_dir_prefix: qwen36-27b-full-sft-preserve-thinking-official
+  job_id_prefix: training-api-service-qwen36-27b-preserve-official
+  output_model_id_prefix: qwen36-27b-preserve-official-sft
+
+wandb:
+  project_default: fireworks-qwen36-27b-a100-sft
+
+summary:
+  source: A-version core aligned conversion flow
+  render_contract: official_preserve_thinking_no_monkeypatch
+  guarantees:
+    parse_tools: true
+    loss_0_to_trainable_false: true
+    tool_call_to_assistant_tool_calls: true
+    tool_response_linking: true
+    include_images: true
+    mixed_tool_call_loss_policy: report
+    no_user_turn_split: true
+    preserve_thinking: true
+    training_render_entrypoint: render_messages_to_datums
+    monkeypatch_single_datum_worker: false
